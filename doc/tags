@@ -1,0 +1,6 @@
+spirv.txt	spirv.txt	*spirv.txt*
+spirv	spirv.txt	*spirv*
+vim-spirv	spirv.txt	*vim-spirv*
+spirv-sttings	spirv.txt	*spirv-settings*
+g:spirv_highlight_ids	spirv.txt	*g:spirv_highlight_ids*
+g:spirv_highlight_group	spirv.txt	*g:spirv_highlight_group*

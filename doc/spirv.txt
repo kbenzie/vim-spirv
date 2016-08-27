@@ -1,0 +1,35 @@
+*spirv.txt*	For Vim version 7.4	Last change: 2016 Aug 08
+
+Help for the vim-spirv plugin.
+
+1. Overview                    |spirv|
+2. Settings                    |spirv-settings|
+
+==============================================================================
+1. Plugin                                                      *spirv* *vim-spirv*
+
+A vim plugin for the Khronos Group's SPIR-V standard.
+
+Note This plugin **does not** target the older LLVM IR based SPIR 1.2 and 2.0
+standards.
+
+
+==============================================================================
+2. Settings                                                     *spirv-settings*
+
+                                                         *g:spirv_highlight_ids*
+Enable automatic highlighting of all occurrences of the ID under the cursor.
+This option is helpful when viewing disassembled SPIR-V to visually show where
+an opcode ID is defined and used. See |g:spirv_highlight_group|.
+Default: >
+    let g:spirv_highlight_ids = 1
+<
+
+                                                       *g:spirv_highlight_group*
+Specify the value of the `SpirvID` highlight group, only used when
+|g:spirv_highlight_ids| is enabled.
+Default: >
+    let g:spirv_highlight_group = 'term=inverse cterm=inverse gui=inverse'
+<
+
+ vim:tw=78:ts=8:ft=help:norl:
