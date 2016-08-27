@@ -1,9 +1,11 @@
+" Don't load the sytnax multiple times
 if exists("b:current_syntax")
   finish
 endif
 
+" Define ID highlight group
 if exists('g:spirv_highlight_ids') && g:spirv_highlight_ids
-  execute 'hi SpirVID '.g:spirv_highlight_color
+  execute 'hi SpirvID '.g:spirv_highlight_group
 endif
 
 syn match Comment ";.*$"
