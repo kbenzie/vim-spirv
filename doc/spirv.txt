@@ -1,35 +1,90 @@
-*spirv.txt*	For Vim version 7.4	Last change: 2016 Aug 08
+*spirv.txt*	For Vim version 7.4	Last change: September 04, 2016
 
 Help for the vim-spirv plugin.
 
-1. Overview                    |spirv|
-2. Settings                    |spirv-settings|
+1. Overview                     |spirv|
+2. Syntax                       |spirv-syntax|
+3. Settings                     |spirv-settings|
 
 ==============================================================================
 1. Plugin                                                      *spirv* *vim-spirv*
 
 A vim plugin for the Khronos Group's SPIR-V standard.
 
-Note This plugin **does not** target the older LLVM IR based SPIR 1.2 and 2.0
+Note: This plugin **does not** target the older LLVM IR based SPIR 1.2 and 2.0
 standards.
 
+==============================================================================
+2. Syntax                                                         *spirv-syntax*
+
+Opcodes from the same section of the core SPIR-V specification are highlighted
+using the same syntax highlight group. A subset of the core insstruction set
+and the extended instruction sets are generated from the JSON grammar files
+located in the official https://github.com/KhronosGroup/SPIRV-Headers
+repository. Defined highlight groups are named and highlighted as follows.
+
+    SpirvComment
+    SpirvConditional
+    SpirvDebug
+    SpirvEnumerant
+    SpirvError
+    SpirvExtension
+    SpirvFloat
+    SpirvFunction
+    SpirvID
+    SpirvInstruction
+    SpirvLabel
+    SpirvLoop
+    SpirvMode
+    SpirvNumber
+    SpirvOperation
+    SpirvSpecialComment
+    SpirvString
+    SpirvType
+
+The `SpirvCurrentID` highlight group's value is defined by the value of the
+|g:spirv_current_id_highlight| variable but is only defined when the automatic
+highlighting of all occurrences of the ID current ID is enabled with the
+|g:spirv_enable_current_id| option.
+
+Additional highlight groups are defined for extended instruction sets and take
+the following form, E.G. `SpirvGlslStd450`.
+
+To override any one of these highlight groups specify one of the following
+command forms in your |vimrc|.
+
+    `hi link SpirvID Special`
+    `hi SpirvError termfg=1 ctermfg=1 guifg=#800000`
 
 ==============================================================================
-2. Settings                                                     *spirv-settings*
+3. Settings                                                     *spirv-settings*
 
-                                                         *g:spirv_highlight_ids*
+                                                     *g:spirv_enable_current_id*
 Enable automatic highlighting of all occurrences of the ID under the cursor.
-This option is helpful when viewing disassembled SPIR-V to visually show where
-an opcode ID is defined and used. See |g:spirv_highlight_group|.
-Default: >
-    let g:spirv_highlight_ids = 1
-<
+This is useful for highlighting where an opcode ID is defined and used at a
+glance. See |g:spirv_current_id_highlight|.
 
-                                                       *g:spirv_highlight_group*
-Specify the value of the `SpirvID` highlight group, only used when
-|g:spirv_highlight_ids| is enabled.
-Default: >
-    let g:spirv_highlight_group = 'term=inverse cterm=inverse gui=inverse'
-<
+Default:
+    `let g:spirv_enable_current_id = 1`
+
+                                                  *g:spirv_current_id_highlight*
+Specify the value of the `SpirvCurrentID` highlight group, this is only set
+when the |g:spirv_enable_current_id| option is enabled.
+
+Default:
+    `let g:spirv_current_id_highlight = 'term=inverse cterm=inverse gui=inverse'`
+
+                                                  *g:spirv_enable_extinst_error*
+Enable highlighting extended instruction error highlighting, enabling this
+option will parse the file looking for an `OpExtInstImport` instruction,
+determine the imported instruction set and set the value of that instruction
+sets highlight group, E.G. `SpirvGlslStd450`, to linked to the
+`SpirvInstruction` highlight group. If no `OpExtInstImport` instruction is
+found, or it is commented out, the extended instruction set highlight group
+will be linked to `SpirvError`. When this option is disabled the extended
+instruction set highlight group is set to `SpirvInstruction`.
+
+Default:
+    `let g:spirv_enable_extinst_error = 1`
 
  vim:tw=78:ts=8:ft=help:norl:
