@@ -5,9 +5,7 @@ syntax highlighting for disassembled [SPIR-V][2] code (`.spvasm` files) with
 interactive visualisation of the ID under the cursor to show, at a glance, the
 source of opcode operands.
 
-<div style="text-align: center">
-  <img src="vim-spirv.gif" alt="vim-spirv">
-</div>
+<p align="center"><img src="vim-spirv.gif" alt="vim-spirv"></p>
 
 >   This plugin **does not** target the older [LLVM IR][3] based [SPIR 1.2][4]
 >   and [2.0][4] specifications.
