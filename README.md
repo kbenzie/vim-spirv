@@ -70,6 +70,10 @@ option.
 let g:spirv_enable_extinst_error = 0
 ```
 
+# License (MIT)
+
+See [license](LICENSE.md) file.
+
 [1]: https://www.khronos.org/
 [2]: https://www.khronos.org/registry/spir-v/
 [3]: http://llvm.org/docs/LangRef.html
