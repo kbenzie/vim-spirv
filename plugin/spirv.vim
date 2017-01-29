@@ -26,3 +26,22 @@ else
     let g:spirv_enable_extinst_error = 0
   endif
 endif
+
+" Enable automatic (dis)assmebly of SPIR-V binaries
+let g:spirv_enable_autodisassemble = get(g:, 'spirv_enable_autodisassemble', 1)
+
+" Paths to spirv-as and spirv-dis tools
+let g:spirv_as_path = get(g:, 'spirv_as_path', 'spirv-as')
+let g:spirv_dis_path = get(g:, 'spirv_dis_path', 'spirv-dis')
+
+augroup spirv
+  " Remove all autocmds from the spirv group
+  autocmd!
+
+  " Set autocommands to disassemble SPIR-V binaries on load
+  autocmd BufReadPre,FileReadPre *.spv setlocal bin
+  autocmd BufReadPost,FileReadPost *.spv call spirv#disassemble()
+
+  " Set autocommands to assemble SPIR-V binaries on write
+  autocmd BufWriteCmd,FileWriteCmd *.spv call spirv#assemble()
+augroup END

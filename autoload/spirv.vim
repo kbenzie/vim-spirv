@@ -115,3 +115,43 @@ endpython
   " Store current group names in buffer variable
   let b:spirv_ext_group_names = copy(l:group_names)
 endfunction
+
+" Disassemble a SPIR-V binary file
+function! spirv#disassemble()
+  let empty = line("'['") == 1 && line("']'") == line("$")
+  let temp1 = tempname()
+  let temp2 = tempname()
+  execute "silent '[,']w" . temp1
+  let cmd = g:spirv_dis_path.' "%s" -o "%s"'
+  call system(printf(cmd, temp1, temp2))
+  let line = line("'[") - 1
+  '[,']d _
+  setlocal bin
+  execute 'silent '.line.'r '.temp2
+  if empty
+    silent $delete _
+    1
+  endif
+  call delete(temp2)
+  call delete(temp1)
+  silent! execute 'bwipe '.temp2
+  silent! execute 'bwipe '.temp1
+  setfiletype spirv
+endfunction
+
+" Assemble a SPIR-V binary file
+function! spirv#assemble()
+  let afile = expand('<afile>')
+  let temp1 = tempname()
+  let temp2 = tempname()
+  execute 'noautocmd w '.temp1
+  call system(printf(g:spirv_as_path.' %s -o %s', temp1, temp2))
+  if !v:shell_error
+    call rename(temp2, afile)
+    setlocal nomodified
+  else
+    echohl ErrorMsg
+    echo "spirv-as failed"
+    echohl None
+  endif
+endfunction

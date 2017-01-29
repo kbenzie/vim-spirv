@@ -87,4 +87,32 @@ instruction set highlight group is set to `SpirvInstruction`.
 Default:
     `let g:spirv_enable_extinst_error = 1`
 
+                                                *g:spirv_enable_autodisassemble*
+
+Enable automatic disassembly of SPIR-V binary files on |:edit| and automatic
+assembly on |:write| enabling ease of editing. This option depends on
+`spirv-as` and `spirv-dis` being available on the system `PATH`, to override
+this behavior see |g:spirv_as_path| and |g:spirv_dis_path|.
+
+Default:
+    `let g:spirv_enable_autoassemble = 1`
+
+                                                               *g:spirv_as_path*
+
+Path to the `spirv-as` tool used automatically assemble SPIR-V assembly into a
+binary when |g:spirv_enable_autodisassemble| is enabled. If `spirv-as` is on
+the system `PATH` this option need not be set.
+
+Default:
+    `let g:spirv_as_path = 'spirv-as'`
+
+                                                              *g:spirv_dis_path*
+
+Path to the `spirv-dis` tool used automatically disassemble SPIR-V assembly
+into a binary when |g:spirv_enable_autodisassemble| is enabled. If `spirv-dis`
+is on the system `PATH` this option need not be set.
+
+Default:
+    `let g:spirv_dis_path = 'spirv-dis'``
+
  vim:tw=78:ts=8:ft=help:norl:

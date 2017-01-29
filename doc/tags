@@ -1,4 +1,7 @@
+g:spirv_as_path	spirv.txt	/*g:spirv_as_path*
 g:spirv_current_id_highlight	spirv.txt	/*g:spirv_current_id_highlight*
+g:spirv_dis_path	spirv.txt	/*g:spirv_dis_path*
+g:spirv_enable_autodisassemble	spirv.txt	/*g:spirv_enable_autodisassemble*
 g:spirv_enable_current_id	spirv.txt	/*g:spirv_enable_current_id*
 g:spirv_enable_extinst_error	spirv.txt	/*g:spirv_enable_extinst_error*
 spirv	spirv.txt	/*spirv*
