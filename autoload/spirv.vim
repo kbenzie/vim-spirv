@@ -116,14 +116,17 @@ endpython
   let b:spirv_ext_group_names = copy(l:group_names)
 endfunction
 
-" Disassemble a SPIR-V binary file
+" Disassemble a SPIR-V binary file, called from autocmd.
 function! spirv#disassemble()
   let empty = line("'['") == 1 && line("']'") == line("$")
   let temp1 = tempname()
   let temp2 = tempname()
   execute "silent '[,']w" . temp1
-  let cmd = g:spirv_dis_path.' "%s" -o "%s"'
-  call system(printf(cmd, temp1, temp2))
+  call system(printf(g:spirv_dis_path.' "%s" -o "%s"', temp1, temp2))
+  if v:shell_error
+    echohl ErrorMsg
+    echo "spirv-dis failed"
+  endif
   let line = line("'[") - 1
   '[,']d _
   setlocal bin
@@ -139,19 +142,21 @@ function! spirv#disassemble()
   setfiletype spirv
 endfunction
 
-" Assemble a SPIR-V binary file
+" Assemble a SPIR-V binary file, called from autocmd.
 function! spirv#assemble()
   let afile = expand('<afile>')
   let temp1 = tempname()
   let temp2 = tempname()
   execute 'noautocmd w '.temp1
-  call system(printf(g:spirv_as_path.' %s -o %s', temp1, temp2))
+  call system(printf(g:spirv_as_path.' "%s" -o "%s"', temp1, temp2))
   if !v:shell_error
     call rename(temp2, afile)
     setlocal nomodified
   else
+    call delete(temp2)
     echohl ErrorMsg
     echo "spirv-as failed"
     echohl None
   endif
+  call delete(temp1)
 endfunction

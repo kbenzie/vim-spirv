@@ -13,9 +13,15 @@ setlocal iskeyword+=%
 " Enable highlighting of all ID's matching ID at cursor
 if g:spirv_enable_current_id
   autocmd CursorMoved,CursorMovedI *.spvasm call spirv#highlight_ids()
+  if g:spirv_enable_autodisassemble
+    autocmd CursorMoved,CursorMovedI *.spv call spirv#highlight_ids()
+  endif
 endif
 
 " Enable error extended instruction error highlighing
 if g:spirv_enable_extinst_error
   autocmd CursorMoved,CursorMovedI *.spvasm call spirv#highlight_extinst()
+  if g:spirv_enable_autodisassemble
+    autocmd CursorMoved,CursorMovedI *.spv call spirv#highlight_extinst()
+  endif
 endif
