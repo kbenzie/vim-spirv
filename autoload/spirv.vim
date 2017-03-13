@@ -62,15 +62,27 @@ function! spirv#highlight_ids()
   endtry
 endfunction
 
+" TODO: Remove dependency on Python
+" Select which Python version to use.
+if has('python')
+  let s:python = 'python'
+  let s:pyeval = 'pyeval'
+elseif has('python3')
+  let s:python = 'python3'
+  let s:pyeval = 'py3eval'
+endif
+
 " Highlight extended instructions
 function! spirv#highlight_extinst()
   " Early exit, option not enabled
   if !exists('g:spirv_enable_extinst_error') || !g:spirv_enable_extinst_error
+    \ || !exists('s:python') || ! exists('s:pyeval')
     return
   endif
 
+  " TODO: Remove dependency on Python
   " Search for OpExtInstImport instruction set name
-python << endpython
+  exec s:python.' << endpython'
 def find_group_names():
   ext_names = []
   for line in vim.current.buffer:
@@ -86,7 +98,7 @@ def find_group_names():
       ext_names.append('Spirv' + ''.join(part.capitalize() for part in name))
   return ext_names
 endpython
-  let l:group_names = pyeval('find_group_names()')
+  exec 'let l:group_names = '.s:pyeval.'("find_group_names()")'
 
   " No OpExtInstImport instruction set names found, nothing to do
   let l:len_group_names = len(l:group_names)
