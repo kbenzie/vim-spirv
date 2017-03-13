@@ -17,7 +17,7 @@ let g:spirv_current_id_highlight = get(g:, 'spirv_current_id_highlight',
       \ 'term=inverse cterm=inverse gui=inverse')
 
 " Enable extended instruction error highlighting
-if has('python')
+if has('python') || has('python3')
   let g:spirv_enable_extinst_error = get(g:, 'spirv_enable_extinst_error', 1)
 else
   let g:spirv_enable_extinst_error = get(g:, 'spirv_enable_extinst_error', 0)
