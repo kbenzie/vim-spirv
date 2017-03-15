@@ -4,7 +4,7 @@
 " Last Modified: September 04, 2016
 
 " Early exit if plugin is not loaded or compatible is set
-if !exists('g:spirv_loaded') || &cp
+if !exists('g:spirv_loaded') || &compatible
   finish
 endif
 
@@ -70,27 +70,21 @@ function! spirv#highlight_extinst()
   endif
 
   " Search for OpExtInstImport instruction set name
-python << endpython
-def find_group_names():
-  ext_names = []
-  for line in vim.current.buffer:
-    if 'OpExtInstImport' in line:
-      semicolonpos = line.find(';')
-      if semicolonpos >= 0 and semicolonpos < line.find('OpExtInstImport'):
-        continue
-      begin = line.find('"')
-      end = line.rfind('"')
-      if begin == -1 or begin == -1:
-        continue
-      name = line[begin+1:end].split('.')
-      ext_names.append('Spirv' + ''.join(part.capitalize() for part in name))
-  return ext_names
-endpython
-  let l:group_names = pyeval('find_group_names()')
+  let l:group_names = []
+  for l:line in getline(1, line('$'))
+    if l:line =~# '^\s*;\@!%\w\+\s\+=\s\+OpExtInstImport.*$'
+      let l:name = matchstr(l:line, '"\zs.*\ze"')
+      let l:group_name = ''
+      for l:part in split(l:name, '\.')
+        let l:part = substitute(tolower(l:part), '^\zs\(\w\)\ze.*', '\U\1', '')
+        let l:group_name = l:group_name.l:part
+      endfor
+      call add(l:group_names, 'Spirv'.l:group_name)
+    endif
+  endfor
 
   " No OpExtInstImport instruction set names found, nothing to do
-  let l:len_group_names = len(l:group_names)
-  if l:len_group_names == 0 && !exists('b:spirv_ext_group_names')
+  if len(l:group_names) == 0 && !exists('b:spirv_ext_group_names')
     return
   endif
 
@@ -102,7 +96,7 @@ endpython
   endif
 
   " Check if the buffer variable is still required
-  if l:len_group_names == 0
+  if len(l:group_names) == 0
     unlet b:spirv_ext_group_names
     return
   endif
@@ -118,45 +112,45 @@ endfunction
 
 " Disassemble a SPIR-V binary file, called from autocmd.
 function! spirv#disassemble()
-  let empty = line("'['") == 1 && line("']'") == line("$")
-  let temp1 = tempname()
-  let temp2 = tempname()
-  execute "silent '[,']w" . temp1
-  call system(printf(g:spirv_dis_path.' "%s" -o "%s"', temp1, temp2))
+  let l:empty = line("'['") == 1 && line("']'") == line('$')
+  let l:temp1 = tempname()
+  let l:temp2 = tempname()
+  execute "silent '[,']w" . l:temp1
+  call system(printf(g:spirv_dis_path.' "%s" -o "%s"', l:temp1, l:temp2))
   if v:shell_error
     echohl ErrorMsg
-    echo "spirv-dis failed"
+    echo 'spirv-dis failed'
   endif
-  let line = line("'[") - 1
+  let l:line = line("'[") - 1
   '[,']d _
-  setlocal bin
-  execute 'silent '.line.'r '.temp2
-  if empty
+  setlocal binary
+  execute 'silent '.l:line.'r '.l:temp2
+  if l:empty
     silent $delete _
     1
   endif
-  call delete(temp2)
-  call delete(temp1)
-  silent! execute 'bwipe '.temp2
-  silent! execute 'bwipe '.temp1
+  call delete(l:temp2)
+  call delete(l:temp1)
+  silent! execute 'bwipe '.l:temp2
+  silent! execute 'bwipe '.l:temp1
   setfiletype spirv
 endfunction
 
 " Assemble a SPIR-V binary file, called from autocmd.
 function! spirv#assemble()
-  let afile = expand('<afile>')
-  let temp1 = tempname()
-  let temp2 = tempname()
-  execute 'noautocmd w '.temp1
-  call system(printf(g:spirv_as_path.' "%s" -o "%s"', temp1, temp2))
+  let l:afile = expand('<afile>')
+  let l:temp1 = tempname()
+  let l:temp2 = tempname()
+  execute 'noautocmd w '.l:temp1
+  call system(printf(g:spirv_as_path.' "%s" -o "%s"', l:temp1, l:temp2))
   if !v:shell_error
-    call rename(temp2, afile)
+    call rename(l:temp2, l:afile)
     setlocal nomodified
   else
-    call delete(temp2)
+    call delete(l:temp2)
     echohl ErrorMsg
-    echo "spirv-as failed"
+    echo 'spirv-as failed'
     echohl None
   endif
-  call delete(temp1)
+  call delete(l:temp1)
 endfunction

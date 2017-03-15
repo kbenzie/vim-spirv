@@ -4,7 +4,7 @@
 " Last Modified: September 10, 2016
 
 " Don't load the sytnax multiple times
-if exists("b:current_syntax")
+if exists('b:current_syntax')
   finish
 endif
 
