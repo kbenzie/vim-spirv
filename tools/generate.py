@@ -53,7 +53,8 @@ KEYWORDS = {
      'OpTypeMatrix', 'OpTypeImage', 'OpTypeSampler', 'OpTypeSampledImage',
      'OpTypeArray', 'OpTypeRuntimeArray', 'OpTypeStruct', 'OpTypeOpaque',
      'OpTypePointer', 'OpTypeFunction', 'OpTypeEvent', 'OpTypeDeviceEvent',
-     'OpTypeReservedId', 'OpTypeQueue', 'OpTypePipe', 'OpTypeForwardPointer'],
+     'OpTypeReservedId', 'OpTypeQueue', 'OpTypePipe', 'OpTypeForwardPointer',
+     'OpTypePipeStorage', 'OpTypeNamedBarrier'],
 }
 
 GROUP_NAMES = [
@@ -144,7 +145,7 @@ def generate_syntax(core_grammar_path, extension_grammar_paths):
 " Last Modified: {0}
 
 " Don't load the sytnax multiple times
-if exists("b:current_syntax")
+if exists('b:current_syntax')
   finish
 endif
 
@@ -162,7 +163,7 @@ syn match SpirvFloat "\s\zs\d\+\.\d\+"
 ''')
 
     for group, group_keywords in keywords.iteritems():
-        write('\n" %s matches\n' % group)
+        write('\n" %s keywords\n' % group)
         syn_keyword = 'syn keyword Spirv%s' % group
         write(syn_keyword)
 
