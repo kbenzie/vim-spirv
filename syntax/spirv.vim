@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: April 28, 2017
+" Last Modified: March 09, 2018
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -34,42 +34,49 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ InputPoints InputLines InputLinesAdjacency Triangles InputTrianglesAdjacency
 \ Quads Isolines OutputVertices OutputPoints OutputLineStrip OutputTriangleStrip
 \ VecTypeHint ContractionOff Initializer Finalizer SubgroupSize
-\ SubgroupsPerWorkgroup UniformConstant Input Uniform Output Workgroup
-\ CrossWorkgroup Private Function Generic PushConstant AtomicCounter Image
-\ StorageBuffer 1D 2D 3D Cube Rect Buffer SubpassData ClampToEdge Clamp Repeat
-\ RepeatMirrored Nearest Linear Rgba32f Rgba16f R32f Rgba8 Rgba8Snorm Rg32f
-\ Rg16f R11fG11fB10f R16f Rgba16 Rgb10A2 Rg16 Rg8 R16 R8 Rgba16Snorm Rg16Snorm
-\ Rg8Snorm R16Snorm R8Snorm Rgba32i Rgba16i Rgba8i R32i Rg32i Rg16i Rg8i R16i
-\ R8i Rgba32ui Rgba16ui Rgba8ui R32ui Rgb10a2ui Rg32ui Rg16ui Rg8ui R16ui R8ui R
-\ A RG RA RGB RGBA BGRA ARGB Intensity Luminance Rx RGx RGBx Depth DepthStencil
-\ sRGB sRGBx sRGBA sBGRA ABGR SnormInt8 SnormInt16 UnormInt8 UnormInt16
-\ UnormShort565 UnormShort555 UnormInt101010 SignedInt8 SignedInt16 SignedInt32
-\ UnsignedInt8 UnsignedInt16 UnsignedInt32 HalfFloat Float UnormInt24
-\ UnormInt101010_2 RTE RTZ RTP RTN Export Import ReadOnly WriteOnly ReadWrite
-\ Zext Sext ByVal Sret NoAlias NoCapture NoWrite NoReadWrite RelaxedPrecision
-\ SpecId Block BufferBlock RowMajor ColMajor ArrayStride MatrixStride GLSLShared
-\ GLSLPacked CPacked BuiltIn NoPerspective Flat Patch Centroid Invariant
-\ Restrict Aliased Constant Coherent NonWritable NonReadable SaturatedConversion
-\ Stream Location Component Index Binding DescriptorSet XfbBuffer XfbStride
-\ FuncParamAttr FPRoundingMode FPFastMathMode LinkageAttributes NoContraction
-\ InputAttachmentIndex Alignment MaxByteOffset OverrideCoverageNV PassthroughNV
-\ ViewportRelativeNV SecondaryViewportRelativeNV Position PointSize ClipDistance
-\ CullDistance VertexId InstanceId PrimitiveId InvocationId Layer ViewportIndex
-\ TessLevelOuter TessLevelInner TessCoord PatchVertices FragCoord PointCoord
-\ FrontFacing SampleId SamplePosition SampleMask FragDepth HelperInvocation
-\ NumWorkgroups WorkgroupSize WorkgroupId LocalInvocationId GlobalInvocationId
+\ SubgroupsPerWorkgroup SubgroupsPerWorkgroupId LocalSizeId LocalSizeHintId
+\ PostDepthCoverage StencilRefReplacingEXT UniformConstant Input Uniform Output
+\ Workgroup CrossWorkgroup Private Function Generic PushConstant AtomicCounter
+\ Image StorageBuffer 1D 2D 3D Cube Rect Buffer SubpassData ClampToEdge Clamp
+\ Repeat RepeatMirrored Nearest Linear Rgba32f Rgba16f R32f Rgba8 Rgba8Snorm
+\ Rg32f Rg16f R11fG11fB10f R16f Rgba16 Rgb10A2 Rg16 Rg8 R16 R8 Rgba16Snorm
+\ Rg16Snorm Rg8Snorm R16Snorm R8Snorm Rgba32i Rgba16i Rgba8i R32i Rg32i Rg16i
+\ Rg8i R16i R8i Rgba32ui Rgba16ui Rgba8ui R32ui Rgb10a2ui Rg32ui Rg16ui Rg8ui
+\ R16ui R8ui R A RG RA RGB RGBA BGRA ARGB Intensity Luminance Rx RGx RGBx Depth
+\ DepthStencil sRGB sRGBx sRGBA sBGRA ABGR SnormInt8 SnormInt16 UnormInt8
+\ UnormInt16 UnormShort565 UnormShort555 UnormInt101010 SignedInt8 SignedInt16
+\ SignedInt32 UnsignedInt8 UnsignedInt16 UnsignedInt32 HalfFloat Float
+\ UnormInt24 UnormInt101010_2 RTE RTZ RTP RTN Export Import ReadOnly WriteOnly
+\ ReadWrite Zext Sext ByVal Sret NoAlias NoCapture NoWrite NoReadWrite
+\ RelaxedPrecision SpecId Block BufferBlock RowMajor ColMajor ArrayStride
+\ MatrixStride GLSLShared GLSLPacked CPacked BuiltIn NoPerspective Flat Patch
+\ Centroid Invariant Restrict Aliased Constant Coherent NonWritable NonReadable
+\ SaturatedConversion Stream Location Component Index Binding DescriptorSet
+\ XfbBuffer XfbStride FuncParamAttr FPRoundingMode FPFastMathMode
+\ LinkageAttributes NoContraction InputAttachmentIndex Alignment MaxByteOffset
+\ AlignmentId MaxByteOffsetId ExplicitInterpAMD OverrideCoverageNV PassthroughNV
+\ ViewportRelativeNV SecondaryViewportRelativeNV HlslCounterBufferGOOGLE
+\ HlslSemanticGOOGLE Position PointSize ClipDistance CullDistance VertexId
+\ InstanceId PrimitiveId InvocationId Layer ViewportIndex TessLevelOuter
+\ TessLevelInner TessCoord PatchVertices FragCoord PointCoord FrontFacing
+\ SampleId SamplePosition SampleMask FragDepth HelperInvocation NumWorkgroups
+\ WorkgroupSize WorkgroupId LocalInvocationId GlobalInvocationId
 \ LocalInvocationIndex WorkDim GlobalSize EnqueuedWorkgroupSize GlobalOffset
 \ GlobalLinearId SubgroupMaxSize NumSubgroups NumEnqueuedSubgroups SubgroupId
-\ SubgroupLocalInvocationId VertexIndex InstanceIndex SubgroupEqMaskKHR
+\ SubgroupLocalInvocationId VertexIndex InstanceIndex SubgroupEqMask
+\ SubgroupGeMask SubgroupGtMask SubgroupLeMask SubgroupLtMask SubgroupEqMaskKHR
 \ SubgroupGeMaskKHR SubgroupGtMaskKHR SubgroupLeMaskKHR SubgroupLtMaskKHR
-\ BaseVertex BaseInstance DrawIndex DeviceIndex ViewIndex ViewportMaskNV
-\ SecondaryPositionNV SecondaryViewportMaskNV PositionPerViewNV
-\ ViewportMaskPerViewNV CrossDevice Device Subgroup Invocation Reduce
-\ InclusiveScan ExclusiveScan NoWait WaitKernel WaitWorkGroup Matrix Shader
-\ Tessellation Addresses Linkage Vector16 Float16Buffer Float16 Float64 Int64
-\ Int64Atomics ImageBasic ImageReadWrite ImageMipmap Pipes Groups DeviceEnqueue
-\ LiteralSampler AtomicStorage Int16 TessellationPointSize GeometryPointSize
-\ ImageGatherExtended StorageImageMultisample UniformBufferArrayDynamicIndexing
+\ BaseVertex BaseInstance DrawIndex DeviceIndex ViewIndex BaryCoordNoPerspAMD
+\ BaryCoordNoPerspCentroidAMD BaryCoordNoPerspSampleAMD BaryCoordSmoothAMD
+\ BaryCoordSmoothCentroidAMD BaryCoordSmoothSampleAMD BaryCoordPullModelAMD
+\ FragStencilRefEXT ViewportMaskNV SecondaryPositionNV SecondaryViewportMaskNV
+\ PositionPerViewNV ViewportMaskPerViewNV FullyCoveredEXT CrossDevice Device
+\ Subgroup Invocation Reduce InclusiveScan ExclusiveScan ClusteredReduce NoWait
+\ WaitKernel WaitWorkGroup Matrix Shader Tessellation Addresses Linkage Vector16
+\ Float16Buffer Float16 Float64 Int64 Int64Atomics ImageBasic ImageReadWrite
+\ ImageMipmap Pipes Groups DeviceEnqueue LiteralSampler AtomicStorage Int16
+\ TessellationPointSize GeometryPointSize ImageGatherExtended
+\ StorageImageMultisample UniformBufferArrayDynamicIndexing
 \ SampledImageArrayDynamicIndexing StorageBufferArrayDynamicIndexing
 \ StorageImageArrayDynamicIndexing ImageCubeArray SampleRateShading ImageRect
 \ SampledRect GenericPointer Int8 InputAttachment SparseResidency Sampled1D
@@ -77,13 +84,18 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ StorageImageExtendedFormats ImageQuery DerivativeControl InterpolationFunction
 \ TransformFeedback GeometryStreams StorageImageReadWithoutFormat
 \ StorageImageWriteWithoutFormat MultiViewport SubgroupDispatch NamedBarrier
-\ PipeStorage SubgroupBallotKHR DrawParameters SubgroupVoteKHR
-\ StorageBuffer16BitAccess StorageUniformBufferBlock16
+\ PipeStorage GroupNonUniform GroupNonUniformVote GroupNonUniformArithmetic
+\ GroupNonUniformBallot GroupNonUniformShuffle GroupNonUniformShuffleRelative
+\ GroupNonUniformClustered GroupNonUniformQuad SubgroupBallotKHR DrawParameters
+\ SubgroupVoteKHR StorageBuffer16BitAccess StorageUniformBufferBlock16
 \ UniformAndStorageBuffer16BitAccess StorageUniform16 StoragePushConstant16
 \ StorageInputOutput16 DeviceGroup MultiView VariablePointersStorageBuffer
-\ VariablePointers SampleMaskOverrideCoverageNV GeometryShaderPassthroughNV
-\ ShaderViewportIndexLayerNV ShaderViewportMaskNV ShaderStereoViewNV
-\ PerViewAttributesNV
+\ VariablePointers AtomicStorageOps SampleMaskPostDepthCoverage Float16ImageAMD
+\ ImageGatherBiasLodAMD FragmentMaskAMD StencilExportEXT ImageReadWriteLodAMD
+\ SampleMaskOverrideCoverageNV GeometryShaderPassthroughNV
+\ ShaderViewportIndexLayerEXT ShaderViewportIndexLayerNV ShaderViewportMaskNV
+\ ShaderStereoViewNV PerViewAttributesNV FragmentFullyCoveredEXT
+\ SubgroupShuffleINTEL SubgroupBufferBlockIOINTEL SubgroupImageBlockIOINTEL
 
 " Extension keywords
 syn keyword SpirvExtension OpExtension OpExtInstImport OpExtInst
@@ -134,9 +146,31 @@ syn keyword SpirvInstruction OpNop OpUndef OpTypeReserveId OpConstantTrue
 \ OpImageSparseTexelsResident OpAtomicFlagTestAndSet OpAtomicFlagClear
 \ OpImageSparseRead OpSizeOf OpConstantPipeStorage OpCreatePipeFromPipeStorage
 \ OpGetKernelLocalSizeForSubgroupCount OpGetKernelMaxNumSubgroups
-\ OpNamedBarrierInitialize OpMemoryNamedBarrier OpSubgroupBallotKHR
-\ OpSubgroupFirstInvocationKHR OpSubgroupAllKHR OpSubgroupAnyKHR
-\ OpSubgroupAllEqualKHR OpSubgroupReadInvocationKHR
+\ OpNamedBarrierInitialize OpMemoryNamedBarrier OpExecutionModeId OpDecorateId
+\ OpGroupNonUniformElect OpGroupNonUniformAll OpGroupNonUniformAny
+\ OpGroupNonUniformAllEqual OpGroupNonUniformBroadcast
+\ OpGroupNonUniformBroadcastFirst OpGroupNonUniformBallot
+\ OpGroupNonUniformInverseBallot OpGroupNonUniformBallotBitExtract
+\ OpGroupNonUniformBallotBitCount OpGroupNonUniformBallotFindLSB
+\ OpGroupNonUniformBallotFindMSB OpGroupNonUniformShuffle
+\ OpGroupNonUniformShuffleXor OpGroupNonUniformShuffleUp
+\ OpGroupNonUniformShuffleDown OpGroupNonUniformIAdd OpGroupNonUniformFAdd
+\ OpGroupNonUniformIMul OpGroupNonUniformFMul OpGroupNonUniformSMin
+\ OpGroupNonUniformUMin OpGroupNonUniformFMin OpGroupNonUniformSMax
+\ OpGroupNonUniformUMax OpGroupNonUniformFMax OpGroupNonUniformBitwiseAnd
+\ OpGroupNonUniformBitwiseOr OpGroupNonUniformBitwiseXor
+\ OpGroupNonUniformLogicalAnd OpGroupNonUniformLogicalOr
+\ OpGroupNonUniformLogicalXor OpGroupNonUniformQuadBroadcast
+\ OpGroupNonUniformQuadSwap OpSubgroupBallotKHR OpSubgroupFirstInvocationKHR
+\ OpSubgroupAllKHR OpSubgroupAnyKHR OpSubgroupAllEqualKHR
+\ OpSubgroupReadInvocationKHR OpGroupIAddNonUniformAMD OpGroupFAddNonUniformAMD
+\ OpGroupFMinNonUniformAMD OpGroupUMinNonUniformAMD OpGroupSMinNonUniformAMD
+\ OpGroupFMaxNonUniformAMD OpGroupUMaxNonUniformAMD OpGroupSMaxNonUniformAMD
+\ OpFragmentMaskFetchAMD OpFragmentFetchAMD OpSubgroupShuffleINTEL
+\ OpSubgroupShuffleDownINTEL OpSubgroupShuffleUpINTEL OpSubgroupShuffleXorINTEL
+\ OpSubgroupBlockReadINTEL OpSubgroupBlockWriteINTEL
+\ OpSubgroupImageBlockReadINTEL OpSubgroupImageBlockWriteINTEL
+\ OpDecorateStringGOOGLE OpMemberDecorateStringGOOGLE
 
 " Label keywords
 syn keyword SpirvLabel OpLabel
