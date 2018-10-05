@@ -79,6 +79,11 @@ function! spirv#highlight_extinst()
         let l:part = substitute(tolower(l:part), '^\zs\(\w\)\ze.*', '\U\1', '')
         let l:group_name = l:group_name.l:part
       endfor
+      if l:group_name ==# 'OpenclStd'
+        " 'OpenclStd' will not match the highlight group 'SpirvOpenclStd100'
+        " so append '100' to fix highlighting
+        let l:group_name = l:group_name.'100'
+      endif
       call add(l:group_names, 'Spirv'.l:group_name)
     endif
   endfor
