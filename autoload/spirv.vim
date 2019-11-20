@@ -108,7 +108,11 @@ function! spirv#highlight_extinst()
 
   " Highlight all found group names
   for l:group_name in l:group_names
-    exec 'hi link '.l:group_name.' SpirvInstruction'
+    if l:group_name ==# 'SpirvDebugInfo100'
+      exec 'hi link '.l:group_name.' SpirvDebug'
+    else
+      exec 'hi link '.l:group_name.' SpirvInstruction'
+    endif
   endfor
 
   " Store current group names in buffer variable

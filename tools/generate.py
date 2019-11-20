@@ -10,51 +10,242 @@ import sys
 DIRECTORY = os.path.relpath(os.path.dirname(__file__))
 
 KEYWORDS = {
-    'Conditional':
-    ['OpPhi', 'OpSelectionMerge', 'OpBranch', 'OpBranchConditional',
-     'OpSwitch', 'OpKill', 'OpReturn', 'OpReturnValue', 'OpUnreachable',
-     'OpLifetimeStart', 'OpLifetimeStop'],
-    'Debug':
-    ['OpSource', 'OpSourceContinued', 'OpSourceExtension', 'OpName',
-     'OpMemberName', 'OpString', 'OpLine', 'OpNoLine', 'OpModuleProcessed'],
+    'Conditional': [
+        'OpPhi',
+        'OpSelectionMerge',
+        'OpBranch',
+        'OpBranchConditional',
+        'OpSwitch',
+        'OpKill',
+        'OpReturn',
+        'OpReturnValue',
+        'OpUnreachable',
+        'OpLifetimeStart',
+        'OpLifetimeStop',
+    ],
+    'Debug': [
+        'OpSource',
+        'OpSourceContinued',
+        'OpSourceExtension',
+        'OpName',
+        'OpMemberName',
+        'OpString',
+        'OpLine',
+        'OpNoLine',
+        'OpModuleProcessed',
+    ],
     'Enumerant': [],
-    'Extension': ['OpExtension', 'OpExtInstImport', 'OpExtInst'],
-    'Function':
-    ['OpFunction', 'OpFunctionParameter', 'OpFunctionEnd', 'OpFunctionCall'],
+    'Extension': [
+        'OpExtension',
+        'OpExtInstImport',
+        'OpExtInst',
+    ],
+    'Function': [
+        'OpFunction',
+        'OpFunctionParameter',
+        'OpFunctionEnd',
+        'OpFunctionCall',
+    ],
     'Instruction': [],
-    'Label': ['OpLabel'],
-    'Loop': ['OpLoopMerge'],
-    'Mode': ['OpMemoryModel', 'OpEntryPoint', 'OpExecutionMode',
-             'OpCapability', 'OpDecorate', 'OpMemberDecorate',
-             'OpGroupDecorate', 'OpGroupMemberDecorate', 'OpDecorationGroup'],
-    'Operation':
-    ['OpSNegate', 'OpFNegate', 'OpIAdd', 'OpFAdd', 'OpFSub', 'OpFSub',
-     'OpIMul', 'OpFMul', 'OpUDiv', 'OpSDiv', 'OpFDiv', 'OpUMod', 'OpSMod',
-     'OpFMod', 'OpFRem', 'OpFRem', 'OpVectorTimesScalar',
-     'OpMatrixTimesScalar', 'OpVectorTimesMatrix', 'OpMatrixTimesVector',
-     'OpMatrixTimesMatrix', 'OpOuterProduct', 'OpDot', 'OpIAddCarry',
-     'OpISubBorrow', 'OpUMulExtended', 'OpSMulExtended', 'OpShiftRight',
-     'OpShiftRightLogical', 'OpShiftRightArithmetic', 'OpShiftLeftLogical',
-     'OpBitwiseOr', 'OpBitwiseXor', 'OpBitwiseAnd', 'OpNot',
-     'OpBitFieldInsert', 'OpBitFieldSExtract', 'OpBitFieldUExtract',
-     'OpBitReverse', 'OpBitCount', 'OpAny', 'OpAll', 'OpIsNan', 'OpIsInf',
-     'OpIsFinite', 'OpIsNormal', 'OpSignBitSet', 'OpLessOrGreater',
-     'OpOrdered', 'OpUnordered', 'OpLogicalEqual', 'OpLogicalNotEqual',
-     'OpLogicalOr', 'OpLogicalAnd', 'OpLogicalNot', 'OpSelect', 'OpIEqual',
-     'OpINotEqual', 'OpUGreaterThan', 'OpUGreaterThanEqual', 'OpSGreaterThan',
-     'OpSGreaterThanEqual', 'OpFOrdEqual', 'OpFOrdNotEqual',
-     'OpFUnordNotEqual', 'OpFUnordEqual', 'OpFOrdLessThan', 'OpFUnordLessThan',
-     'OpFOrdGreaterThan', 'OpFOrdGreaterThanEqual', 'OpFUnordGraterThan',
-     'OpFUnordGraterThanEqual', 'OpDPdx', 'OpDPdy', 'OpFwidth', 'OpDPdxFine',
-     'OpDPdyFine', 'OpFwidthFine', 'OpDPdxCoarse', 'OpDPdyCoarse',
-     'OpFwidthCoarse'],
-    'Type':
-    ['OpTypeVoid', 'OpTypeBool', 'OpTypeInt', 'OpTypeFloat', 'OpTypeVector',
-     'OpTypeMatrix', 'OpTypeImage', 'OpTypeSampler', 'OpTypeSampledImage',
-     'OpTypeArray', 'OpTypeRuntimeArray', 'OpTypeStruct', 'OpTypeOpaque',
-     'OpTypePointer', 'OpTypeFunction', 'OpTypeEvent', 'OpTypeDeviceEvent',
-     'OpTypeReservedId', 'OpTypeQueue', 'OpTypePipe', 'OpTypeForwardPointer',
-     'OpTypePipeStorage', 'OpTypeNamedBarrier'],
+    'Label': [
+        'OpLabel',
+    ],
+    'Loop': [
+        'OpLoopMerge',
+    ],
+    'Mode': [
+        'OpMemoryModel',
+        'OpEntryPoint',
+        'OpExecutionMode',
+        'OpCapability',
+        'OpDecorate',
+        'OpMemberDecorate',
+        'OpGroupDecorate',
+        'OpGroupMemberDecorate',
+        'OpDecorationGroup',
+    ],
+    'Operation': [
+        'OpSNegate',
+        'OpFNegate',
+        'OpIAdd',
+        'OpFAdd',
+        'OpFSub',
+        'OpFSub',
+        'OpIMul',
+        'OpFMul',
+        'OpUDiv',
+        'OpSDiv',
+        'OpFDiv',
+        'OpUMod',
+        'OpSMod',
+        'OpFMod',
+        'OpFRem',
+        'OpFRem',
+        'OpVectorTimesScalar',
+        'OpMatrixTimesScalar',
+        'OpVectorTimesMatrix',
+        'OpMatrixTimesVector',
+        'OpMatrixTimesMatrix',
+        'OpOuterProduct',
+        'OpDot',
+        'OpIAddCarry',
+        'OpISubBorrow',
+        'OpUMulExtended',
+        'OpSMulExtended',
+        'OpShiftRight',
+        'OpShiftRightLogical',
+        'OpShiftRightArithmetic',
+        'OpShiftLeftLogical',
+        'OpBitwiseOr',
+        'OpBitwiseXor',
+        'OpBitwiseAnd',
+        'OpNot',
+        'OpBitFieldInsert',
+        'OpBitFieldSExtract',
+        'OpBitFieldUExtract',
+        'OpBitReverse',
+        'OpBitCount',
+        'OpAny',
+        'OpAll',
+        'OpIsNan',
+        'OpIsInf',
+        'OpIsFinite',
+        'OpIsNormal',
+        'OpSignBitSet',
+        'OpLessOrGreater',
+        'OpOrdered',
+        'OpUnordered',
+        'OpLogicalEqual',
+        'OpLogicalNotEqual',
+        'OpLogicalOr',
+        'OpLogicalAnd',
+        'OpLogicalNot',
+        'OpSelect',
+        'OpIEqual',
+        'OpINotEqual',
+        'OpUGreaterThan',
+        'OpUGreaterThanEqual',
+        'OpSGreaterThan',
+        'OpSGreaterThanEqual',
+        'OpFOrdEqual',
+        'OpFOrdNotEqual',
+        'OpFUnordNotEqual',
+        'OpFUnordEqual',
+        'OpFOrdLessThan',
+        'OpFUnordLessThan',
+        'OpFOrdGreaterThan',
+        'OpFOrdGreaterThanEqual',
+        'OpFUnordGraterThan',
+        'OpFUnordGraterThanEqual',
+        'OpDPdx',
+        'OpDPdy',
+        'OpFwidth',
+        'OpDPdxFine',
+        'OpDPdyFine',
+        'OpFwidthFine',
+        'OpDPdxCoarse',
+        'OpDPdyCoarse',
+        'OpFwidthCoarse',
+    ],
+    'Type': [
+        'OpTypeVoid',
+        'OpTypeBool',
+        'OpTypeInt',
+        'OpTypeFloat',
+        'OpTypeVector',
+        'OpTypeMatrix',
+        'OpTypeImage',
+        'OpTypeSampler',
+        'OpTypeSampledImage',
+        'OpTypeArray',
+        'OpTypeRuntimeArray',
+        'OpTypeStruct',
+        'OpTypeOpaque',
+        'OpTypePointer',
+        'OpTypeFunction',
+        'OpTypeEvent',
+        'OpTypeDeviceEvent',
+        'OpTypeReservedId',
+        'OpTypeQueue',
+        'OpTypePipe',
+        'OpTypeForwardPointer',
+        'OpTypePipeStorage',
+        'OpTypeNamedBarrier',
+    ],
+    'DebugInfo100': [
+        'DebugInfoNone',
+        'DebugCompilationUnit',
+        'DebugTypeBasic',
+        'DebugTypePointer',
+        'DebugTypeQualifier',
+        'DebugTypeArray',
+        'DebugTypeVector',
+        'DebugTypedef',
+        'DebugTypeFunction',
+        'DebugTypeEnum',
+        'DebugTypeComposite',
+        'DebugTypeMember',
+        'DebugTypeInheritance',
+        'DebugTypePtrToMember',
+        'DebugTypeTemplate',
+        'DebugTypeTemplateParameter',
+        'DebugTypeTemplateTemplateParameter',
+        'DebugTypeTemplateParameterPack',
+        'DebugGlobalVariable',
+        'DebugFunctionDeclaration',
+        'DebugFunction',
+        'DebugLexicalBlock',
+        'DebugLexicalBlockDiscriminator',
+        'DebugScope',
+        'DebugNoScope',
+        'DebugInlinedAt',
+        'DebugLocalVariable',
+        'DebugInlinedVariable',
+        'DebugDeclare',
+        'DebugValue',
+        'DebugOperation',
+        'DebugExpression',
+        'DebugMacroDef',
+        'DebugMacroUndef',
+        'FlagIsProtected',
+        'FlagIsPrivate',
+        'FlagIsPublic',
+        'FlagIsLocal',
+        'FlagIsDefinition',
+        'FlagFwdDecl',
+        'FlagArtificial',
+        'FlagExplicit',
+        'FlagPrototyped',
+        'FlagObjectPointer',
+        'FlagStaticMember',
+        'FlagIndirectVariable',
+        'FlagLValueReference',
+        'FlagRValueReference',
+        'FlagIsOptimized',
+        'Unspecified',
+        'Address',
+        'Boolean',
+        'Float',
+        'Signed',
+        'SignedChar',
+        'Unsigned',
+        'UnsignedChar',
+        'Class',
+        'Structure',
+        'Union',
+        'ConstType',
+        'VolatileType',
+        'RestrictType',
+        'Deref',
+        'Plus',
+        'Minus',
+        'PlusUconst',
+        'BitPiece',
+        'Swap',
+        'Xderef',
+        'StackValue',
+        'Constu',
+    ],
 }
 
 GROUP_NAMES = [
@@ -81,13 +272,11 @@ GROUP_NAMES = [
 
 def generate_syntax(core_grammar_path, extension_grammar_paths):
     """Generate vim syntax content."""
-
     def load_keywords(core_grammar_path, extension_grammar_paths, keywords):
         """Load JSON arammers."""
-
         def instruction_exists(instruction):
             """Returns True if instruction does, False otherwise."""
-            for names in keywords.itervalues():
+            for names in keywords.values():
                 for inst in names:
                     if inst == instruction:
                         return True
@@ -96,37 +285,37 @@ def generate_syntax(core_grammar_path, extension_grammar_paths):
         with open(core_grammar_path) as grammar_file:
             grammar = json.loads(grammar_file.read())
 
-            if 'instructions' in grammar:
-                for instruction in grammar['instructions']:
-                    opname = instruction['opname']
-                    if not instruction_exists(opname):
-                        keywords['Instruction'].append(opname)
+        if 'instructions' in grammar:
+            for instruction in grammar['instructions']:
+                opname = instruction['opname']
+                if not instruction_exists(opname):
+                    keywords['Instruction'].append(opname)
 
-            if 'operand_kinds' in grammar:
-                for operand_kind in grammar['operand_kinds']:
-                    if 'enumerants' in operand_kind:
-                        for enumerant in operand_kind['enumerants']:
-                            enumname = enumerant['enumerant']
-                            if enumname not in keywords['Enumerant']:
-                                keywords['Enumerant'].append(enumname)
+        if 'operand_kinds' in grammar:
+            for operand_kind in grammar['operand_kinds']:
+                if 'enumerants' in operand_kind:
+                    for enumerant in operand_kind['enumerants']:
+                        enumname = enumerant['enumerant']
+                        if enumname not in keywords['Enumerant']:
+                            keywords['Enumerant'].append(enumname)
 
         extinst_group_names = []
         for grammar_path in extension_grammar_paths:
             with open(grammar_path) as grammar_file:
                 grammar = json.loads(grammar_file.read())
-                grammar_name = ''.join(
-                    word.capitalize()
-                    for word in os.path.basename(grammar_path).lstrip(
-                        'extinst.').rstrip('.grammer.json').split('.'))
+            grammar_name = ''.join(
+                word.capitalize()
+                for word in os.path.basename(grammar_path).lstrip(
+                    'extinst.').rstrip('.grammer.json').split('.'))
 
-                if 'instructions' in grammar:
-                    keywords[grammar_name] = []
-                    for instruction in grammar['instructions']:
-                        opname = instruction['opname']
-                        if not instruction_exists(opname):
-                            keywords[grammar_name].append(opname)
+            if 'instructions' in grammar:
+                keywords[grammar_name] = []
+                for instruction in grammar['instructions']:
+                    opname = instruction['opname']
+                    if not instruction_exists(opname):
+                        keywords[grammar_name].append(opname)
 
-                extinst_group_names.append('Spirv{0}'.format(grammar_name))
+            extinst_group_names.append('Spirv{0}'.format(grammar_name))
 
         return keywords, extinst_group_names
 
@@ -136,8 +325,9 @@ def generate_syntax(core_grammar_path, extension_grammar_paths):
 
     write.content = ''
 
-    keywords, extinst_group_names = load_keywords(
-        core_grammar_path, extension_grammar_paths, KEYWORDS)
+    keywords, extinst_group_names = load_keywords(core_grammar_path,
+                                                  extension_grammar_paths,
+                                                  KEYWORDS)
 
     write('''" File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
@@ -162,7 +352,7 @@ syn match SpirvNumber "\s\zs\d\+"
 syn match SpirvFloat "\s\zs\d\+\.\d\+"
 ''')
 
-    for group, group_keywords in keywords.iteritems():
+    for group, group_keywords in keywords.items():
         write('\n" %s keywords\n' % group)
         syn_keyword = 'syn keyword Spirv%s' % group
         write(syn_keyword)
@@ -195,8 +385,10 @@ endif
         groups = ([], [])
         for group in extinst_group_names:
             groups[0].append('  hi default link {0} SpirvError'.format(group))
-            groups[1].append('  hi default link {0} SpirvInstruction'.format(
-                group))
+            groups[1].append(
+                '  hi default link {0} SpirvInstruction'.format(group))
+        groups[0].append('  hi default link SpirvDebugInfo100 SpirvError')
+        groups[1].append('  hi default link SpirvDebugInfo100 SpirvDebug')
 
         write('''
 " Define extended instruction highlight groups
@@ -217,17 +409,15 @@ def main():
 
     parser.add_argument('core', help='core SPIR-V grammar file')
 
-    parser.add_argument(
-        '--ext',
-        action='append',
-        help='extended SPIR-V grammar file, multiple accepted')
+    parser.add_argument('--ext',
+                        action='append',
+                        help='extended SPIR-V grammar file, multiple accepted')
 
-    parser.add_argument(
-        '-o',
-        '--output',
-        choices=['stdout', 'file'],
-        default='file',
-        help='output directory path')
+    parser.add_argument('-o',
+                        '--output',
+                        choices=['stdout', 'file'],
+                        default='file',
+                        help='output directory path')
 
     args = parser.parse_args()
 
@@ -242,6 +432,7 @@ def main():
             syntax_file.write(string)
 
     {'stdout': sys.stdout.write, 'file': write_syntax}[args.output](syntax)
+
 
 if __name__ == '__main__':
     try:
