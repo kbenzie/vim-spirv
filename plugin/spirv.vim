@@ -31,9 +31,9 @@ augroup spirv
   autocmd!
 
   " Set autocommands to disassemble SPIR-V binaries on load
-  autocmd BufReadPre,FileReadPre *.spv setlocal bin
-  autocmd BufReadPost,FileReadPost *.spv call spirv#disassemble()
+  autocmd BufReadPre,FileReadPre *.spv,*.spv32,*.spv64 setlocal bin
+  autocmd BufReadPost,FileReadPost *.spv,*.spv32,*.spv64 call spirv#disassemble()
 
   " Set autocommands to assemble SPIR-V binaries on write
-  autocmd BufWriteCmd,FileWriteCmd *.spv call spirv#assemble()
+  autocmd BufWriteCmd,FileWriteCmd *.spv,*.spv32,*.spv64 call spirv#assemble()
 augroup END
