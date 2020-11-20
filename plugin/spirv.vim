@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Settings for the vim-spirv plugin.
-" Last Modified: September 04, 2016
+" Last Modified: November 20, 2020
 
 " Don't load plugin multiple times
 if exists('g:spirv_loaded') && g:spirv_loaded
