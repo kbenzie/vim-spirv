@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Settings for the vim-spirv plugin.
-" Last Modified: November 20, 2020
+" Last Modified: November 24, 2020
 
 " Don't load plugin multiple times
 if exists('g:spirv_loaded') && g:spirv_loaded
@@ -26,14 +26,16 @@ let g:spirv_enable_autodisassemble = get(g:, 'spirv_enable_autodisassemble', 1)
 let g:spirv_as_path = get(g:, 'spirv_as_path', 'spirv-as')
 let g:spirv_dis_path = get(g:, 'spirv_dis_path', 'spirv-dis')
 
-augroup spirv
-  " Remove all autocmds from the spirv group
-  autocmd!
+if g:spirv_enable_autodisassemble
+  augroup spirv
+    " Remove all autocmds from the spirv group
+    autocmd!
 
-  " Set autocommands to disassemble SPIR-V binaries on load
-  autocmd BufReadPre,FileReadPre *.spv,*.spv32,*.spv64 setlocal bin
-  autocmd BufReadPost,FileReadPost *.spv,*.spv32,*.spv64 call spirv#disassemble()
+    " Set autocommands to disassemble SPIR-V binaries on load
+    autocmd BufReadPre,FileReadPre *.spv,*.spv32,*.spv64 setlocal bin
+    autocmd BufReadPost,FileReadPost *.spv,*.spv32,*.spv64 call spirv#disassemble()
 
-  " Set autocommands to assemble SPIR-V binaries on write
-  autocmd BufWriteCmd,FileWriteCmd *.spv,*.spv32,*.spv64 call spirv#assemble()
-augroup END
+    " Set autocommands to assemble SPIR-V binaries on write
+    autocmd BufWriteCmd,FileWriteCmd *.spv,*.spv32,*.spv64 call spirv#assemble()
+  augroup END
+endif
