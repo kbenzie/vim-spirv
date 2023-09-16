@@ -407,17 +407,17 @@ def main():
     parser = argparse.ArgumentParser(
         description='Generate vim-spirv sources from SPIRV-Headers')
 
-    parser.add_argument('core', help='core SPIR-V grammar file')
-
-    parser.add_argument('--ext',
-                        action='append',
-                        help='extended SPIR-V grammar file, multiple accepted')
-
     parser.add_argument('-o',
                         '--output',
                         choices=['stdout', 'file'],
                         default='file',
                         help='output directory path')
+
+    parser.add_argument('core', help='core SPIR-V grammar file')
+
+    parser.add_argument('ext',
+                        nargs='*',
+                        help='extended SPIR-V grammar file, multiple accepted')
 
     args = parser.parse_args()
 

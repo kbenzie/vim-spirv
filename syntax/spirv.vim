@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: November 20, 2019
+" Last Modified: September 16, 2023
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -31,19 +31,29 @@ syn keyword SpirvDebug OpSource OpSourceContinued OpSourceExtension OpName
 syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ Sample MinLod MakeTexelAvailable MakeTexelAvailableKHR MakeTexelVisible
 \ MakeTexelVisibleKHR NonPrivateTexel NonPrivateTexelKHR VolatileTexel
-\ VolatileTexelKHR SignExtend ZeroExtend NotNaN NotInf NSZ AllowRecip Fast
-\ Flatten DontFlatten Unroll DontUnroll DependencyInfinite DependencyLength
-\ MinIterations MaxIterations IterationMultiple PeelCount PartialCount Inline
-\ DontInline Pure Const Relaxed Acquire Release AcquireRelease
-\ SequentiallyConsistent UniformMemory SubgroupMemory WorkgroupMemory
-\ CrossWorkgroupMemory AtomicCounterMemory ImageMemory OutputMemory
-\ OutputMemoryKHR MakeAvailable MakeAvailableKHR MakeVisible MakeVisibleKHR
-\ Volatile Aligned Nontemporal MakePointerAvailable MakePointerAvailableKHR
-\ MakePointerVisible MakePointerVisibleKHR NonPrivatePointer
-\ NonPrivatePointerKHR CmdExecTime Unknown ESSL GLSL OpenCL_C OpenCL_CPP HLSL
-\ Vertex TessellationControl TessellationEvaluation Geometry Fragment GLCompute
-\ Kernel TaskNV MeshNV RayGenerationNV IntersectionNV AnyHitNV ClosestHitNV
-\ MissNV CallableNV Logical Physical32 Physical64 PhysicalStorageBuffer64
+\ VolatileTexelKHR SignExtend ZeroExtend Nontemporal Offsets NotNaN NotInf NSZ
+\ AllowRecip Fast AllowContractFastINTEL AllowReassocINTEL Flatten DontFlatten
+\ Unroll DontUnroll DependencyInfinite DependencyLength MinIterations
+\ MaxIterations IterationMultiple PeelCount PartialCount InitiationIntervalINTEL
+\ MaxConcurrencyINTEL DependencyArrayINTEL PipelineEnableINTEL LoopCoalesceINTEL
+\ MaxInterleavingINTEL SpeculatedIterationsINTEL NoFusionINTEL LoopCountINTEL
+\ MaxReinvocationDelayINTEL Inline DontInline Pure Const OptNoneINTEL Relaxed
+\ Acquire Release AcquireRelease SequentiallyConsistent UniformMemory
+\ SubgroupMemory WorkgroupMemory CrossWorkgroupMemory AtomicCounterMemory
+\ ImageMemory OutputMemory OutputMemoryKHR MakeAvailable MakeAvailableKHR
+\ MakeVisible MakeVisibleKHR Volatile Aligned MakePointerAvailable
+\ MakePointerAvailableKHR MakePointerVisible MakePointerVisibleKHR
+\ NonPrivatePointer NonPrivatePointerKHR AliasScopeINTELMask NoAliasINTELMask
+\ CmdExecTime NoneKHR OpaqueKHR NoOpaqueKHR TerminateOnFirstHitKHR
+\ SkipClosestHitShaderKHR CullBackFacingTrianglesKHR CullFrontFacingTrianglesKHR
+\ CullOpaqueKHR CullNoOpaqueKHR SkipTrianglesKHR SkipAABBsKHR
+\ ForceOpacityMicromap2StateEXT Vertical2Pixels Vertical4Pixels
+\ Horizontal2Pixels Horizontal4Pixels Unknown ESSL GLSL OpenCL_C OpenCL_CPP HLSL
+\ CPP_for_OpenCL SYCL HERO_C NZSL WGSL Vertex TessellationControl
+\ TessellationEvaluation Geometry Fragment GLCompute Kernel TaskNV MeshNV
+\ RayGenerationNV RayGenerationKHR IntersectionNV IntersectionKHR AnyHitNV
+\ AnyHitKHR ClosestHitNV ClosestHitKHR MissNV MissKHR CallableNV CallableKHR
+\ TaskEXT MeshEXT Logical Physical32 Physical64 PhysicalStorageBuffer64
 \ PhysicalStorageBuffer64EXT Simple GLSL450 OpenCL Vulkan VulkanKHR Invocations
 \ SpacingEqual SpacingFractionalEven SpacingFractionalOdd VertexOrderCw
 \ VertexOrderCcw PixelCenterInteger OriginUpperLeft OriginLowerLeft
@@ -52,68 +62,117 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ InputLinesAdjacency Triangles InputTrianglesAdjacency Quads Isolines
 \ OutputVertices OutputPoints OutputLineStrip OutputTriangleStrip VecTypeHint
 \ ContractionOff Initializer Finalizer SubgroupSize SubgroupsPerWorkgroup
-\ SubgroupsPerWorkgroupId LocalSizeId LocalSizeHintId PostDepthCoverage
-\ DenormPreserve DenormFlushToZero SignedZeroInfNanPreserve RoundingModeRTE
-\ RoundingModeRTZ StencilRefReplacingEXT OutputLinesNV OutputPrimitivesNV
+\ SubgroupsPerWorkgroupId LocalSizeId LocalSizeHintId
+\ NonCoherentColorAttachmentReadEXT NonCoherentDepthAttachmentReadEXT
+\ NonCoherentStencilAttachmentReadEXT SubgroupUniformControlFlowKHR
+\ PostDepthCoverage DenormPreserve DenormFlushToZero SignedZeroInfNanPreserve
+\ RoundingModeRTE RoundingModeRTZ EarlyAndLateFragmentTestsAMD
+\ StencilRefReplacingEXT CoalescingAMDX MaxNodeRecursionAMDX
+\ StaticNumWorkgroupsAMDX ShaderIndexAMDX MaxNumWorkgroupsAMDX
+\ StencilRefUnchangedFrontAMD StencilRefGreaterFrontAMD StencilRefLessFrontAMD
+\ StencilRefUnchangedBackAMD StencilRefGreaterBackAMD StencilRefLessBackAMD
+\ OutputLinesNV OutputLinesEXT OutputPrimitivesNV OutputPrimitivesEXT
 \ DerivativeGroupQuadsNV DerivativeGroupLinearNV OutputTrianglesNV
-\ PixelInterlockOrderedEXT PixelInterlockUnorderedEXT SampleInterlockOrderedEXT
-\ SampleInterlockUnorderedEXT ShadingRateInterlockOrderedEXT
-\ ShadingRateInterlockUnorderedEXT UniformConstant Input Uniform Output
-\ Workgroup CrossWorkgroup Private Function Generic PushConstant AtomicCounter
-\ Image StorageBuffer CallableDataNV IncomingCallableDataNV RayPayloadNV
-\ HitAttributeNV IncomingRayPayloadNV ShaderRecordBufferNV PhysicalStorageBuffer
-\ PhysicalStorageBufferEXT 1D 2D 3D Cube Rect Buffer SubpassData ClampToEdge
-\ Clamp Repeat RepeatMirrored Nearest Linear Rgba32f Rgba16f R32f Rgba8
-\ Rgba8Snorm Rg32f Rg16f R11fG11fB10f R16f Rgba16 Rgb10A2 Rg16 Rg8 R16 R8
-\ Rgba16Snorm Rg16Snorm Rg8Snorm R16Snorm R8Snorm Rgba32i Rgba16i Rgba8i R32i
-\ Rg32i Rg16i Rg8i R16i R8i Rgba32ui Rgba16ui Rgba8ui R32ui Rgb10a2ui Rg32ui
-\ Rg16ui Rg8ui R16ui R8ui R A RG RA RGB RGBA BGRA ARGB Intensity Luminance Rx
-\ RGx RGBx Depth DepthStencil sRGB sRGBx sRGBA sBGRA ABGR SnormInt8 SnormInt16
-\ UnormInt8 UnormInt16 UnormShort565 UnormShort555 UnormInt101010 SignedInt8
-\ SignedInt16 SignedInt32 UnsignedInt8 UnsignedInt16 UnsignedInt32 HalfFloat
-\ Float UnormInt24 UnormInt101010_2 RTE RTZ RTP RTN Export Import ReadOnly
-\ WriteOnly ReadWrite Zext Sext ByVal Sret NoAlias NoCapture NoWrite NoReadWrite
-\ RelaxedPrecision SpecId Block BufferBlock RowMajor ColMajor ArrayStride
-\ MatrixStride GLSLShared GLSLPacked CPacked BuiltIn NoPerspective Flat Patch
-\ Centroid Invariant Restrict Aliased Constant Coherent NonWritable NonReadable
-\ UniformId SaturatedConversion Stream Location Component Index Binding
-\ DescriptorSet XfbBuffer XfbStride FuncParamAttr FPRoundingMode FPFastMathMode
-\ LinkageAttributes NoContraction InputAttachmentIndex Alignment MaxByteOffset
-\ AlignmentId MaxByteOffsetId NoSignedWrap NoUnsignedWrap ExplicitInterpAMD
-\ OverrideCoverageNV PassthroughNV ViewportRelativeNV
-\ SecondaryViewportRelativeNV PerPrimitiveNV PerViewNV PerTaskNV PerVertexNV
-\ NonUniform NonUniformEXT RestrictPointer RestrictPointerEXT AliasedPointer
-\ AliasedPointerEXT CounterBuffer HlslCounterBufferGOOGLE UserSemantic
-\ HlslSemanticGOOGLE UserTypeGOOGLE Position PointSize ClipDistance CullDistance
-\ VertexId InstanceId PrimitiveId InvocationId Layer ViewportIndex
+\ OutputTrianglesEXT PixelInterlockOrderedEXT PixelInterlockUnorderedEXT
+\ SampleInterlockOrderedEXT SampleInterlockUnorderedEXT
+\ ShadingRateInterlockOrderedEXT ShadingRateInterlockUnorderedEXT
+\ SharedLocalMemorySizeINTEL RoundingModeRTPINTEL RoundingModeRTNINTEL
+\ FloatingPointModeALTINTEL FloatingPointModeIEEEINTEL MaxWorkgroupSizeINTEL
+\ MaxWorkDimINTEL NoGlobalOffsetINTEL NumSIMDWorkitemsINTEL
+\ SchedulerTargetFmaxMhzINTEL StreamingInterfaceINTEL RegisterMapInterfaceINTEL
+\ NamedBarrierCountINTEL UniformConstant Input Uniform Output Workgroup
+\ CrossWorkgroup Private Function Generic PushConstant AtomicCounter Image
+\ StorageBuffer TileImageEXT NodePayloadAMDX NodeOutputPayloadAMDX
+\ CallableDataNV CallableDataKHR IncomingCallableDataNV IncomingCallableDataKHR
+\ RayPayloadNV RayPayloadKHR HitAttributeNV HitAttributeKHR IncomingRayPayloadNV
+\ IncomingRayPayloadKHR ShaderRecordBufferNV ShaderRecordBufferKHR
+\ PhysicalStorageBuffer PhysicalStorageBufferEXT HitObjectAttributeNV
+\ TaskPayloadWorkgroupEXT CodeSectionINTEL DeviceOnlyINTEL HostOnlyINTEL 1D 2D
+\ 3D Cube Rect Buffer SubpassData TileImageDataEXT ClampToEdge Clamp Repeat
+\ RepeatMirrored Nearest Linear Rgba32f Rgba16f R32f Rgba8 Rgba8Snorm Rg32f
+\ Rg16f R11fG11fB10f R16f Rgba16 Rgb10A2 Rg16 Rg8 R16 R8 Rgba16Snorm Rg16Snorm
+\ Rg8Snorm R16Snorm R8Snorm Rgba32i Rgba16i Rgba8i R32i Rg32i Rg16i Rg8i R16i
+\ R8i Rgba32ui Rgba16ui Rgba8ui R32ui Rgb10a2ui Rg32ui Rg16ui Rg8ui R16ui R8ui
+\ R64ui R64i R A RG RA RGB RGBA BGRA ARGB Intensity Luminance Rx RGx RGBx Depth
+\ DepthStencil sRGB sRGBx sRGBA sBGRA ABGR SnormInt8 SnormInt16 UnormInt8
+\ UnormInt16 UnormShort565 UnormShort555 UnormInt101010 SignedInt8 SignedInt16
+\ SignedInt32 UnsignedInt8 UnsignedInt16 UnsignedInt32 HalfFloat Float
+\ UnormInt24 UnormInt101010_2 UnsignedIntRaw10EXT UnsignedIntRaw12EXT RTE RTZ
+\ RTP RTN Preserve FlushToZero TRN TRN_ZERO RND RND_ZERO RND_INF RND_MIN_INF
+\ RND_CONV RND_CONV_ODD IEEE ALT WRAP SAT SAT_ZERO SAT_SYM Export Import
+\ LinkOnceODR ReadOnly WriteOnly ReadWrite NoneINTEL ReadINTEL WriteINTEL
+\ ReadWriteINTEL Zext Sext ByVal Sret NoAlias NoCapture NoWrite NoReadWrite
+\ RuntimeAlignedINTEL RelaxedPrecision SpecId Block BufferBlock RowMajor
+\ ColMajor ArrayStride MatrixStride GLSLShared GLSLPacked CPacked BuiltIn
+\ NoPerspective Flat Patch Centroid Invariant Restrict Aliased Constant Coherent
+\ NonWritable NonReadable UniformId SaturatedConversion Stream Location
+\ Component Index Binding DescriptorSet XfbBuffer XfbStride FuncParamAttr
+\ FPRoundingMode FPFastMathMode LinkageAttributes NoContraction
+\ InputAttachmentIndex Alignment MaxByteOffset AlignmentId MaxByteOffsetId
+\ NoSignedWrap NoUnsignedWrap WeightTextureQCOM BlockMatchTextureQCOM
+\ ExplicitInterpAMD NodeSharesPayloadLimitsWithAMDX NodeMaxPayloadsAMDX
+\ TrackFinishWritingAMDX PayloadNodeNameAMDX OverrideCoverageNV PassthroughNV
+\ ViewportRelativeNV SecondaryViewportRelativeNV PerPrimitiveNV PerPrimitiveEXT
+\ PerViewNV PerTaskNV PerVertexKHR PerVertexNV NonUniform NonUniformEXT
+\ RestrictPointer RestrictPointerEXT AliasedPointer AliasedPointerEXT
+\ HitObjectShaderRecordBufferNV BindlessSamplerNV BindlessImageNV BoundSamplerNV
+\ BoundImageNV SIMTCallINTEL ReferencedIndirectlyINTEL ClobberINTEL
+\ SideEffectsINTEL VectorComputeVariableINTEL FuncParamIOKindINTEL
+\ VectorComputeFunctionINTEL StackCallINTEL GlobalVariableOffsetINTEL
+\ CounterBuffer HlslCounterBufferGOOGLE UserSemantic HlslSemanticGOOGLE
+\ UserTypeGOOGLE FunctionRoundingModeINTEL FunctionDenormModeINTEL RegisterINTEL
+\ MemoryINTEL NumbanksINTEL BankwidthINTEL MaxPrivateCopiesINTEL SinglepumpINTEL
+\ DoublepumpINTEL MaxReplicatesINTEL SimpleDualPortINTEL MergeINTEL
+\ BankBitsINTEL ForcePow2DepthINTEL BurstCoalesceINTEL CacheSizeINTEL
+\ DontStaticallyCoalesceINTEL PrefetchINTEL StallEnableINTEL
+\ FuseLoopsInFunctionINTEL MathOpDSPModeINTEL AliasScopeINTEL NoAliasINTEL
+\ BufferLocationINTEL IOPipeStorageINTEL FunctionFloatingPointModeINTEL
+\ SingleElementVectorINTEL VectorComputeCallableFunctionINTEL MediaBlockIOINTEL
+\ InitModeINTEL ImplementInRegisterMapINTEL HostAccessINTEL
+\ FPMaxErrorDecorationINTEL LatencyControlLabelINTEL
+\ LatencyControlConstraintINTEL ConduitKernelArgumentINTEL
+\ RegisterMapKernelArgumentINTEL MMHostInterfaceAddressWidthINTEL
+\ MMHostInterfaceDataWidthINTEL MMHostInterfaceLatencyINTEL
+\ MMHostInterfaceReadWriteModeINTEL MMHostInterfaceMaxBurstINTEL
+\ MMHostInterfaceWaitRequestINTEL StableKernelArgumentINTEL
+\ CacheControlLoadINTEL CacheControlStoreINTEL Position PointSize ClipDistance
+\ CullDistance VertexId InstanceId PrimitiveId InvocationId Layer ViewportIndex
 \ TessLevelOuter TessLevelInner TessCoord PatchVertices FragCoord PointCoord
 \ FrontFacing SampleId SamplePosition SampleMask FragDepth HelperInvocation
 \ NumWorkgroups WorkgroupSize WorkgroupId LocalInvocationId GlobalInvocationId
 \ LocalInvocationIndex WorkDim GlobalSize EnqueuedWorkgroupSize GlobalOffset
 \ GlobalLinearId SubgroupMaxSize NumSubgroups NumEnqueuedSubgroups SubgroupId
-\ SubgroupLocalInvocationId VertexIndex InstanceIndex SubgroupEqMask
-\ SubgroupGeMask SubgroupGtMask SubgroupLeMask SubgroupLtMask SubgroupEqMaskKHR
-\ SubgroupGeMaskKHR SubgroupGtMaskKHR SubgroupLeMaskKHR SubgroupLtMaskKHR
-\ BaseVertex BaseInstance DrawIndex DeviceIndex ViewIndex BaryCoordNoPerspAMD
-\ BaryCoordNoPerspCentroidAMD BaryCoordNoPerspSampleAMD BaryCoordSmoothAMD
-\ BaryCoordSmoothCentroidAMD BaryCoordSmoothSampleAMD BaryCoordPullModelAMD
-\ FragStencilRefEXT ViewportMaskNV SecondaryPositionNV SecondaryViewportMaskNV
-\ PositionPerViewNV ViewportMaskPerViewNV FullyCoveredEXT TaskCountNV
-\ PrimitiveCountNV PrimitiveIndicesNV ClipDistancePerViewNV
-\ CullDistancePerViewNV LayerPerViewNV MeshViewCountNV MeshViewIndicesNV
-\ BaryCoordNV BaryCoordNoPerspNV FragSizeEXT FragmentSizeNV
-\ FragInvocationCountEXT InvocationsPerPixelNV LaunchIdNV LaunchSizeNV
-\ WorldRayOriginNV WorldRayDirectionNV ObjectRayOriginNV ObjectRayDirectionNV
-\ RayTminNV RayTmaxNV InstanceCustomIndexNV ObjectToWorldNV WorldToObjectNV
-\ HitTNV HitKindNV IncomingRayFlagsNV WarpsPerSMNV SMCountNV WarpIDNV SMIDNV
-\ CrossDevice Device Subgroup Invocation QueueFamily QueueFamilyKHR Reduce
-\ InclusiveScan ExclusiveScan ClusteredReduce PartitionedReduceNV
-\ PartitionedInclusiveScanNV PartitionedExclusiveScanNV NoWait WaitKernel
-\ WaitWorkGroup Matrix Shader Tessellation Addresses Linkage Vector16
-\ Float16Buffer Float16 Float64 Int64 Int64Atomics ImageBasic ImageReadWrite
-\ ImageMipmap Pipes Groups DeviceEnqueue LiteralSampler AtomicStorage Int16
-\ TessellationPointSize GeometryPointSize ImageGatherExtended
-\ StorageImageMultisample UniformBufferArrayDynamicIndexing
+\ SubgroupLocalInvocationId VertexIndex InstanceIndex CoreIDARM CoreCountARM
+\ CoreMaxIDARM WarpIDARM WarpMaxIDARM SubgroupEqMask SubgroupEqMaskKHR
+\ SubgroupGeMask SubgroupGeMaskKHR SubgroupGtMask SubgroupGtMaskKHR
+\ SubgroupLeMask SubgroupLeMaskKHR SubgroupLtMask SubgroupLtMaskKHR BaseVertex
+\ BaseInstance DrawIndex PrimitiveShadingRateKHR DeviceIndex ViewIndex
+\ ShadingRateKHR BaryCoordNoPerspAMD BaryCoordNoPerspCentroidAMD
+\ BaryCoordNoPerspSampleAMD BaryCoordSmoothAMD BaryCoordSmoothCentroidAMD
+\ BaryCoordSmoothSampleAMD BaryCoordPullModelAMD FragStencilRefEXT
+\ CoalescedInputCountAMDX ViewportMaskNV SecondaryPositionNV
+\ SecondaryViewportMaskNV PositionPerViewNV ViewportMaskPerViewNV
+\ FullyCoveredEXT TaskCountNV PrimitiveCountNV PrimitiveIndicesNV
+\ ClipDistancePerViewNV CullDistancePerViewNV LayerPerViewNV MeshViewCountNV
+\ MeshViewIndicesNV BaryCoordKHR BaryCoordNV BaryCoordNoPerspKHR
+\ BaryCoordNoPerspNV FragSizeEXT FragmentSizeNV FragInvocationCountEXT
+\ InvocationsPerPixelNV PrimitivePointIndicesEXT PrimitiveLineIndicesEXT
+\ PrimitiveTriangleIndicesEXT CullPrimitiveEXT LaunchIdNV LaunchIdKHR
+\ LaunchSizeNV LaunchSizeKHR WorldRayOriginNV WorldRayOriginKHR
+\ WorldRayDirectionNV WorldRayDirectionKHR ObjectRayOriginNV ObjectRayOriginKHR
+\ ObjectRayDirectionNV ObjectRayDirectionKHR RayTminNV RayTminKHR RayTmaxNV
+\ RayTmaxKHR InstanceCustomIndexNV InstanceCustomIndexKHR ObjectToWorldNV
+\ ObjectToWorldKHR WorldToObjectNV WorldToObjectKHR HitTNV HitKindNV HitKindKHR
+\ CurrentRayTimeNV HitTriangleVertexPositionsKHR IncomingRayFlagsNV
+\ IncomingRayFlagsKHR RayGeometryIndexKHR WarpsPerSMNV SMCountNV WarpIDNV SMIDNV
+\ CullMaskKHR CrossDevice Device Subgroup Invocation QueueFamily QueueFamilyKHR
+\ ShaderCallKHR Reduce InclusiveScan ExclusiveScan ClusteredReduce
+\ PartitionedReduceNV PartitionedInclusiveScanNV PartitionedExclusiveScanNV
+\ NoWait WaitKernel WaitWorkGroup Matrix Shader Tessellation Addresses Linkage
+\ Vector16 Float16Buffer Float16 Float64 Int64 Int64Atomics ImageBasic
+\ ImageReadWrite ImageMipmap Pipes Groups DeviceEnqueue LiteralSampler
+\ AtomicStorage Int16 TessellationPointSize GeometryPointSize
+\ ImageGatherExtended StorageImageMultisample UniformBufferArrayDynamicIndexing
 \ SampledImageArrayDynamicIndexing StorageBufferArrayDynamicIndexing
 \ StorageImageArrayDynamicIndexing ImageCubeArray SampleRateShading ImageRect
 \ SampledRect GenericPointer Int8 InputAttachment SparseResidency Sampled1D
@@ -124,19 +183,27 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ PipeStorage GroupNonUniform GroupNonUniformVote GroupNonUniformArithmetic
 \ GroupNonUniformBallot GroupNonUniformShuffle GroupNonUniformShuffleRelative
 \ GroupNonUniformClustered GroupNonUniformQuad ShaderLayer ShaderViewportIndex
-\ SubgroupBallotKHR DrawParameters SubgroupVoteKHR StorageBuffer16BitAccess
-\ StorageUniformBufferBlock16 UniformAndStorageBuffer16BitAccess
-\ StorageUniform16 StoragePushConstant16 StorageInputOutput16 DeviceGroup
-\ MultiView VariablePointersStorageBuffer VariablePointers AtomicStorageOps
-\ SampleMaskPostDepthCoverage StorageBuffer8BitAccess
-\ UniformAndStorageBuffer8BitAccess StoragePushConstant8 Float16ImageAMD
-\ ImageGatherBiasLodAMD FragmentMaskAMD StencilExportEXT ImageReadWriteLodAMD
-\ ShaderClockKHR SampleMaskOverrideCoverageNV GeometryShaderPassthroughNV
+\ UniformDecoration CoreBuiltinsARM TileImageColorReadAccessEXT
+\ TileImageDepthReadAccessEXT TileImageStencilReadAccessEXT
+\ FragmentShadingRateKHR SubgroupBallotKHR DrawParameters
+\ WorkgroupMemoryExplicitLayoutKHR WorkgroupMemoryExplicitLayout8BitAccessKHR
+\ WorkgroupMemoryExplicitLayout16BitAccessKHR SubgroupVoteKHR
+\ StorageBuffer16BitAccess StorageUniformBufferBlock16
+\ UniformAndStorageBuffer16BitAccess StorageUniform16 StoragePushConstant16
+\ StorageInputOutput16 DeviceGroup MultiView VariablePointersStorageBuffer
+\ VariablePointers AtomicStorageOps SampleMaskPostDepthCoverage
+\ StorageBuffer8BitAccess UniformAndStorageBuffer8BitAccess StoragePushConstant8
+\ RayQueryProvisionalKHR RayQueryKHR RayTraversalPrimitiveCullingKHR
+\ RayTracingKHR TextureSampleWeightedQCOM TextureBoxFilterQCOM
+\ TextureBlockMatchQCOM Float16ImageAMD ImageGatherBiasLodAMD FragmentMaskAMD
+\ StencilExportEXT ImageReadWriteLodAMD Int64ImageEXT ShaderClockKHR
+\ ShaderEnqueueAMDX SampleMaskOverrideCoverageNV GeometryShaderPassthroughNV
 \ ShaderViewportIndexLayerEXT ShaderViewportIndexLayerNV ShaderViewportMaskNV
 \ ShaderStereoViewNV PerViewAttributesNV FragmentFullyCoveredEXT MeshShadingNV
-\ ImageFootprintNV FragmentBarycentricNV ComputeDerivativeGroupQuadsNV
-\ FragmentDensityEXT ShadingRateNV GroupNonUniformPartitionedNV ShaderNonUniform
-\ ShaderNonUniformEXT RuntimeDescriptorArray RuntimeDescriptorArrayEXT
+\ ImageFootprintNV MeshShadingEXT FragmentBarycentricKHR FragmentBarycentricNV
+\ ComputeDerivativeGroupQuadsNV FragmentDensityEXT ShadingRateNV
+\ GroupNonUniformPartitionedNV ShaderNonUniform ShaderNonUniformEXT
+\ RuntimeDescriptorArray RuntimeDescriptorArrayEXT
 \ InputAttachmentArrayDynamicIndexing InputAttachmentArrayDynamicIndexingEXT
 \ UniformTexelBufferArrayDynamicIndexing
 \ UniformTexelBufferArrayDynamicIndexingEXT
@@ -150,17 +217,51 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ UniformTexelBufferArrayNonUniformIndexing
 \ UniformTexelBufferArrayNonUniformIndexingEXT
 \ StorageTexelBufferArrayNonUniformIndexing
-\ StorageTexelBufferArrayNonUniformIndexingEXT RayTracingNV VulkanMemoryModel
-\ VulkanMemoryModelKHR VulkanMemoryModelDeviceScope
-\ VulkanMemoryModelDeviceScopeKHR PhysicalStorageBufferAddresses
-\ PhysicalStorageBufferAddressesEXT ComputeDerivativeGroupLinearNV
-\ CooperativeMatrixNV FragmentShaderSampleInterlockEXT
-\ FragmentShaderShadingRateInterlockEXT ShaderSMBuiltinsNV
-\ FragmentShaderPixelInterlockEXT DemoteToHelperInvocationEXT
+\ StorageTexelBufferArrayNonUniformIndexingEXT RayTracingPositionFetchKHR
+\ RayTracingNV RayTracingMotionBlurNV VulkanMemoryModel VulkanMemoryModelKHR
+\ VulkanMemoryModelDeviceScope VulkanMemoryModelDeviceScopeKHR
+\ PhysicalStorageBufferAddresses PhysicalStorageBufferAddressesEXT
+\ ComputeDerivativeGroupLinearNV RayTracingProvisionalKHR CooperativeMatrixNV
+\ FragmentShaderSampleInterlockEXT FragmentShaderShadingRateInterlockEXT
+\ ShaderSMBuiltinsNV FragmentShaderPixelInterlockEXT DemoteToHelperInvocation
+\ DemoteToHelperInvocationEXT RayTracingOpacityMicromapEXT
+\ ShaderInvocationReorderNV BindlessTextureNV RayQueryPositionFetchKHR
 \ SubgroupShuffleINTEL SubgroupBufferBlockIOINTEL SubgroupImageBlockIOINTEL
-\ SubgroupImageMediaBlockIOINTEL IntegerFunctions2INTEL
+\ SubgroupImageMediaBlockIOINTEL RoundToInfinityINTEL FloatingPointModeINTEL
+\ IntegerFunctions2INTEL FunctionPointersINTEL IndirectReferencesINTEL AsmINTEL
+\ AtomicFloat32MinMaxEXT AtomicFloat64MinMaxEXT AtomicFloat16MinMaxEXT
+\ VectorComputeINTEL VectorAnyINTEL ExpectAssumeKHR
 \ SubgroupAvcMotionEstimationINTEL SubgroupAvcMotionEstimationIntraINTEL
-\ SubgroupAvcMotionEstimationChromaINTEL
+\ SubgroupAvcMotionEstimationChromaINTEL VariableLengthArrayINTEL
+\ FunctionFloatControlINTEL FPGAMemoryAttributesINTEL FPFastMathModeINTEL
+\ ArbitraryPrecisionIntegersINTEL ArbitraryPrecisionFloatingPointINTEL
+\ UnstructuredLoopControlsINTEL FPGALoopControlsINTEL KernelAttributesINTEL
+\ FPGAKernelAttributesINTEL FPGAMemoryAccessesINTEL FPGAClusterAttributesINTEL
+\ LoopFuseINTEL FPGADSPControlINTEL MemoryAccessAliasingINTEL
+\ FPGAInvocationPipeliningAttributesINTEL FPGABufferLocationINTEL
+\ ArbitraryPrecisionFixedPointINTEL USMStorageClassesINTEL
+\ RuntimeAlignedAttributeINTEL IOPipesINTEL BlockingPipesINTEL FPGARegINTEL
+\ DotProductInputAll DotProductInputAllKHR DotProductInput4x8Bit
+\ DotProductInput4x8BitKHR DotProductInput4x8BitPacked
+\ DotProductInput4x8BitPackedKHR DotProduct DotProductKHR RayCullMaskKHR
+\ CooperativeMatrixKHR BitInstructions GroupNonUniformRotateKHR
+\ AtomicFloat32AddEXT AtomicFloat64AddEXT LongConstantCompositeINTEL
+\ AtomicFloat16AddEXT DebugInfoModuleINTEL BFloat16ConversionINTEL
+\ SplitBarrierINTEL GlobalVariableFPGADecorationsINTEL
+\ FPGAKernelAttributesv2INTEL GlobalVariableHostAccessINTEL FPMaxErrorINTEL
+\ FPGALatencyControlINTEL FPGAArgumentInterfacesINTEL GroupUniformArithmeticKHR
+\ CacheControlsINTEL RayQueryCandidateIntersectionKHR
+\ RayQueryCommittedIntersectionKHR RayQueryCommittedIntersectionNoneKHR
+\ RayQueryCommittedIntersectionTriangleKHR
+\ RayQueryCommittedIntersectionGeneratedKHR
+\ RayQueryCandidateIntersectionTriangleKHR RayQueryCandidateIntersectionAABBKHR
+\ PackedVectorFormat4x8Bit PackedVectorFormat4x8BitKHR
+\ MatrixASignedComponentsKHR MatrixBSignedComponentsKHR
+\ MatrixCSignedComponentsKHR MatrixResultSignedComponentsKHR
+\ SaturatingAccumulationKHR RowMajorKHR ColumnMajorKHR MatrixAKHR MatrixBKHR
+\ MatrixAccumulatorKHR InitOnDeviceReprogramINTEL InitOnDeviceResetINTEL
+\ UncachedINTEL CachedINTEL StreamingINTEL InvalidateAfterReadINTEL
+\ ConstCachedINTEL WriteThroughINTEL WriteBackINTEL
 
 " Extension keywords
 syn keyword SpirvExtension OpExtension OpExtInstImport OpExtInst
@@ -231,19 +332,54 @@ syn keyword SpirvInstruction OpNop OpUndef OpTypeReserveId OpConstantTrue
 \ OpGroupNonUniformLogicalAnd OpGroupNonUniformLogicalOr
 \ OpGroupNonUniformLogicalXor OpGroupNonUniformQuadBroadcast
 \ OpGroupNonUniformQuadSwap OpCopyLogical OpPtrEqual OpPtrNotEqual OpPtrDiff
-\ OpSubgroupBallotKHR OpSubgroupFirstInvocationKHR OpSubgroupAllKHR
-\ OpSubgroupAnyKHR OpSubgroupAllEqualKHR OpSubgroupReadInvocationKHR
-\ OpGroupIAddNonUniformAMD OpGroupFAddNonUniformAMD OpGroupFMinNonUniformAMD
-\ OpGroupUMinNonUniformAMD OpGroupSMinNonUniformAMD OpGroupFMaxNonUniformAMD
-\ OpGroupUMaxNonUniformAMD OpGroupSMaxNonUniformAMD OpFragmentMaskFetchAMD
-\ OpFragmentFetchAMD OpReadClockKHR OpImageSampleFootprintNV
-\ OpGroupNonUniformPartitionNV OpWritePackedPrimitiveIndices4x8NV
-\ OpReportIntersectionNV OpIgnoreIntersectionNV OpTerminateRayNV OpTraceNV
-\ OpTypeAccelerationStructureNV OpExecuteCallableNV OpTypeCooperativeMatrixNV
-\ OpCooperativeMatrixLoadNV OpCooperativeMatrixStoreNV
-\ OpCooperativeMatrixMulAddNV OpCooperativeMatrixLengthNV
-\ OpBeginInvocationInterlockEXT OpEndInvocationInterlockEXT
-\ OpDemoteToHelperInvocationEXT OpIsHelperInvocationEXT OpSubgroupShuffleINTEL
+\ OpColorAttachmentReadEXT OpDepthAttachmentReadEXT OpStencilAttachmentReadEXT
+\ OpTerminateInvocation OpSubgroupBallotKHR OpSubgroupFirstInvocationKHR
+\ OpSubgroupAllKHR OpSubgroupAnyKHR OpSubgroupAllEqualKHR
+\ OpGroupNonUniformRotateKHR OpSubgroupReadInvocationKHR OpTraceRayKHR
+\ OpExecuteCallableKHR OpConvertUToAccelerationStructureKHR
+\ OpIgnoreIntersectionKHR OpTerminateRayKHR OpSDot OpSDotKHR OpUDot OpUDotKHR
+\ OpSUDot OpSUDotKHR OpSDotAccSat OpSDotAccSatKHR OpUDotAccSat OpUDotAccSatKHR
+\ OpSUDotAccSat OpSUDotAccSatKHR OpTypeCooperativeMatrixKHR
+\ OpCooperativeMatrixLoadKHR OpCooperativeMatrixStoreKHR
+\ OpCooperativeMatrixMulAddKHR OpCooperativeMatrixLengthKHR OpTypeRayQueryKHR
+\ OpRayQueryInitializeKHR OpRayQueryTerminateKHR
+\ OpRayQueryGenerateIntersectionKHR OpRayQueryConfirmIntersectionKHR
+\ OpRayQueryProceedKHR OpRayQueryGetIntersectionTypeKHR
+\ OpImageSampleWeightedQCOM OpImageBoxFilterQCOM OpImageBlockMatchSSDQCOM
+\ OpImageBlockMatchSADQCOM OpGroupIAddNonUniformAMD OpGroupFAddNonUniformAMD
+\ OpGroupFMinNonUniformAMD OpGroupUMinNonUniformAMD OpGroupSMinNonUniformAMD
+\ OpGroupFMaxNonUniformAMD OpGroupUMaxNonUniformAMD OpGroupSMaxNonUniformAMD
+\ OpFragmentMaskFetchAMD OpFragmentFetchAMD OpReadClockKHR
+\ OpFinalizeNodePayloadsAMDX OpFinishWritingNodePayloadAMDX
+\ OpInitializeNodePayloadsAMDX OpHitObjectRecordHitMotionNV
+\ OpHitObjectRecordHitWithIndexMotionNV OpHitObjectRecordMissMotionNV
+\ OpHitObjectGetWorldToObjectNV OpHitObjectGetObjectToWorldNV
+\ OpHitObjectGetObjectRayDirectionNV OpHitObjectGetObjectRayOriginNV
+\ OpHitObjectTraceRayMotionNV OpHitObjectGetShaderRecordBufferHandleNV
+\ OpHitObjectGetShaderBindingTableRecordIndexNV OpHitObjectRecordEmptyNV
+\ OpHitObjectTraceRayNV OpHitObjectRecordHitNV OpHitObjectRecordHitWithIndexNV
+\ OpHitObjectRecordMissNV OpHitObjectExecuteShaderNV OpHitObjectGetCurrentTimeNV
+\ OpHitObjectGetAttributesNV OpHitObjectGetHitKindNV
+\ OpHitObjectGetPrimitiveIndexNV OpHitObjectGetGeometryIndexNV
+\ OpHitObjectGetInstanceIdNV OpHitObjectGetInstanceCustomIndexNV
+\ OpHitObjectGetWorldRayDirectionNV OpHitObjectGetWorldRayOriginNV
+\ OpHitObjectGetRayTMaxNV OpHitObjectGetRayTMinNV OpHitObjectIsEmptyNV
+\ OpHitObjectIsHitNV OpHitObjectIsMissNV OpReorderThreadWithHitObjectNV
+\ OpReorderThreadWithHintNV OpTypeHitObjectNV OpImageSampleFootprintNV
+\ OpEmitMeshTasksEXT OpSetMeshOutputsEXT OpGroupNonUniformPartitionNV
+\ OpWritePackedPrimitiveIndices4x8NV OpReportIntersectionNV
+\ OpReportIntersectionKHR OpIgnoreIntersectionNV OpTerminateRayNV OpTraceNV
+\ OpTraceMotionNV OpTraceRayMotionNV
+\ OpRayQueryGetIntersectionTriangleVertexPositionsKHR
+\ OpTypeAccelerationStructureNV OpTypeAccelerationStructureKHR
+\ OpExecuteCallableNV OpTypeCooperativeMatrixNV OpCooperativeMatrixLoadNV
+\ OpCooperativeMatrixStoreNV OpCooperativeMatrixMulAddNV
+\ OpCooperativeMatrixLengthNV OpBeginInvocationInterlockEXT
+\ OpEndInvocationInterlockEXT OpDemoteToHelperInvocation
+\ OpDemoteToHelperInvocationEXT OpIsHelperInvocationEXT OpConvertUToImageNV
+\ OpConvertUToSamplerNV OpConvertImageToUNV OpConvertSamplerToUNV
+\ OpConvertUToSampledImageNV OpConvertSampledImageToUNV
+\ OpSamplerImageAddressingModeNV OpSubgroupShuffleINTEL
 \ OpSubgroupShuffleDownINTEL OpSubgroupShuffleUpINTEL OpSubgroupShuffleXorINTEL
 \ OpSubgroupBlockReadINTEL OpSubgroupBlockWriteINTEL
 \ OpSubgroupImageBlockReadINTEL OpSubgroupImageBlockWriteINTEL
@@ -251,11 +387,14 @@ syn keyword SpirvInstruction OpNop OpUndef OpTypeReserveId OpConstantTrue
 \ OpUCountLeadingZerosINTEL OpUCountTrailingZerosINTEL OpAbsISubINTEL
 \ OpAbsUSubINTEL OpIAddSatINTEL OpUAddSatINTEL OpIAverageINTEL OpUAverageINTEL
 \ OpIAverageRoundedINTEL OpUAverageRoundedINTEL OpISubSatINTEL OpUSubSatINTEL
-\ OpIMul32x16INTEL OpUMul32x16INTEL OpDecorateString OpDecorateStringGOOGLE
-\ OpMemberDecorateString OpMemberDecorateStringGOOGLE OpVmeImageINTEL
-\ OpTypeVmeImageINTEL OpTypeAvcImePayloadINTEL OpTypeAvcRefPayloadINTEL
-\ OpTypeAvcSicPayloadINTEL OpTypeAvcMcePayloadINTEL OpTypeAvcMceResultINTEL
-\ OpTypeAvcImeResultINTEL OpTypeAvcImeResultSingleReferenceStreamoutINTEL
+\ OpIMul32x16INTEL OpUMul32x16INTEL OpConstantFunctionPointerINTEL
+\ OpFunctionPointerCallINTEL OpAsmTargetINTEL OpAsmINTEL OpAsmCallINTEL
+\ OpAtomicFMinEXT OpAtomicFMaxEXT OpAssumeTrueKHR OpExpectKHR OpDecorateString
+\ OpDecorateStringGOOGLE OpMemberDecorateString OpMemberDecorateStringGOOGLE
+\ OpVmeImageINTEL OpTypeVmeImageINTEL OpTypeAvcImePayloadINTEL
+\ OpTypeAvcRefPayloadINTEL OpTypeAvcSicPayloadINTEL OpTypeAvcMcePayloadINTEL
+\ OpTypeAvcMceResultINTEL OpTypeAvcImeResultINTEL
+\ OpTypeAvcImeResultSingleReferenceStreamoutINTEL
 \ OpTypeAvcImeResultDualReferenceStreamoutINTEL
 \ OpTypeAvcImeSingleReferenceStreaminINTEL
 \ OpTypeAvcImeDualReferenceStreaminINTEL OpTypeAvcRefResultINTEL
@@ -354,7 +493,49 @@ syn keyword SpirvInstruction OpNop OpUndef OpTypeReserveId OpConstantTrue
 \ OpSubgroupAvcSicGetIpeChromaModeINTEL
 \ OpSubgroupAvcSicGetPackedSkcLumaCountThresholdINTEL
 \ OpSubgroupAvcSicGetPackedSkcLumaSumThresholdINTEL
-\ OpSubgroupAvcSicGetInterRawSadsINTEL
+\ OpSubgroupAvcSicGetInterRawSadsINTEL OpVariableLengthArrayINTEL
+\ OpSaveMemoryINTEL OpRestoreMemoryINTEL OpArbitraryFloatSinCosPiINTEL
+\ OpArbitraryFloatCastINTEL OpArbitraryFloatCastFromIntINTEL
+\ OpArbitraryFloatCastToIntINTEL OpArbitraryFloatAddINTEL
+\ OpArbitraryFloatSubINTEL OpArbitraryFloatMulINTEL OpArbitraryFloatDivINTEL
+\ OpArbitraryFloatGTINTEL OpArbitraryFloatGEINTEL OpArbitraryFloatLTINTEL
+\ OpArbitraryFloatLEINTEL OpArbitraryFloatEQINTEL OpArbitraryFloatRecipINTEL
+\ OpArbitraryFloatRSqrtINTEL OpArbitraryFloatCbrtINTEL
+\ OpArbitraryFloatHypotINTEL OpArbitraryFloatSqrtINTEL OpArbitraryFloatLogINTEL
+\ OpArbitraryFloatLog2INTEL OpArbitraryFloatLog10INTEL
+\ OpArbitraryFloatLog1pINTEL OpArbitraryFloatExpINTEL OpArbitraryFloatExp2INTEL
+\ OpArbitraryFloatExp10INTEL OpArbitraryFloatExpm1INTEL OpArbitraryFloatSinINTEL
+\ OpArbitraryFloatCosINTEL OpArbitraryFloatSinCosINTEL
+\ OpArbitraryFloatSinPiINTEL OpArbitraryFloatCosPiINTEL
+\ OpArbitraryFloatASinINTEL OpArbitraryFloatASinPiINTEL
+\ OpArbitraryFloatACosINTEL OpArbitraryFloatACosPiINTEL
+\ OpArbitraryFloatATanINTEL OpArbitraryFloatATanPiINTEL
+\ OpArbitraryFloatATan2INTEL OpArbitraryFloatPowINTEL OpArbitraryFloatPowRINTEL
+\ OpArbitraryFloatPowNINTEL OpLoopControlINTEL OpAliasDomainDeclINTEL
+\ OpAliasScopeDeclINTEL OpAliasScopeListDeclINTEL OpFixedSqrtINTEL
+\ OpFixedRecipINTEL OpFixedRsqrtINTEL OpFixedSinINTEL OpFixedCosINTEL
+\ OpFixedSinCosINTEL OpFixedSinPiINTEL OpFixedCosPiINTEL OpFixedSinCosPiINTEL
+\ OpFixedLogINTEL OpFixedExpINTEL OpPtrCastToCrossWorkgroupINTEL
+\ OpCrossWorkgroupCastToPtrINTEL OpReadPipeBlockingINTEL
+\ OpWritePipeBlockingINTEL OpFPGARegINTEL OpRayQueryGetRayTMinKHR
+\ OpRayQueryGetRayFlagsKHR OpRayQueryGetIntersectionTKHR
+\ OpRayQueryGetIntersectionInstanceCustomIndexKHR
+\ OpRayQueryGetIntersectionInstanceIdKHR
+\ OpRayQueryGetIntersectionInstanceShaderBindingTableRecordOffsetKHR
+\ OpRayQueryGetIntersectionGeometryIndexKHR
+\ OpRayQueryGetIntersectionPrimitiveIndexKHR
+\ OpRayQueryGetIntersectionBarycentricsKHR OpRayQueryGetIntersectionFrontFaceKHR
+\ OpRayQueryGetIntersectionCandidateAABBOpaqueKHR
+\ OpRayQueryGetIntersectionObjectRayDirectionKHR
+\ OpRayQueryGetIntersectionObjectRayOriginKHR OpRayQueryGetWorldRayDirectionKHR
+\ OpRayQueryGetWorldRayOriginKHR OpRayQueryGetIntersectionObjectToWorldKHR
+\ OpRayQueryGetIntersectionWorldToObjectKHR OpAtomicFAddEXT
+\ OpTypeBufferSurfaceINTEL OpTypeStructContinuedINTEL
+\ OpConstantCompositeContinuedINTEL OpSpecConstantCompositeContinuedINTEL
+\ OpConvertFToBF16INTEL OpConvertBF16ToFINTEL OpControlBarrierArriveINTEL
+\ OpControlBarrierWaitINTEL OpGroupIMulKHR OpGroupFMulKHR OpGroupBitwiseAndKHR
+\ OpGroupBitwiseOrKHR OpGroupBitwiseXorKHR OpGroupLogicalAndKHR
+\ OpGroupLogicalOrKHR OpGroupLogicalXorKHR
 
 " Label keywords
 syn keyword SpirvLabel OpLabel
@@ -409,6 +590,9 @@ syn keyword SpirvDebugInfo100 DebugInfoNone DebugCompilationUnit DebugTypeBasic
 \ RestrictType Deref Plus Minus PlusUconst BitPiece Swap Xderef StackValue
 \ Constu
 
+" Debuginf keywords
+syn keyword SpirvDebuginf
+
 " GlslStd450 keywords
 syn keyword SpirvGlslStd450 Round RoundEven Trunc FAbs SAbs FSign SSign Floor
 \ Ceil Fract Radians Degrees Sin Cos Tan Asin Acos Atan Sinh Cosh Tanh Asinh
@@ -420,6 +604,38 @@ syn keyword SpirvGlslStd450 Round RoundEven Trunc FAbs SAbs FSign SSign Floor
 \ UnpackDouble2x32 Length Distance Cross Normalize FaceForward Reflect Refract
 \ FindILsb FindSMsb FindUMsb InterpolateAtCentroid InterpolateAtSample
 \ InterpolateAtOffset NMin NMax NClamp
+
+" OnsemanticClspvreflecti keywords
+syn keyword SpirvOnsemanticClspvreflecti ArgumentInfo ArgumentStorageBuffer
+\ ArgumentUniform ArgumentPodStorageBuffer ArgumentPodUniform
+\ ArgumentPodPushConstant ArgumentSampledImage ArgumentStorageImage
+\ ArgumentSampler ArgumentWorkgroup SpecConstantWorkgroupSize
+\ SpecConstantGlobalOffset SpecConstantWorkDim PushConstantGlobalOffset
+\ PushConstantEnqueuedLocalSize PushConstantGlobalSize PushConstantRegionOffset
+\ PushConstantNumWorkgroups PushConstantRegionGroupOffset
+\ ConstantDataStorageBuffer ConstantDataUniform PropertyRequiredWorkgroupSize
+\ SpecConstantSubgroupMaxSize ArgumentPointerPushConstant ArgumentPointerUniform
+\ ProgramScopeVariablesStorageBuffer ProgramScopeVariablePointerRelocation
+\ ImageArgumentInfoChannelOrderPushConstant
+\ ImageArgumentInfoChannelDataTypePushConstant
+\ ImageArgumentInfoChannelOrderUniform ImageArgumentInfoChannelDataTypeUniform
+\ ArgumentStorageTexelBuffer ArgumentUniformTexelBuffer
+\ ConstantDataPointerPushConstant ProgramScopeVariablePointerPushConstant
+\ PrintfInfo PrintfBufferStorageBuffer PrintfBufferPointerPushConstant
+
+" OnsemanticDebugbreak keywords
+syn keyword SpirvOnsemanticDebugbreak DebugBreak
+
+" OnsemanticDebugprintf keywords
+syn keyword SpirvOnsemanticDebugprintf DebugPrintf
+
+" OnsemanticShaderDebuginfo100 keywords
+syn keyword SpirvOnsemanticShaderDebuginfo100 DebugImportedEntity DebugSource
+\ DebugFunctionDefinition DebugSourceContinued DebugLine DebugNoLine
+\ DebugBuildIdentifier DebugStoragePath DebugEntryPoint DebugTypeMatrix
+
+" OpenclDebuginfo100 keywords
+syn keyword SpirvOpenclDebuginfo100 DebugModuleINTEL
 
 " OpenclStd100 keywords
 syn keyword SpirvOpenclStd100 acos acosh acospi asin asinh asinpi atan atan2
@@ -440,6 +656,20 @@ syn keyword SpirvOpenclStd100 acos acosh acospi asin asinh asinpi atan atan2
 \ fast_length fast_normalize bitselect select vloadn vstoren vload_half
 \ vload_halfn vstore_half vstore_half_r vstore_halfn vstore_halfn_r vloada_halfn
 \ vstorea_halfn vstorea_halfn_r shuffle shuffle2 printf prefetch
+
+" Pv-amd-gcn-shad keywords
+syn keyword SpirvPv-amd-gcn-shad CubeFaceIndexAMD CubeFaceCoordAMD TimeAMD
+
+" Pv-amd-shader-ballot keywords
+syn keyword SpirvPv-amd-shader-ballot SwizzleInvocationsAMD
+\ SwizzleInvocationsMaskedAMD WriteInvocationAMD MbcntAMD
+
+" Pv-amd-shader-explicit-vertex-paramet keywords
+syn keyword SpirvPv-amd-shader-explicit-vertex-paramet InterpolateAtVertexAMD
+
+" Pv-amd-shader-trinary-minmax keywords
+syn keyword SpirvPv-amd-shader-trinary-minmax FMin3AMD UMin3AMD SMin3AMD
+\ FMax3AMD UMax3AMD SMax3AMD FMid3AMD UMid3AMD SMid3AMD
 
 " Define highlight groups
 hi default link SpirvComment Comment
@@ -468,11 +698,31 @@ endif
 
 " Define extended instruction highlight groups
 if exists('g:spirv_enable_extinst_error') && g:spirv_enable_extinst_error
+  hi default link SpirvDebuginf SpirvError
   hi default link SpirvGlslStd450 SpirvError
+  hi default link SpirvOnsemanticClspvreflecti SpirvError
+  hi default link SpirvOnsemanticDebugbreak SpirvError
+  hi default link SpirvOnsemanticDebugprintf SpirvError
+  hi default link SpirvOnsemanticShaderDebuginfo100 SpirvError
+  hi default link SpirvOpenclDebuginfo100 SpirvError
   hi default link SpirvOpenclStd100 SpirvError
+  hi default link SpirvPv-amd-gcn-shad SpirvError
+  hi default link SpirvPv-amd-shader-ballot SpirvError
+  hi default link SpirvPv-amd-shader-explicit-vertex-paramet SpirvError
+  hi default link SpirvPv-amd-shader-trinary-minmax SpirvError
   hi default link SpirvDebugInfo100 SpirvError
 else
+  hi default link SpirvDebuginf SpirvInstruction
   hi default link SpirvGlslStd450 SpirvInstruction
+  hi default link SpirvOnsemanticClspvreflecti SpirvInstruction
+  hi default link SpirvOnsemanticDebugbreak SpirvInstruction
+  hi default link SpirvOnsemanticDebugprintf SpirvInstruction
+  hi default link SpirvOnsemanticShaderDebuginfo100 SpirvInstruction
+  hi default link SpirvOpenclDebuginfo100 SpirvInstruction
   hi default link SpirvOpenclStd100 SpirvInstruction
+  hi default link SpirvPv-amd-gcn-shad SpirvInstruction
+  hi default link SpirvPv-amd-shader-ballot SpirvInstruction
+  hi default link SpirvPv-amd-shader-explicit-vertex-paramet SpirvInstruction
+  hi default link SpirvPv-amd-shader-trinary-minmax SpirvInstruction
   hi default link SpirvDebugInfo100 SpirvDebug
 endif
