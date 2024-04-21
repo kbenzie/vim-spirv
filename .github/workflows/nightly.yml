@@ -1,0 +1,25 @@
+---
+name: Update syntax if upstream changed
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  update-syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - name: clone plugin repo
+        uses: actions/checkout@v4
+
+      - name: clone SPIRV-Headers repo
+        uses: actions/checkout@v4
+        with:
+          repository: KhronosGroup/SPIRV-Headers
+          path: ${{ github.workspace }}/SPIRV-Headers
+
+      - name: run syntax generator script
+        run: python3 tools/generate.py ${{ github.workspace }}/SPIRV-Headers/include/spirv/unified1/spirv.core.grammar.json ${{ github.workspace }}/SPIRV-Headers/include/spirv/unified1/*.json
+
+      - uses: EndBug/add-and-commit@v9
