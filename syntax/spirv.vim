@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: May 16, 2024
+" Last Modified: May 17, 2024
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
