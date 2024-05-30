@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: May 29, 2024
+" Last Modified: May 30, 2024
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -255,11 +255,12 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ DotProductInputAll DotProductInputAllKHR DotProductInput4x8Bit
 \ DotProductInput4x8BitKHR DotProductInput4x8BitPacked
 \ DotProductInput4x8BitPackedKHR DotProduct DotProductKHR RayCullMaskKHR
-\ CooperativeMatrixKHR BitInstructions GroupNonUniformRotateKHR FloatControls2
-\ AtomicFloat32AddEXT AtomicFloat64AddEXT LongCompositesINTEL
-\ AtomicFloat16AddEXT DebugInfoModuleINTEL BFloat16ConversionINTEL
-\ SplitBarrierINTEL FPGAClusterAttributesV2INTEL FPGAKernelAttributesv2INTEL
-\ FPMaxErrorINTEL FPGALatencyControlINTEL FPGAArgumentInterfacesINTEL
+\ CooperativeMatrixKHR ReplicatedCompositesEXT BitInstructions
+\ GroupNonUniformRotateKHR FloatControls2 AtomicFloat32AddEXT
+\ AtomicFloat64AddEXT LongCompositesINTEL AtomicFloat16AddEXT
+\ DebugInfoModuleINTEL BFloat16ConversionINTEL SplitBarrierINTEL
+\ FPGAClusterAttributesV2INTEL FPGAKernelAttributesv2INTEL FPMaxErrorINTEL
+\ FPGALatencyControlINTEL FPGAArgumentInterfacesINTEL
 \ GlobalVariableHostAccessINTEL GlobalVariableFPGADecorationsINTEL
 \ GroupUniformArithmeticKHR MaskedGatherScatterINTEL CacheControlsINTEL
 \ RegisterLimitsINTEL RayQueryCandidateIntersectionKHR
@@ -353,24 +354,26 @@ syn keyword SpirvInstruction OpNop OpUndef OpTypeReserveId OpConstantTrue
 \ OpSUDot OpSUDotKHR OpSDotAccSat OpSDotAccSatKHR OpUDotAccSat OpUDotAccSatKHR
 \ OpSUDotAccSat OpSUDotAccSatKHR OpTypeCooperativeMatrixKHR
 \ OpCooperativeMatrixLoadKHR OpCooperativeMatrixStoreKHR
-\ OpCooperativeMatrixMulAddKHR OpCooperativeMatrixLengthKHR OpTypeRayQueryKHR
-\ OpRayQueryInitializeKHR OpRayQueryTerminateKHR
-\ OpRayQueryGenerateIntersectionKHR OpRayQueryConfirmIntersectionKHR
-\ OpRayQueryProceedKHR OpRayQueryGetIntersectionTypeKHR
-\ OpImageSampleWeightedQCOM OpImageBoxFilterQCOM OpImageBlockMatchSSDQCOM
-\ OpImageBlockMatchSADQCOM OpImageBlockMatchWindowSSDQCOM
-\ OpImageBlockMatchWindowSADQCOM OpImageBlockMatchGatherSSDQCOM
-\ OpImageBlockMatchGatherSADQCOM OpGroupIAddNonUniformAMD
-\ OpGroupFAddNonUniformAMD OpGroupFMinNonUniformAMD OpGroupUMinNonUniformAMD
-\ OpGroupSMinNonUniformAMD OpGroupFMaxNonUniformAMD OpGroupUMaxNonUniformAMD
-\ OpGroupSMaxNonUniformAMD OpFragmentMaskFetchAMD OpFragmentFetchAMD
-\ OpReadClockKHR OpFinalizeNodePayloadsAMDX OpFinishWritingNodePayloadAMDX
-\ OpInitializeNodePayloadsAMDX OpGroupNonUniformQuadAllKHR
-\ OpGroupNonUniformQuadAnyKHR OpHitObjectRecordHitMotionNV
-\ OpHitObjectRecordHitWithIndexMotionNV OpHitObjectRecordMissMotionNV
-\ OpHitObjectGetWorldToObjectNV OpHitObjectGetObjectToWorldNV
-\ OpHitObjectGetObjectRayDirectionNV OpHitObjectGetObjectRayOriginNV
-\ OpHitObjectTraceRayMotionNV OpHitObjectGetShaderRecordBufferHandleNV
+\ OpCooperativeMatrixMulAddKHR OpCooperativeMatrixLengthKHR
+\ OpConstantCompositeReplicateEXT OpSpecConstantCompositeReplicateEXT
+\ OpCompositeConstructReplicateEXT OpTypeRayQueryKHR OpRayQueryInitializeKHR
+\ OpRayQueryTerminateKHR OpRayQueryGenerateIntersectionKHR
+\ OpRayQueryConfirmIntersectionKHR OpRayQueryProceedKHR
+\ OpRayQueryGetIntersectionTypeKHR OpImageSampleWeightedQCOM
+\ OpImageBoxFilterQCOM OpImageBlockMatchSSDQCOM OpImageBlockMatchSADQCOM
+\ OpImageBlockMatchWindowSSDQCOM OpImageBlockMatchWindowSADQCOM
+\ OpImageBlockMatchGatherSSDQCOM OpImageBlockMatchGatherSADQCOM
+\ OpGroupIAddNonUniformAMD OpGroupFAddNonUniformAMD OpGroupFMinNonUniformAMD
+\ OpGroupUMinNonUniformAMD OpGroupSMinNonUniformAMD OpGroupFMaxNonUniformAMD
+\ OpGroupUMaxNonUniformAMD OpGroupSMaxNonUniformAMD OpFragmentMaskFetchAMD
+\ OpFragmentFetchAMD OpReadClockKHR OpFinalizeNodePayloadsAMDX
+\ OpFinishWritingNodePayloadAMDX OpInitializeNodePayloadsAMDX
+\ OpGroupNonUniformQuadAllKHR OpGroupNonUniformQuadAnyKHR
+\ OpHitObjectRecordHitMotionNV OpHitObjectRecordHitWithIndexMotionNV
+\ OpHitObjectRecordMissMotionNV OpHitObjectGetWorldToObjectNV
+\ OpHitObjectGetObjectToWorldNV OpHitObjectGetObjectRayDirectionNV
+\ OpHitObjectGetObjectRayOriginNV OpHitObjectTraceRayMotionNV
+\ OpHitObjectGetShaderRecordBufferHandleNV
 \ OpHitObjectGetShaderBindingTableRecordIndexNV OpHitObjectRecordEmptyNV
 \ OpHitObjectTraceRayNV OpHitObjectRecordHitNV OpHitObjectRecordHitWithIndexNV
 \ OpHitObjectRecordMissNV OpHitObjectExecuteShaderNV OpHitObjectGetCurrentTimeNV
