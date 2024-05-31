@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: May 30, 2024
+" Last Modified: May 31, 2024
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -348,32 +348,32 @@ syn keyword SpirvInstruction OpNop OpUndef OpTypeReserveId OpConstantTrue
 \ OpColorAttachmentReadEXT OpDepthAttachmentReadEXT OpStencilAttachmentReadEXT
 \ OpTerminateInvocation OpSubgroupBallotKHR OpSubgroupFirstInvocationKHR
 \ OpSubgroupAllKHR OpSubgroupAnyKHR OpSubgroupAllEqualKHR
-\ OpGroupNonUniformRotateKHR OpSubgroupReadInvocationKHR OpTraceRayKHR
-\ OpExecuteCallableKHR OpConvertUToAccelerationStructureKHR
-\ OpIgnoreIntersectionKHR OpTerminateRayKHR OpSDot OpSDotKHR OpUDot OpUDotKHR
-\ OpSUDot OpSUDotKHR OpSDotAccSat OpSDotAccSatKHR OpUDotAccSat OpUDotAccSatKHR
-\ OpSUDotAccSat OpSUDotAccSatKHR OpTypeCooperativeMatrixKHR
-\ OpCooperativeMatrixLoadKHR OpCooperativeMatrixStoreKHR
-\ OpCooperativeMatrixMulAddKHR OpCooperativeMatrixLengthKHR
-\ OpConstantCompositeReplicateEXT OpSpecConstantCompositeReplicateEXT
-\ OpCompositeConstructReplicateEXT OpTypeRayQueryKHR OpRayQueryInitializeKHR
-\ OpRayQueryTerminateKHR OpRayQueryGenerateIntersectionKHR
-\ OpRayQueryConfirmIntersectionKHR OpRayQueryProceedKHR
-\ OpRayQueryGetIntersectionTypeKHR OpImageSampleWeightedQCOM
-\ OpImageBoxFilterQCOM OpImageBlockMatchSSDQCOM OpImageBlockMatchSADQCOM
-\ OpImageBlockMatchWindowSSDQCOM OpImageBlockMatchWindowSADQCOM
-\ OpImageBlockMatchGatherSSDQCOM OpImageBlockMatchGatherSADQCOM
-\ OpGroupIAddNonUniformAMD OpGroupFAddNonUniformAMD OpGroupFMinNonUniformAMD
-\ OpGroupUMinNonUniformAMD OpGroupSMinNonUniformAMD OpGroupFMaxNonUniformAMD
-\ OpGroupUMaxNonUniformAMD OpGroupSMaxNonUniformAMD OpFragmentMaskFetchAMD
-\ OpFragmentFetchAMD OpReadClockKHR OpFinalizeNodePayloadsAMDX
-\ OpFinishWritingNodePayloadAMDX OpInitializeNodePayloadsAMDX
-\ OpGroupNonUniformQuadAllKHR OpGroupNonUniformQuadAnyKHR
-\ OpHitObjectRecordHitMotionNV OpHitObjectRecordHitWithIndexMotionNV
-\ OpHitObjectRecordMissMotionNV OpHitObjectGetWorldToObjectNV
-\ OpHitObjectGetObjectToWorldNV OpHitObjectGetObjectRayDirectionNV
-\ OpHitObjectGetObjectRayOriginNV OpHitObjectTraceRayMotionNV
-\ OpHitObjectGetShaderRecordBufferHandleNV
+\ OpGroupNonUniformRotateKHR OpSubgroupReadInvocationKHR
+\ OpExtInstWithForwardRefs OpTraceRayKHR OpExecuteCallableKHR
+\ OpConvertUToAccelerationStructureKHR OpIgnoreIntersectionKHR OpTerminateRayKHR
+\ OpSDot OpSDotKHR OpUDot OpUDotKHR OpSUDot OpSUDotKHR OpSDotAccSat
+\ OpSDotAccSatKHR OpUDotAccSat OpUDotAccSatKHR OpSUDotAccSat OpSUDotAccSatKHR
+\ OpTypeCooperativeMatrixKHR OpCooperativeMatrixLoadKHR
+\ OpCooperativeMatrixStoreKHR OpCooperativeMatrixMulAddKHR
+\ OpCooperativeMatrixLengthKHR OpConstantCompositeReplicateEXT
+\ OpSpecConstantCompositeReplicateEXT OpCompositeConstructReplicateEXT
+\ OpTypeRayQueryKHR OpRayQueryInitializeKHR OpRayQueryTerminateKHR
+\ OpRayQueryGenerateIntersectionKHR OpRayQueryConfirmIntersectionKHR
+\ OpRayQueryProceedKHR OpRayQueryGetIntersectionTypeKHR
+\ OpImageSampleWeightedQCOM OpImageBoxFilterQCOM OpImageBlockMatchSSDQCOM
+\ OpImageBlockMatchSADQCOM OpImageBlockMatchWindowSSDQCOM
+\ OpImageBlockMatchWindowSADQCOM OpImageBlockMatchGatherSSDQCOM
+\ OpImageBlockMatchGatherSADQCOM OpGroupIAddNonUniformAMD
+\ OpGroupFAddNonUniformAMD OpGroupFMinNonUniformAMD OpGroupUMinNonUniformAMD
+\ OpGroupSMinNonUniformAMD OpGroupFMaxNonUniformAMD OpGroupUMaxNonUniformAMD
+\ OpGroupSMaxNonUniformAMD OpFragmentMaskFetchAMD OpFragmentFetchAMD
+\ OpReadClockKHR OpFinalizeNodePayloadsAMDX OpFinishWritingNodePayloadAMDX
+\ OpInitializeNodePayloadsAMDX OpGroupNonUniformQuadAllKHR
+\ OpGroupNonUniformQuadAnyKHR OpHitObjectRecordHitMotionNV
+\ OpHitObjectRecordHitWithIndexMotionNV OpHitObjectRecordMissMotionNV
+\ OpHitObjectGetWorldToObjectNV OpHitObjectGetObjectToWorldNV
+\ OpHitObjectGetObjectRayDirectionNV OpHitObjectGetObjectRayOriginNV
+\ OpHitObjectTraceRayMotionNV OpHitObjectGetShaderRecordBufferHandleNV
 \ OpHitObjectGetShaderBindingTableRecordIndexNV OpHitObjectRecordEmptyNV
 \ OpHitObjectTraceRayNV OpHitObjectRecordHitNV OpHitObjectRecordHitWithIndexNV
 \ OpHitObjectRecordMissNV OpHitObjectExecuteShaderNV OpHitObjectGetCurrentTimeNV
