@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: June 05, 2024
+" Last Modified: June 06, 2024
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -53,8 +53,8 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ RobustnessPerElementNV Unknown ESSL GLSL OpenCL_C OpenCL_CPP HLSL
 \ CPP_for_OpenCL SYCL HERO_C NZSL WGSL Slang Zig Vertex TessellationControl
 \ TessellationEvaluation Geometry Fragment GLCompute Kernel TaskNV MeshNV
-\ RayGenerationNV RayGenerationKHR IntersectionNV IntersectionKHR AnyHitNV
-\ AnyHitKHR ClosestHitNV ClosestHitKHR MissNV MissKHR CallableNV CallableKHR
+\ RayGenerationKHR RayGenerationNV IntersectionKHR IntersectionNV AnyHitKHR
+\ AnyHitNV ClosestHitKHR ClosestHitNV MissKHR MissNV CallableKHR CallableNV
 \ TaskEXT MeshEXT Logical Physical32 Physical64 PhysicalStorageBuffer64
 \ PhysicalStorageBuffer64EXT Simple GLSL450 OpenCL Vulkan VulkanKHR Invocations
 \ SpacingEqual SpacingFractionalEven SpacingFractionalOdd VertexOrderCw
@@ -73,9 +73,9 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ StaticNumWorkgroupsAMDX ShaderIndexAMDX MaxNumWorkgroupsAMDX
 \ StencilRefUnchangedFrontAMD StencilRefGreaterFrontAMD StencilRefLessFrontAMD
 \ StencilRefUnchangedBackAMD StencilRefGreaterBackAMD StencilRefLessBackAMD
-\ QuadDerivativesKHR RequireFullQuadsKHR OutputLinesNV OutputLinesEXT
-\ OutputPrimitivesNV OutputPrimitivesEXT DerivativeGroupQuadsNV
-\ DerivativeGroupLinearNV OutputTrianglesNV OutputTrianglesEXT
+\ QuadDerivativesKHR RequireFullQuadsKHR OutputLinesEXT OutputLinesNV
+\ OutputPrimitivesEXT OutputPrimitivesNV DerivativeGroupQuadsNV
+\ DerivativeGroupLinearNV OutputTrianglesEXT OutputTrianglesNV
 \ PixelInterlockOrderedEXT PixelInterlockUnorderedEXT SampleInterlockOrderedEXT
 \ SampleInterlockUnorderedEXT ShadingRateInterlockOrderedEXT
 \ ShadingRateInterlockUnorderedEXT SharedLocalMemorySizeINTEL
@@ -87,10 +87,10 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ MaximumRegistersIdINTEL NamedMaximumRegistersINTEL UniformConstant Input
 \ Uniform Output Workgroup CrossWorkgroup Private Function Generic PushConstant
 \ AtomicCounter Image StorageBuffer TileImageEXT NodePayloadAMDX
-\ NodeOutputPayloadAMDX CallableDataNV CallableDataKHR IncomingCallableDataNV
-\ IncomingCallableDataKHR RayPayloadNV RayPayloadKHR HitAttributeNV
-\ HitAttributeKHR IncomingRayPayloadNV IncomingRayPayloadKHR
-\ ShaderRecordBufferNV ShaderRecordBufferKHR PhysicalStorageBuffer
+\ NodeOutputPayloadAMDX CallableDataKHR CallableDataNV IncomingCallableDataKHR
+\ IncomingCallableDataNV RayPayloadKHR RayPayloadNV HitAttributeKHR
+\ HitAttributeNV IncomingRayPayloadKHR IncomingRayPayloadNV
+\ ShaderRecordBufferKHR ShaderRecordBufferNV PhysicalStorageBuffer
 \ PhysicalStorageBufferEXT HitObjectAttributeNV TaskPayloadWorkgroupEXT
 \ CodeSectionINTEL DeviceOnlyINTEL HostOnlyINTEL 1D 2D 3D Cube Rect Buffer
 \ SubpassData TileImageDataEXT ClampToEdge Clamp Repeat RepeatMirrored Nearest
@@ -117,7 +117,7 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ BlockMatchTextureQCOM BlockMatchSamplerQCOM ExplicitInterpAMD
 \ NodeSharesPayloadLimitsWithAMDX NodeMaxPayloadsAMDX TrackFinishWritingAMDX
 \ PayloadNodeNameAMDX OverrideCoverageNV PassthroughNV ViewportRelativeNV
-\ SecondaryViewportRelativeNV PerPrimitiveNV PerPrimitiveEXT PerViewNV PerTaskNV
+\ SecondaryViewportRelativeNV PerPrimitiveEXT PerPrimitiveNV PerViewNV PerTaskNV
 \ PerVertexKHR PerVertexNV NonUniform NonUniformEXT RestrictPointer
 \ RestrictPointerEXT AliasedPointer AliasedPointerEXT
 \ HitObjectShaderRecordBufferNV BindlessSamplerNV BindlessImageNV BoundSamplerNV
@@ -163,15 +163,15 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ MeshViewIndicesNV BaryCoordKHR BaryCoordNV BaryCoordNoPerspKHR
 \ BaryCoordNoPerspNV FragSizeEXT FragmentSizeNV FragInvocationCountEXT
 \ InvocationsPerPixelNV PrimitivePointIndicesEXT PrimitiveLineIndicesEXT
-\ PrimitiveTriangleIndicesEXT CullPrimitiveEXT LaunchIdNV LaunchIdKHR
-\ LaunchSizeNV LaunchSizeKHR WorldRayOriginNV WorldRayOriginKHR
-\ WorldRayDirectionNV WorldRayDirectionKHR ObjectRayOriginNV ObjectRayOriginKHR
-\ ObjectRayDirectionNV ObjectRayDirectionKHR RayTminNV RayTminKHR RayTmaxNV
-\ RayTmaxKHR InstanceCustomIndexNV InstanceCustomIndexKHR ObjectToWorldNV
-\ ObjectToWorldKHR WorldToObjectNV WorldToObjectKHR HitTNV HitKindNV HitKindKHR
+\ PrimitiveTriangleIndicesEXT CullPrimitiveEXT LaunchIdKHR LaunchIdNV
+\ LaunchSizeKHR LaunchSizeNV WorldRayOriginKHR WorldRayOriginNV
+\ WorldRayDirectionKHR WorldRayDirectionNV ObjectRayOriginKHR ObjectRayOriginNV
+\ ObjectRayDirectionKHR ObjectRayDirectionNV RayTminKHR RayTminNV RayTmaxKHR
+\ RayTmaxNV InstanceCustomIndexKHR InstanceCustomIndexNV ObjectToWorldKHR
+\ ObjectToWorldNV WorldToObjectKHR WorldToObjectNV HitTNV HitKindKHR HitKindNV
 \ CurrentRayTimeNV HitTriangleVertexPositionsKHR
 \ HitMicroTriangleVertexPositionsNV HitMicroTriangleVertexBarycentricsNV
-\ IncomingRayFlagsNV IncomingRayFlagsKHR RayGeometryIndexKHR WarpsPerSMNV
+\ IncomingRayFlagsKHR IncomingRayFlagsNV RayGeometryIndexKHR WarpsPerSMNV
 \ SMCountNV WarpIDNV SMIDNV HitKindFrontFacingMicroTriangleNV
 \ HitKindBackFacingMicroTriangleNV CullMaskKHR CrossDevice Device Subgroup
 \ Invocation QueueFamily QueueFamilyKHR ShaderCallKHR Reduce InclusiveScan
@@ -349,7 +349,7 @@ syn keyword SpirvInstruction OpNop OpUndef OpTypeReserveId OpConstantTrue
 \ OpTerminateInvocation OpSubgroupBallotKHR OpSubgroupFirstInvocationKHR
 \ OpSubgroupAllKHR OpSubgroupAnyKHR OpSubgroupAllEqualKHR
 \ OpGroupNonUniformRotateKHR OpSubgroupReadInvocationKHR
-\ OpExtInstWithForwardRefs OpTraceRayKHR OpExecuteCallableKHR
+\ OpExtInstWithForwardRefsKHR OpTraceRayKHR OpExecuteCallableKHR
 \ OpConvertUToAccelerationStructureKHR OpIgnoreIntersectionKHR OpTerminateRayKHR
 \ OpSDot OpSDotKHR OpUDot OpUDotKHR OpSUDot OpSUDotKHR OpSDotAccSat
 \ OpSDotAccSatKHR OpUDotAccSat OpUDotAccSatKHR OpSUDotAccSat OpSUDotAccSatKHR
@@ -386,11 +386,11 @@ syn keyword SpirvInstruction OpNop OpUndef OpTypeReserveId OpConstantTrue
 \ OpReorderThreadWithHintNV OpTypeHitObjectNV OpImageSampleFootprintNV
 \ OpEmitMeshTasksEXT OpSetMeshOutputsEXT OpGroupNonUniformPartitionNV
 \ OpWritePackedPrimitiveIndices4x8NV OpFetchMicroTriangleVertexPositionNV
-\ OpFetchMicroTriangleVertexBarycentricNV OpReportIntersectionNV
-\ OpReportIntersectionKHR OpIgnoreIntersectionNV OpTerminateRayNV OpTraceNV
+\ OpFetchMicroTriangleVertexBarycentricNV OpReportIntersectionKHR
+\ OpReportIntersectionNV OpIgnoreIntersectionNV OpTerminateRayNV OpTraceNV
 \ OpTraceMotionNV OpTraceRayMotionNV
 \ OpRayQueryGetIntersectionTriangleVertexPositionsKHR
-\ OpTypeAccelerationStructureNV OpTypeAccelerationStructureKHR
+\ OpTypeAccelerationStructureKHR OpTypeAccelerationStructureNV
 \ OpExecuteCallableNV OpTypeCooperativeMatrixNV OpCooperativeMatrixLoadNV
 \ OpCooperativeMatrixStoreNV OpCooperativeMatrixMulAddNV
 \ OpCooperativeMatrixLengthNV OpBeginInvocationInterlockEXT
