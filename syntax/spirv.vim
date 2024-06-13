@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: June 12, 2024
+" Last Modified: June 13, 2024
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -193,8 +193,9 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ GroupNonUniformClustered GroupNonUniformQuad ShaderLayer ShaderViewportIndex
 \ UniformDecoration CoreBuiltinsARM TileImageColorReadAccessEXT
 \ TileImageDepthReadAccessEXT TileImageStencilReadAccessEXT
-\ FragmentShadingRateKHR SubgroupBallotKHR DrawParameters
-\ WorkgroupMemoryExplicitLayoutKHR WorkgroupMemoryExplicitLayout8BitAccessKHR
+\ CooperativeMatrixLayoutsARM FragmentShadingRateKHR SubgroupBallotKHR
+\ DrawParameters WorkgroupMemoryExplicitLayoutKHR
+\ WorkgroupMemoryExplicitLayout8BitAccessKHR
 \ WorkgroupMemoryExplicitLayout16BitAccessKHR SubgroupVoteKHR
 \ StorageBuffer16BitAccess StorageUniformBufferBlock16
 \ UniformAndStorageBuffer16BitAccess StorageUniform16 StoragePushConstant16
@@ -271,10 +272,11 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ PackedVectorFormat4x8Bit PackedVectorFormat4x8BitKHR
 \ MatrixASignedComponentsKHR MatrixBSignedComponentsKHR
 \ MatrixCSignedComponentsKHR MatrixResultSignedComponentsKHR
-\ SaturatingAccumulationKHR RowMajorKHR ColumnMajorKHR MatrixAKHR MatrixBKHR
-\ MatrixAccumulatorKHR InitOnDeviceReprogramINTEL InitOnDeviceResetINTEL
-\ UncachedINTEL CachedINTEL StreamingINTEL InvalidateAfterReadINTEL
-\ ConstCachedINTEL WriteThroughINTEL WriteBackINTEL AutoINTEL
+\ SaturatingAccumulationKHR RowMajorKHR ColumnMajorKHR RowBlockedInterleavedARM
+\ ColumnBlockedInterleavedARM MatrixAKHR MatrixBKHR MatrixAccumulatorKHR
+\ InitOnDeviceReprogramINTEL InitOnDeviceResetINTEL UncachedINTEL CachedINTEL
+\ StreamingINTEL InvalidateAfterReadINTEL ConstCachedINTEL WriteThroughINTEL
+\ WriteBackINTEL AutoINTEL
 
 " Extension keywords
 syn keyword SpirvExtension OpExtension OpExtInstImport OpExtInst
