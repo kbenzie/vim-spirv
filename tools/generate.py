@@ -3,6 +3,7 @@
 
 import argparse
 import datetime
+import difflib
 import json
 import os
 import sys
@@ -423,13 +424,25 @@ def main():
 
     syntax = generate_syntax(args.core, args.ext)
 
-    def write_syntax(string):
+    def write_syntax(new_content):
         """Write syntax file."""
         syntax_directory = os.path.relpath(
             os.path.join(os.path.join(DIRECTORY, '..'), 'syntax'))
         filename = os.path.abspath(os.path.join(syntax_directory, 'spirv.vim'))
+
+        with open(filename, 'r') as syntax_file:
+            old_content = syntax_file.read()
+
+        differ = difflib.Differ()
+        difflines = differ.compare(old_content.splitlines(), new_content.splitlines())
+        diffs = []
+        for diff in difflines:
+            if diff.startswith('+') or diff.startswith('-'):
+                diffs.append(diff)
+        if len(diffs) == 2 and all([' " Last Modified: ' in diff for diff in diffs]):
+            return  # Don't write changes since only the date changed
         with open(filename, 'w') as syntax_file:
-            syntax_file.write(string)
+            syntax_file.write(new_content)
 
     {'stdout': sys.stdout.write, 'file': write_syntax}[args.output](syntax)
 
