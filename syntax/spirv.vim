@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: July 30, 2024
+" Last Modified: August 22, 2024
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -102,16 +102,16 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ sRGBx sRGBA sBGRA ABGR SnormInt8 SnormInt16 UnormInt8 UnormInt16 UnormShort565
 \ UnormShort555 UnormInt101010 SignedInt8 SignedInt16 SignedInt32 UnsignedInt8
 \ UnsignedInt16 UnsignedInt32 HalfFloat Float UnormInt24 UnormInt101010_2
-\ UnsignedIntRaw10EXT UnsignedIntRaw12EXT RTE RTZ RTP RTN Preserve FlushToZero
-\ TRN TRN_ZERO RND RND_ZERO RND_INF RND_MIN_INF RND_CONV RND_CONV_ODD IEEE ALT
-\ WRAP SAT SAT_ZERO SAT_SYM Export Import LinkOnceODR ReadOnly WriteOnly
-\ ReadWrite NoneINTEL ReadINTEL WriteINTEL ReadWriteINTEL Zext Sext ByVal Sret
-\ NoAlias NoCapture NoWrite NoReadWrite RuntimeAlignedINTEL RelaxedPrecision
-\ SpecId Block BufferBlock RowMajor ColMajor ArrayStride MatrixStride GLSLShared
-\ GLSLPacked CPacked BuiltIn NoPerspective Flat Patch Centroid Invariant
-\ Restrict Aliased Constant Coherent NonWritable NonReadable UniformId
-\ SaturatedConversion Stream Location Component Index Binding DescriptorSet
-\ XfbBuffer XfbStride FuncParamAttr FPRoundingMode FPFastMathMode
+\ UnsignedIntRaw10EXT UnsignedIntRaw12EXT UnormInt2_101010EXT RTE RTZ RTP RTN
+\ Preserve FlushToZero TRN TRN_ZERO RND RND_ZERO RND_INF RND_MIN_INF RND_CONV
+\ RND_CONV_ODD IEEE ALT WRAP SAT SAT_ZERO SAT_SYM Export Import LinkOnceODR
+\ ReadOnly WriteOnly ReadWrite NoneINTEL ReadINTEL WriteINTEL ReadWriteINTEL
+\ Zext Sext ByVal Sret NoAlias NoCapture NoWrite NoReadWrite RuntimeAlignedINTEL
+\ RelaxedPrecision SpecId Block BufferBlock RowMajor ColMajor ArrayStride
+\ MatrixStride GLSLShared GLSLPacked CPacked BuiltIn NoPerspective Flat Patch
+\ Centroid Invariant Restrict Aliased Constant Coherent NonWritable NonReadable
+\ UniformId SaturatedConversion Stream Location Component Index Binding
+\ DescriptorSet XfbBuffer XfbStride FuncParamAttr FPRoundingMode FPFastMathMode
 \ LinkageAttributes NoContraction InputAttachmentIndex Alignment MaxByteOffset
 \ AlignmentId MaxByteOffsetId NoSignedWrap NoUnsignedWrap WeightTextureQCOM
 \ BlockMatchTextureQCOM BlockMatchSamplerQCOM ExplicitInterpAMD
