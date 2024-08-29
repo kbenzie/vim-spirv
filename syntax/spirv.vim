@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: August 22, 2024
+" Last Modified: August 29, 2024
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -263,8 +263,8 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ FPGAClusterAttributesV2INTEL FPGAKernelAttributesv2INTEL FPMaxErrorINTEL
 \ FPGALatencyControlINTEL FPGAArgumentInterfacesINTEL
 \ GlobalVariableHostAccessINTEL GlobalVariableFPGADecorationsINTEL
-\ GroupUniformArithmeticKHR MaskedGatherScatterINTEL CacheControlsINTEL
-\ RegisterLimitsINTEL RayQueryCandidateIntersectionKHR
+\ SubgroupBufferPrefetchINTEL GroupUniformArithmeticKHR MaskedGatherScatterINTEL
+\ CacheControlsINTEL RegisterLimitsINTEL RayQueryCandidateIntersectionKHR
 \ RayQueryCommittedIntersectionKHR RayQueryCommittedIntersectionNoneKHR
 \ RayQueryCommittedIntersectionTriangleKHR
 \ RayQueryCommittedIntersectionGeneratedKHR
@@ -557,8 +557,9 @@ syn keyword SpirvInstruction OpNop OpUndef OpTypeReserveId OpConstantTrue
 \ OpTypeBufferSurfaceINTEL OpTypeStructContinuedINTEL
 \ OpConstantCompositeContinuedINTEL OpSpecConstantCompositeContinuedINTEL
 \ OpCompositeConstructContinuedINTEL OpConvertFToBF16INTEL OpConvertBF16ToFINTEL
-\ OpControlBarrierArriveINTEL OpControlBarrierWaitINTEL OpGroupIMulKHR
-\ OpGroupFMulKHR OpGroupBitwiseAndKHR OpGroupBitwiseOrKHR OpGroupBitwiseXorKHR
+\ OpControlBarrierArriveINTEL OpControlBarrierWaitINTEL
+\ OpSubgroupBlockPrefetchINTEL OpGroupIMulKHR OpGroupFMulKHR
+\ OpGroupBitwiseAndKHR OpGroupBitwiseOrKHR OpGroupBitwiseXorKHR
 \ OpGroupLogicalAndKHR OpGroupLogicalOrKHR OpGroupLogicalXorKHR
 \ OpMaskedGatherINTEL OpMaskedScatterINTEL
 
