@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: August 29, 2024
+" Last Modified: September 10, 2024
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -74,9 +74,10 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ StencilRefUnchangedFrontAMD StencilRefGreaterFrontAMD StencilRefLessFrontAMD
 \ StencilRefUnchangedBackAMD StencilRefGreaterBackAMD StencilRefLessBackAMD
 \ QuadDerivativesKHR RequireFullQuadsKHR OutputLinesEXT OutputLinesNV
-\ OutputPrimitivesEXT OutputPrimitivesNV DerivativeGroupQuadsNV
-\ DerivativeGroupLinearNV OutputTrianglesEXT OutputTrianglesNV
-\ PixelInterlockOrderedEXT PixelInterlockUnorderedEXT SampleInterlockOrderedEXT
+\ OutputPrimitivesEXT OutputPrimitivesNV DerivativeGroupQuadsKHR
+\ DerivativeGroupQuadsNV DerivativeGroupLinearKHR DerivativeGroupLinearNV
+\ OutputTrianglesEXT OutputTrianglesNV PixelInterlockOrderedEXT
+\ PixelInterlockUnorderedEXT SampleInterlockOrderedEXT
 \ SampleInterlockUnorderedEXT ShadingRateInterlockOrderedEXT
 \ ShadingRateInterlockUnorderedEXT SharedLocalMemorySizeINTEL
 \ RoundingModeRTPINTEL RoundingModeRTNINTEL FloatingPointModeALTINTEL
@@ -211,9 +212,9 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ ShaderViewportIndexLayerEXT ShaderViewportIndexLayerNV ShaderViewportMaskNV
 \ ShaderStereoViewNV PerViewAttributesNV FragmentFullyCoveredEXT MeshShadingNV
 \ ImageFootprintNV MeshShadingEXT FragmentBarycentricKHR FragmentBarycentricNV
-\ ComputeDerivativeGroupQuadsNV FragmentDensityEXT ShadingRateNV
-\ GroupNonUniformPartitionedNV ShaderNonUniform ShaderNonUniformEXT
-\ RuntimeDescriptorArray RuntimeDescriptorArrayEXT
+\ ComputeDerivativeGroupQuadsKHR ComputeDerivativeGroupQuadsNV
+\ FragmentDensityEXT ShadingRateNV GroupNonUniformPartitionedNV ShaderNonUniform
+\ ShaderNonUniformEXT RuntimeDescriptorArray RuntimeDescriptorArrayEXT
 \ InputAttachmentArrayDynamicIndexing InputAttachmentArrayDynamicIndexingEXT
 \ UniformTexelBufferArrayDynamicIndexing
 \ UniformTexelBufferArrayDynamicIndexingEXT
@@ -231,9 +232,10 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ RayTracingNV RayTracingMotionBlurNV VulkanMemoryModel VulkanMemoryModelKHR
 \ VulkanMemoryModelDeviceScope VulkanMemoryModelDeviceScopeKHR
 \ PhysicalStorageBufferAddresses PhysicalStorageBufferAddressesEXT
-\ ComputeDerivativeGroupLinearNV RayTracingProvisionalKHR CooperativeMatrixNV
-\ FragmentShaderSampleInterlockEXT FragmentShaderShadingRateInterlockEXT
-\ ShaderSMBuiltinsNV FragmentShaderPixelInterlockEXT DemoteToHelperInvocation
+\ ComputeDerivativeGroupLinearKHR ComputeDerivativeGroupLinearNV
+\ RayTracingProvisionalKHR CooperativeMatrixNV FragmentShaderSampleInterlockEXT
+\ FragmentShaderShadingRateInterlockEXT ShaderSMBuiltinsNV
+\ FragmentShaderPixelInterlockEXT DemoteToHelperInvocation
 \ DemoteToHelperInvocationEXT DisplacementMicromapNV
 \ RayTracingOpacityMicromapEXT ShaderInvocationReorderNV BindlessTextureNV
 \ RayQueryPositionFetchKHR AtomicFloat16VectorNV
