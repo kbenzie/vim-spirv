@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: September 10, 2024
+" Last Modified: September 26, 2024
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -38,8 +38,8 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ IterationMultiple PeelCount PartialCount InitiationIntervalINTEL
 \ MaxConcurrencyINTEL DependencyArrayINTEL PipelineEnableINTEL LoopCoalesceINTEL
 \ MaxInterleavingINTEL SpeculatedIterationsINTEL NoFusionINTEL LoopCountINTEL
-\ MaxReinvocationDelayINTEL Inline DontInline Pure Const OptNoneINTEL Relaxed
-\ Acquire Release AcquireRelease SequentiallyConsistent UniformMemory
+\ MaxReinvocationDelayINTEL Inline DontInline Pure Const OptNoneEXT OptNoneINTEL
+\ Relaxed Acquire Release AcquireRelease SequentiallyConsistent UniformMemory
 \ SubgroupMemory WorkgroupMemory CrossWorkgroupMemory AtomicCounterMemory
 \ ImageMemory OutputMemory OutputMemoryKHR MakeAvailable MakeAvailableKHR
 \ MakeVisible MakeVisibleKHR Volatile Aligned MakePointerAvailable
