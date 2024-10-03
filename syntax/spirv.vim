@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: September 26, 2024
+" Last Modified: October 03, 2024
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -262,8 +262,8 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ GroupNonUniformRotateKHR FloatControls2 AtomicFloat32AddEXT
 \ AtomicFloat64AddEXT LongCompositesINTEL AtomicFloat16AddEXT
 \ DebugInfoModuleINTEL BFloat16ConversionINTEL SplitBarrierINTEL
-\ FPGAClusterAttributesV2INTEL FPGAKernelAttributesv2INTEL FPMaxErrorINTEL
-\ FPGALatencyControlINTEL FPGAArgumentInterfacesINTEL
+\ ArithmeticFenceEXT FPGAClusterAttributesV2INTEL FPGAKernelAttributesv2INTEL
+\ FPMaxErrorINTEL FPGALatencyControlINTEL FPGAArgumentInterfacesINTEL
 \ GlobalVariableHostAccessINTEL GlobalVariableFPGADecorationsINTEL
 \ SubgroupBufferPrefetchINTEL GroupUniformArithmeticKHR MaskedGatherScatterINTEL
 \ CacheControlsINTEL RegisterLimitsINTEL RayQueryCandidateIntersectionKHR
@@ -559,7 +559,7 @@ syn keyword SpirvInstruction OpNop OpUndef OpTypeReserveId OpConstantTrue
 \ OpTypeBufferSurfaceINTEL OpTypeStructContinuedINTEL
 \ OpConstantCompositeContinuedINTEL OpSpecConstantCompositeContinuedINTEL
 \ OpCompositeConstructContinuedINTEL OpConvertFToBF16INTEL OpConvertBF16ToFINTEL
-\ OpControlBarrierArriveINTEL OpControlBarrierWaitINTEL
+\ OpControlBarrierArriveINTEL OpControlBarrierWaitINTEL OpArithmeticFenceEXT
 \ OpSubgroupBlockPrefetchINTEL OpGroupIMulKHR OpGroupFMulKHR
 \ OpGroupBitwiseAndKHR OpGroupBitwiseOrKHR OpGroupBitwiseXorKHR
 \ OpGroupLogicalAndKHR OpGroupLogicalOrKHR OpGroupLogicalXorKHR
