@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: October 10, 2024
+" Last Modified: October 24, 2024
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -209,7 +209,10 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ ShaderSMBuiltinsNV FragmentShaderPixelInterlockEXT DemoteToHelperInvocation
 \ DisplacementMicromapNV RayTracingOpacityMicromapEXT ShaderInvocationReorderNV
 \ BindlessTextureNV RayQueryPositionFetchKHR AtomicFloat16VectorNV
-\ RayTracingDisplacementMicromapNV RawAccessChainsNV SubgroupShuffleINTEL
+\ RayTracingDisplacementMicromapNV RawAccessChainsNV
+\ CooperativeMatrixReductionsNV CooperativeMatrixConversionsNV
+\ CooperativeMatrixPerElementOperationsNV CooperativeMatrixTensorAddressingNV
+\ CooperativeMatrixBlockLoadsNV TensorAddressingNV SubgroupShuffleINTEL
 \ SubgroupBufferBlockIOINTEL SubgroupImageBlockIOINTEL
 \ SubgroupImageMediaBlockIOINTEL RoundToInfinityINTEL FloatingPointModeINTEL
 \ IntegerFunctions2INTEL FunctionPointersINTEL IndirectReferencesINTEL AsmINTEL
@@ -242,10 +245,11 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ PackedVectorFormat4x8Bit MatrixASignedComponentsKHR MatrixBSignedComponentsKHR
 \ MatrixCSignedComponentsKHR MatrixResultSignedComponentsKHR
 \ SaturatingAccumulationKHR RowMajorKHR ColumnMajorKHR RowBlockedInterleavedARM
-\ ColumnBlockedInterleavedARM MatrixAKHR MatrixBKHR MatrixAccumulatorKHR
-\ InitOnDeviceReprogramINTEL InitOnDeviceResetINTEL UncachedINTEL CachedINTEL
-\ StreamingINTEL InvalidateAfterReadINTEL ConstCachedINTEL WriteThroughINTEL
-\ WriteBackINTEL AutoINTEL
+\ ColumnBlockedInterleavedARM MatrixAKHR MatrixBKHR MatrixAccumulatorKHR Row
+\ Column 2x2 Undefined TensorView DecodeFunc InitOnDeviceReprogramINTEL
+\ InitOnDeviceResetINTEL UncachedINTEL CachedINTEL StreamingINTEL
+\ InvalidateAfterReadINTEL ConstCachedINTEL WriteThroughINTEL WriteBackINTEL
+\ AutoINTEL
 
 " Extension keywords
 syn keyword SpirvExtension OpExtension OpExtInstImport OpExtInst
@@ -359,21 +363,28 @@ syn keyword SpirvInstruction OpNop OpUndef OpTypeReserveId OpConstantTrue
 \ OpHitObjectGetRayTMaxNV OpHitObjectGetRayTMinNV OpHitObjectIsEmptyNV
 \ OpHitObjectIsHitNV OpHitObjectIsMissNV OpReorderThreadWithHitObjectNV
 \ OpReorderThreadWithHintNV OpTypeHitObjectNV OpImageSampleFootprintNV
-\ OpEmitMeshTasksEXT OpSetMeshOutputsEXT OpGroupNonUniformPartitionNV
-\ OpWritePackedPrimitiveIndices4x8NV OpFetchMicroTriangleVertexPositionNV
-\ OpFetchMicroTriangleVertexBarycentricNV OpReportIntersectionKHR
-\ OpIgnoreIntersectionNV OpTerminateRayNV OpTraceNV OpTraceMotionNV
-\ OpTraceRayMotionNV OpRayQueryGetIntersectionTriangleVertexPositionsKHR
+\ OpCooperativeMatrixConvertNV OpEmitMeshTasksEXT OpSetMeshOutputsEXT
+\ OpGroupNonUniformPartitionNV OpWritePackedPrimitiveIndices4x8NV
+\ OpFetchMicroTriangleVertexPositionNV OpFetchMicroTriangleVertexBarycentricNV
+\ OpReportIntersectionKHR OpIgnoreIntersectionNV OpTerminateRayNV OpTraceNV
+\ OpTraceMotionNV OpTraceRayMotionNV
+\ OpRayQueryGetIntersectionTriangleVertexPositionsKHR
 \ OpTypeAccelerationStructureKHR OpExecuteCallableNV OpTypeCooperativeMatrixNV
 \ OpCooperativeMatrixLoadNV OpCooperativeMatrixStoreNV
 \ OpCooperativeMatrixMulAddNV OpCooperativeMatrixLengthNV
 \ OpBeginInvocationInterlockEXT OpEndInvocationInterlockEXT
-\ OpDemoteToHelperInvocation OpIsHelperInvocationEXT OpConvertUToImageNV
-\ OpConvertUToSamplerNV OpConvertImageToUNV OpConvertSamplerToUNV
-\ OpConvertUToSampledImageNV OpConvertSampledImageToUNV
-\ OpSamplerImageAddressingModeNV OpRawAccessChainNV OpSubgroupShuffleINTEL
-\ OpSubgroupShuffleDownINTEL OpSubgroupShuffleUpINTEL OpSubgroupShuffleXorINTEL
-\ OpSubgroupBlockReadINTEL OpSubgroupBlockWriteINTEL
+\ OpCooperativeMatrixReduceNV OpCooperativeMatrixLoadTensorNV
+\ OpCooperativeMatrixStoreTensorNV OpCooperativeMatrixPerElementOpNV
+\ OpTypeTensorLayoutNV OpTypeTensorViewNV OpCreateTensorLayoutNV
+\ OpTensorLayoutSetDimensionNV OpTensorLayoutSetStrideNV OpTensorLayoutSliceNV
+\ OpTensorLayoutSetClampValueNV OpCreateTensorViewNV OpTensorViewSetDimensionNV
+\ OpTensorViewSetStrideNV OpDemoteToHelperInvocation OpIsHelperInvocationEXT
+\ OpTensorViewSetClipNV OpTensorLayoutSetBlockSizeNV
+\ OpCooperativeMatrixTransposeNV OpConvertUToImageNV OpConvertUToSamplerNV
+\ OpConvertImageToUNV OpConvertSamplerToUNV OpConvertUToSampledImageNV
+\ OpConvertSampledImageToUNV OpSamplerImageAddressingModeNV OpRawAccessChainNV
+\ OpSubgroupShuffleINTEL OpSubgroupShuffleDownINTEL OpSubgroupShuffleUpINTEL
+\ OpSubgroupShuffleXorINTEL OpSubgroupBlockReadINTEL OpSubgroupBlockWriteINTEL
 \ OpSubgroupImageBlockReadINTEL OpSubgroupImageBlockWriteINTEL
 \ OpSubgroupImageMediaBlockReadINTEL OpSubgroupImageMediaBlockWriteINTEL
 \ OpUCountLeadingZerosINTEL OpUCountTrailingZerosINTEL OpAbsISubINTEL
