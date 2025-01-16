@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: October 24, 2024
+" Last Modified: January 16, 2025
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -47,7 +47,7 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ SkipAABBsKHR ForceOpacityMicromap2StateEXT Vertical2Pixels Vertical4Pixels
 \ Horizontal2Pixels Horizontal4Pixels RobustnessPerComponentNV
 \ RobustnessPerElementNV Unknown ESSL GLSL OpenCL_C OpenCL_CPP HLSL
-\ CPP_for_OpenCL SYCL HERO_C NZSL WGSL Slang Zig Vertex TessellationControl
+\ CPP_for_OpenCL SYCL HERO_C NZSL WGSL Slang Zig Rust Vertex TessellationControl
 \ TessellationEvaluation Geometry Fragment GLCompute Kernel TaskNV MeshNV
 \ RayGenerationKHR IntersectionKHR AnyHitKHR ClosestHitKHR MissKHR CallableKHR
 \ TaskEXT MeshEXT Logical Physical32 Physical64 PhysicalStorageBuffer64 Simple
@@ -236,8 +236,10 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ ArithmeticFenceEXT FPGAClusterAttributesV2INTEL FPGAKernelAttributesv2INTEL
 \ FPMaxErrorINTEL FPGALatencyControlINTEL FPGAArgumentInterfacesINTEL
 \ GlobalVariableHostAccessINTEL GlobalVariableFPGADecorationsINTEL
-\ SubgroupBufferPrefetchINTEL GroupUniformArithmeticKHR MaskedGatherScatterINTEL
-\ CacheControlsINTEL RegisterLimitsINTEL RayQueryCandidateIntersectionKHR
+\ SubgroupBufferPrefetchINTEL Subgroup2DBlockIOINTEL
+\ Subgroup2DBlockTransformINTEL Subgroup2DBlockTransposeINTEL
+\ GroupUniformArithmeticKHR MaskedGatherScatterINTEL CacheControlsINTEL
+\ RegisterLimitsINTEL RayQueryCandidateIntersectionKHR
 \ RayQueryCommittedIntersectionKHR RayQueryCommittedIntersectionNoneKHR
 \ RayQueryCommittedIntersectionTriangleKHR
 \ RayQueryCommittedIntersectionGeneratedKHR
@@ -536,8 +538,10 @@ syn keyword SpirvInstruction OpNop OpUndef OpTypeReserveId OpConstantTrue
 \ OpConstantCompositeContinuedINTEL OpSpecConstantCompositeContinuedINTEL
 \ OpCompositeConstructContinuedINTEL OpConvertFToBF16INTEL OpConvertBF16ToFINTEL
 \ OpControlBarrierArriveINTEL OpControlBarrierWaitINTEL OpArithmeticFenceEXT
-\ OpSubgroupBlockPrefetchINTEL OpGroupIMulKHR OpGroupFMulKHR
-\ OpGroupBitwiseAndKHR OpGroupBitwiseOrKHR OpGroupBitwiseXorKHR
+\ OpSubgroupBlockPrefetchINTEL OpSubgroup2DBlockLoadINTEL
+\ OpSubgroup2DBlockLoadTransformINTEL OpSubgroup2DBlockLoadTransposeINTEL
+\ OpSubgroup2DBlockPrefetchINTEL OpSubgroup2DBlockStoreINTEL OpGroupIMulKHR
+\ OpGroupFMulKHR OpGroupBitwiseAndKHR OpGroupBitwiseOrKHR OpGroupBitwiseXorKHR
 \ OpGroupLogicalAndKHR OpGroupLogicalOrKHR OpGroupLogicalXorKHR
 \ OpMaskedGatherINTEL OpMaskedScatterINTEL
 
