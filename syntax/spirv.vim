@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: January 16, 2025
+" Last Modified: January 17, 2025
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -238,10 +238,10 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ GlobalVariableHostAccessINTEL GlobalVariableFPGADecorationsINTEL
 \ SubgroupBufferPrefetchINTEL Subgroup2DBlockIOINTEL
 \ Subgroup2DBlockTransformINTEL Subgroup2DBlockTransposeINTEL
-\ GroupUniformArithmeticKHR MaskedGatherScatterINTEL CacheControlsINTEL
-\ RegisterLimitsINTEL RayQueryCandidateIntersectionKHR
-\ RayQueryCommittedIntersectionKHR RayQueryCommittedIntersectionNoneKHR
-\ RayQueryCommittedIntersectionTriangleKHR
+\ SubgroupMatrixMultiplyAccumulateINTEL GroupUniformArithmeticKHR
+\ MaskedGatherScatterINTEL CacheControlsINTEL RegisterLimitsINTEL
+\ RayQueryCandidateIntersectionKHR RayQueryCommittedIntersectionKHR
+\ RayQueryCommittedIntersectionNoneKHR RayQueryCommittedIntersectionTriangleKHR
 \ RayQueryCommittedIntersectionGeneratedKHR
 \ RayQueryCandidateIntersectionTriangleKHR RayQueryCandidateIntersectionAABBKHR
 \ PackedVectorFormat4x8Bit MatrixASignedComponentsKHR MatrixBSignedComponentsKHR
@@ -251,7 +251,12 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ Column 2x2 Undefined TensorView DecodeFunc InitOnDeviceReprogramINTEL
 \ InitOnDeviceResetINTEL UncachedINTEL CachedINTEL StreamingINTEL
 \ InvalidateAfterReadINTEL ConstCachedINTEL WriteThroughINTEL WriteBackINTEL
-\ AutoINTEL
+\ AutoINTEL MatrixASignedComponentsINTEL MatrixBSignedComponentsINTEL
+\ MatrixCBFloat16INTEL MatrixResultBFloat16INTEL MatrixAPackedInt8INTEL
+\ MatrixBPackedInt8INTEL MatrixAPackedInt4INTEL MatrixBPackedInt4INTEL
+\ MatrixATF32INTEL MatrixBTF32INTEL MatrixAPackedFloat16INTEL
+\ MatrixBPackedFloat16INTEL MatrixAPackedBFloat16INTEL
+\ MatrixBPackedBFloat16INTEL
 
 " Extension keywords
 syn keyword SpirvExtension OpExtension OpExtInstImport OpExtInst
@@ -540,8 +545,9 @@ syn keyword SpirvInstruction OpNop OpUndef OpTypeReserveId OpConstantTrue
 \ OpControlBarrierArriveINTEL OpControlBarrierWaitINTEL OpArithmeticFenceEXT
 \ OpSubgroupBlockPrefetchINTEL OpSubgroup2DBlockLoadINTEL
 \ OpSubgroup2DBlockLoadTransformINTEL OpSubgroup2DBlockLoadTransposeINTEL
-\ OpSubgroup2DBlockPrefetchINTEL OpSubgroup2DBlockStoreINTEL OpGroupIMulKHR
-\ OpGroupFMulKHR OpGroupBitwiseAndKHR OpGroupBitwiseOrKHR OpGroupBitwiseXorKHR
+\ OpSubgroup2DBlockPrefetchINTEL OpSubgroup2DBlockStoreINTEL
+\ OpSubgroupMatrixMultiplyAccumulateINTEL OpGroupIMulKHR OpGroupFMulKHR
+\ OpGroupBitwiseAndKHR OpGroupBitwiseOrKHR OpGroupBitwiseXorKHR
 \ OpGroupLogicalAndKHR OpGroupLogicalOrKHR OpGroupLogicalXorKHR
 \ OpMaskedGatherINTEL OpMaskedScatterINTEL
 
