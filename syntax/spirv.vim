@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: January 17, 2025
+" Last Modified: January 30, 2025
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -156,15 +156,17 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ ObjectToWorldKHR WorldToObjectKHR HitTNV HitKindKHR CurrentRayTimeNV
 \ HitTriangleVertexPositionsKHR HitMicroTriangleVertexPositionsNV
 \ HitMicroTriangleVertexBarycentricsNV IncomingRayFlagsKHR RayGeometryIndexKHR
-\ WarpsPerSMNV SMCountNV WarpIDNV SMIDNV HitKindFrontFacingMicroTriangleNV
-\ HitKindBackFacingMicroTriangleNV CullMaskKHR CrossDevice Device Subgroup
-\ Invocation QueueFamily ShaderCallKHR Reduce InclusiveScan ExclusiveScan
-\ ClusteredReduce PartitionedReduceNV PartitionedInclusiveScanNV
-\ PartitionedExclusiveScanNV NoWait WaitKernel WaitWorkGroup Matrix Shader
-\ Tessellation Addresses Linkage Vector16 Float16Buffer Float16 Float64 Int64
-\ Int64Atomics ImageBasic ImageReadWrite ImageMipmap Pipes Groups DeviceEnqueue
-\ LiteralSampler AtomicStorage Int16 TessellationPointSize GeometryPointSize
-\ ImageGatherExtended StorageImageMultisample UniformBufferArrayDynamicIndexing
+\ HitIsSphereNV HitIsLSSNV HitSpherePositionNV WarpsPerSMNV SMCountNV WarpIDNV
+\ SMIDNV HitLSSPositionsNV HitKindFrontFacingMicroTriangleNV
+\ HitKindBackFacingMicroTriangleNV HitSphereRadiusNV HitLSSRadiiNV ClusterIDNV
+\ CullMaskKHR CrossDevice Device Subgroup Invocation QueueFamily ShaderCallKHR
+\ Reduce InclusiveScan ExclusiveScan ClusteredReduce PartitionedReduceNV
+\ PartitionedInclusiveScanNV PartitionedExclusiveScanNV NoWait WaitKernel
+\ WaitWorkGroup Matrix Shader Tessellation Addresses Linkage Vector16
+\ Float16Buffer Float16 Float64 Int64 Int64Atomics ImageBasic ImageReadWrite
+\ ImageMipmap Pipes Groups DeviceEnqueue LiteralSampler AtomicStorage Int16
+\ TessellationPointSize GeometryPointSize ImageGatherExtended
+\ StorageImageMultisample UniformBufferArrayDynamicIndexing
 \ SampledImageArrayDynamicIndexing StorageBufferArrayDynamicIndexing
 \ StorageImageArrayDynamicIndexing ImageCubeArray SampleRateShading ImageRect
 \ SampledRect GenericPointer Int8 InputAttachment SparseResidency Sampled1D
@@ -208,12 +210,14 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ FragmentShaderSampleInterlockEXT FragmentShaderShadingRateInterlockEXT
 \ ShaderSMBuiltinsNV FragmentShaderPixelInterlockEXT DemoteToHelperInvocation
 \ DisplacementMicromapNV RayTracingOpacityMicromapEXT ShaderInvocationReorderNV
-\ BindlessTextureNV RayQueryPositionFetchKHR AtomicFloat16VectorNV
-\ RayTracingDisplacementMicromapNV RawAccessChainsNV
+\ BindlessTextureNV RayQueryPositionFetchKHR CooperativeVectorNV
+\ AtomicFloat16VectorNV RayTracingDisplacementMicromapNV RawAccessChainsNV
+\ RayTracingSpheresGeometryNV RayTracingLinearSweptSpheresGeometryNV
 \ CooperativeMatrixReductionsNV CooperativeMatrixConversionsNV
 \ CooperativeMatrixPerElementOperationsNV CooperativeMatrixTensorAddressingNV
-\ CooperativeMatrixBlockLoadsNV TensorAddressingNV SubgroupShuffleINTEL
-\ SubgroupBufferBlockIOINTEL SubgroupImageBlockIOINTEL
+\ CooperativeMatrixBlockLoadsNV CooperativeVectorTrainingNV
+\ RayTracingClusterAccelerationStructureNV TensorAddressingNV
+\ SubgroupShuffleINTEL SubgroupBufferBlockIOINTEL SubgroupImageBlockIOINTEL
 \ SubgroupImageMediaBlockIOINTEL RoundToInfinityINTEL FloatingPointModeINTEL
 \ IntegerFunctions2INTEL FunctionPointersINTEL IndirectReferencesINTEL AsmINTEL
 \ AtomicFloat32MinMaxEXT AtomicFloat64MinMaxEXT AtomicFloat16MinMaxEXT
@@ -256,7 +260,11 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ MatrixBPackedInt8INTEL MatrixAPackedInt4INTEL MatrixBPackedInt4INTEL
 \ MatrixATF32INTEL MatrixBTF32INTEL MatrixAPackedFloat16INTEL
 \ MatrixBPackedFloat16INTEL MatrixAPackedBFloat16INTEL
-\ MatrixBPackedBFloat16INTEL
+\ MatrixBPackedBFloat16INTEL RowMajorNV ColumnMajorNV InferencingOptimalNV
+\ TrainingOptimalNV Float16NV Float32NV Float64NV SignedInt8NV SignedInt16NV
+\ SignedInt32NV SignedInt64NV UnsignedInt8NV UnsignedInt16NV UnsignedInt32NV
+\ UnsignedInt64NV SignedInt8PackedNV UnsignedInt8PackedNV FloatE4M3NV
+\ FloatE5M2NV
 
 " Extension keywords
 syn keyword SpirvExtension OpExtension OpExtInstImport OpExtInst
@@ -370,28 +378,38 @@ syn keyword SpirvInstruction OpNop OpUndef OpTypeReserveId OpConstantTrue
 \ OpHitObjectGetRayTMaxNV OpHitObjectGetRayTMinNV OpHitObjectIsEmptyNV
 \ OpHitObjectIsHitNV OpHitObjectIsMissNV OpReorderThreadWithHitObjectNV
 \ OpReorderThreadWithHintNV OpTypeHitObjectNV OpImageSampleFootprintNV
+\ OpTypeCooperativeVectorNV OpCooperativeVectorMatrixMulNV
+\ OpCooperativeVectorOuterProductAccumulateNV
+\ OpCooperativeVectorReduceSumAccumulateNV OpCooperativeVectorMatrixMulAddNV
 \ OpCooperativeMatrixConvertNV OpEmitMeshTasksEXT OpSetMeshOutputsEXT
 \ OpGroupNonUniformPartitionNV OpWritePackedPrimitiveIndices4x8NV
 \ OpFetchMicroTriangleVertexPositionNV OpFetchMicroTriangleVertexBarycentricNV
-\ OpReportIntersectionKHR OpIgnoreIntersectionNV OpTerminateRayNV OpTraceNV
-\ OpTraceMotionNV OpTraceRayMotionNV
-\ OpRayQueryGetIntersectionTriangleVertexPositionsKHR
-\ OpTypeAccelerationStructureKHR OpExecuteCallableNV OpTypeCooperativeMatrixNV
-\ OpCooperativeMatrixLoadNV OpCooperativeMatrixStoreNV
-\ OpCooperativeMatrixMulAddNV OpCooperativeMatrixLengthNV
-\ OpBeginInvocationInterlockEXT OpEndInvocationInterlockEXT
-\ OpCooperativeMatrixReduceNV OpCooperativeMatrixLoadTensorNV
-\ OpCooperativeMatrixStoreTensorNV OpCooperativeMatrixPerElementOpNV
-\ OpTypeTensorLayoutNV OpTypeTensorViewNV OpCreateTensorLayoutNV
-\ OpTensorLayoutSetDimensionNV OpTensorLayoutSetStrideNV OpTensorLayoutSliceNV
-\ OpTensorLayoutSetClampValueNV OpCreateTensorViewNV OpTensorViewSetDimensionNV
-\ OpTensorViewSetStrideNV OpDemoteToHelperInvocation OpIsHelperInvocationEXT
-\ OpTensorViewSetClipNV OpTensorLayoutSetBlockSizeNV
+\ OpCooperativeVectorLoadNV OpCooperativeVectorStoreNV OpReportIntersectionKHR
+\ OpIgnoreIntersectionNV OpTerminateRayNV OpTraceNV OpTraceMotionNV
+\ OpTraceRayMotionNV OpRayQueryGetIntersectionTriangleVertexPositionsKHR
+\ OpTypeAccelerationStructureKHR OpExecuteCallableNV OpRayQueryGetClusterIdNV
+\ OpHitObjectGetClusterIdNV OpTypeCooperativeMatrixNV OpCooperativeMatrixLoadNV
+\ OpCooperativeMatrixStoreNV OpCooperativeMatrixMulAddNV
+\ OpCooperativeMatrixLengthNV OpBeginInvocationInterlockEXT
+\ OpEndInvocationInterlockEXT OpCooperativeMatrixReduceNV
+\ OpCooperativeMatrixLoadTensorNV OpCooperativeMatrixStoreTensorNV
+\ OpCooperativeMatrixPerElementOpNV OpTypeTensorLayoutNV OpTypeTensorViewNV
+\ OpCreateTensorLayoutNV OpTensorLayoutSetDimensionNV OpTensorLayoutSetStrideNV
+\ OpTensorLayoutSliceNV OpTensorLayoutSetClampValueNV OpCreateTensorViewNV
+\ OpTensorViewSetDimensionNV OpTensorViewSetStrideNV OpDemoteToHelperInvocation
+\ OpIsHelperInvocationEXT OpTensorViewSetClipNV OpTensorLayoutSetBlockSizeNV
 \ OpCooperativeMatrixTransposeNV OpConvertUToImageNV OpConvertUToSamplerNV
 \ OpConvertImageToUNV OpConvertSamplerToUNV OpConvertUToSampledImageNV
 \ OpConvertSampledImageToUNV OpSamplerImageAddressingModeNV OpRawAccessChainNV
-\ OpSubgroupShuffleINTEL OpSubgroupShuffleDownINTEL OpSubgroupShuffleUpINTEL
-\ OpSubgroupShuffleXorINTEL OpSubgroupBlockReadINTEL OpSubgroupBlockWriteINTEL
+\ OpRayQueryGetIntersectionSpherePositionNV
+\ OpRayQueryGetIntersectionSphereRadiusNV
+\ OpRayQueryGetIntersectionLSSPositionsNV OpRayQueryGetIntersectionLSSRadiiNV
+\ OpRayQueryGetIntersectionLSSHitValueNV OpHitObjectGetSpherePositionNV
+\ OpHitObjectGetSphereRadiusNV OpHitObjectGetLSSPositionsNV
+\ OpHitObjectGetLSSRadiiNV OpHitObjectIsSphereHitNV OpHitObjectIsLSSHitNV
+\ OpRayQueryIsSphereHitNV OpRayQueryIsLSSHitNV OpSubgroupShuffleINTEL
+\ OpSubgroupShuffleDownINTEL OpSubgroupShuffleUpINTEL OpSubgroupShuffleXorINTEL
+\ OpSubgroupBlockReadINTEL OpSubgroupBlockWriteINTEL
 \ OpSubgroupImageBlockReadINTEL OpSubgroupImageBlockWriteINTEL
 \ OpSubgroupImageMediaBlockReadINTEL OpSubgroupImageMediaBlockWriteINTEL
 \ OpUCountLeadingZerosINTEL OpUCountTrailingZerosINTEL OpAbsISubINTEL
