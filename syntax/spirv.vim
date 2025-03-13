@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: January 30, 2025
+" Last Modified: March 13, 2025
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -654,7 +654,7 @@ syn keyword SpirvOnsemanticClspvreflecti ArgumentInfo ArgumentStorageBuffer
 \ ArgumentStorageTexelBuffer ArgumentUniformTexelBuffer
 \ ConstantDataPointerPushConstant ProgramScopeVariablePointerPushConstant
 \ PrintfInfo PrintfBufferStorageBuffer PrintfBufferPointerPushConstant
-\ NormalizedSamplerMaskPushConstant
+\ NormalizedSamplerMaskPushConstant WorkgroupVariableSize
 
 " OnsemanticDebugbreak keywords
 syn keyword SpirvOnsemanticDebugbreak DebugBreak
