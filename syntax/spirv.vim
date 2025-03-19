@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: March 13, 2025
+" Last Modified: March 19, 2025
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -192,7 +192,8 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ TextureSampleWeightedQCOM TextureBoxFilterQCOM TextureBlockMatchQCOM
 \ TextureBlockMatch2QCOM Float16ImageAMD ImageGatherBiasLodAMD FragmentMaskAMD
 \ StencilExportEXT ImageReadWriteLodAMD Int64ImageEXT ShaderClockKHR
-\ ShaderEnqueueAMDX QuadControlKHR SampleMaskOverrideCoverageNV
+\ ShaderEnqueueAMDX QuadControlKHR BFloat16TypeKHR BFloat16DotProductKHR
+\ BFloat16CooperativeMatrixKHR SampleMaskOverrideCoverageNV
 \ GeometryShaderPassthroughNV ShaderViewportIndexLayerEXT ShaderViewportMaskNV
 \ ShaderStereoViewNV PerViewAttributesNV FragmentFullyCoveredEXT MeshShadingNV
 \ ImageFootprintNV MeshShadingEXT FragmentBarycentricKHR
@@ -260,11 +261,11 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ MatrixBPackedInt8INTEL MatrixAPackedInt4INTEL MatrixBPackedInt4INTEL
 \ MatrixATF32INTEL MatrixBTF32INTEL MatrixAPackedFloat16INTEL
 \ MatrixBPackedFloat16INTEL MatrixAPackedBFloat16INTEL
-\ MatrixBPackedBFloat16INTEL RowMajorNV ColumnMajorNV InferencingOptimalNV
-\ TrainingOptimalNV Float16NV Float32NV Float64NV SignedInt8NV SignedInt16NV
-\ SignedInt32NV SignedInt64NV UnsignedInt8NV UnsignedInt16NV UnsignedInt32NV
-\ UnsignedInt64NV SignedInt8PackedNV UnsignedInt8PackedNV FloatE4M3NV
-\ FloatE5M2NV
+\ MatrixBPackedBFloat16INTEL BFloat16KHR RowMajorNV ColumnMajorNV
+\ InferencingOptimalNV TrainingOptimalNV Float16NV Float32NV Float64NV
+\ SignedInt8NV SignedInt16NV SignedInt32NV SignedInt64NV UnsignedInt8NV
+\ UnsignedInt16NV UnsignedInt32NV UnsignedInt64NV SignedInt8PackedNV
+\ UnsignedInt8PackedNV FloatE4M3NV FloatE5M2NV
 
 " Extension keywords
 syn keyword SpirvExtension OpExtension OpExtInstImport OpExtInst
