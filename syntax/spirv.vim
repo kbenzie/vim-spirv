@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: March 19, 2025
+" Last Modified: March 20, 2025
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -239,14 +239,15 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ AtomicFloat64AddEXT LongCompositesINTEL AtomicFloat16AddEXT
 \ DebugInfoModuleINTEL BFloat16ConversionINTEL SplitBarrierINTEL
 \ ArithmeticFenceEXT FPGAClusterAttributesV2INTEL FPGAKernelAttributesv2INTEL
-\ FPMaxErrorINTEL FPGALatencyControlINTEL FPGAArgumentInterfacesINTEL
-\ GlobalVariableHostAccessINTEL GlobalVariableFPGADecorationsINTEL
-\ SubgroupBufferPrefetchINTEL Subgroup2DBlockIOINTEL
-\ Subgroup2DBlockTransformINTEL Subgroup2DBlockTransposeINTEL
-\ SubgroupMatrixMultiplyAccumulateINTEL GroupUniformArithmeticKHR
-\ MaskedGatherScatterINTEL CacheControlsINTEL RegisterLimitsINTEL
-\ RayQueryCandidateIntersectionKHR RayQueryCommittedIntersectionKHR
-\ RayQueryCommittedIntersectionNoneKHR RayQueryCommittedIntersectionTriangleKHR
+\ TaskSequenceINTEL FPMaxErrorINTEL FPGALatencyControlINTEL
+\ FPGAArgumentInterfacesINTEL GlobalVariableHostAccessINTEL
+\ GlobalVariableFPGADecorationsINTEL SubgroupBufferPrefetchINTEL
+\ Subgroup2DBlockIOINTEL Subgroup2DBlockTransformINTEL
+\ Subgroup2DBlockTransposeINTEL SubgroupMatrixMultiplyAccumulateINTEL
+\ GroupUniformArithmeticKHR TensorFloat32RoundingINTEL MaskedGatherScatterINTEL
+\ CacheControlsINTEL RegisterLimitsINTEL RayQueryCandidateIntersectionKHR
+\ RayQueryCommittedIntersectionKHR RayQueryCommittedIntersectionNoneKHR
+\ RayQueryCommittedIntersectionTriangleKHR
 \ RayQueryCommittedIntersectionGeneratedKHR
 \ RayQueryCandidateIntersectionTriangleKHR RayQueryCandidateIntersectionAABBKHR
 \ PackedVectorFormat4x8Bit MatrixASignedComponentsKHR MatrixBSignedComponentsKHR
@@ -562,13 +563,15 @@ syn keyword SpirvInstruction OpNop OpUndef OpTypeReserveId OpConstantTrue
 \ OpConstantCompositeContinuedINTEL OpSpecConstantCompositeContinuedINTEL
 \ OpCompositeConstructContinuedINTEL OpConvertFToBF16INTEL OpConvertBF16ToFINTEL
 \ OpControlBarrierArriveINTEL OpControlBarrierWaitINTEL OpArithmeticFenceEXT
+\ OpTaskSequenceCreateINTEL OpTaskSequenceAsyncINTEL OpTaskSequenceGetINTEL
+\ OpTaskSequenceReleaseINTEL OpTypeTaskSequenceINTEL
 \ OpSubgroupBlockPrefetchINTEL OpSubgroup2DBlockLoadINTEL
 \ OpSubgroup2DBlockLoadTransformINTEL OpSubgroup2DBlockLoadTransposeINTEL
 \ OpSubgroup2DBlockPrefetchINTEL OpSubgroup2DBlockStoreINTEL
 \ OpSubgroupMatrixMultiplyAccumulateINTEL OpGroupIMulKHR OpGroupFMulKHR
 \ OpGroupBitwiseAndKHR OpGroupBitwiseOrKHR OpGroupBitwiseXorKHR
 \ OpGroupLogicalAndKHR OpGroupLogicalOrKHR OpGroupLogicalXorKHR
-\ OpMaskedGatherINTEL OpMaskedScatterINTEL
+\ OpRoundFToTF32INTEL OpMaskedGatherINTEL OpMaskedScatterINTEL
 
 " Label keywords
 syn keyword SpirvLabel OpLabel
