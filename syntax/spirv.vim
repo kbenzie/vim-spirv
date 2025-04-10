@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: March 28, 2025
+" Last Modified: April 10, 2025
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -93,24 +93,26 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ sRGBx sRGBA sBGRA ABGR SnormInt8 SnormInt16 UnormInt8 UnormInt16 UnormShort565
 \ UnormShort555 UnormInt101010 SignedInt8 SignedInt16 SignedInt32 UnsignedInt8
 \ UnsignedInt16 UnsignedInt32 HalfFloat Float UnormInt24 UnormInt101010_2
-\ UnsignedIntRaw10EXT UnsignedIntRaw12EXT UnormInt2_101010EXT RTE RTZ RTP RTN
-\ Preserve FlushToZero TRN TRN_ZERO RND RND_ZERO RND_INF RND_MIN_INF RND_CONV
-\ RND_CONV_ODD IEEE ALT WRAP SAT SAT_ZERO SAT_SYM Export Import LinkOnceODR
-\ ReadOnly WriteOnly ReadWrite NoneINTEL ReadINTEL WriteINTEL ReadWriteINTEL
-\ Zext Sext ByVal Sret NoAlias NoCapture NoWrite NoReadWrite RuntimeAlignedINTEL
-\ RelaxedPrecision SpecId Block BufferBlock RowMajor ColMajor ArrayStride
-\ MatrixStride GLSLShared GLSLPacked CPacked BuiltIn NoPerspective Flat Patch
-\ Centroid Invariant Restrict Aliased Constant Coherent NonWritable NonReadable
-\ UniformId SaturatedConversion Stream Location Component Index Binding
-\ DescriptorSet XfbBuffer XfbStride FuncParamAttr FPRoundingMode FPFastMathMode
-\ LinkageAttributes NoContraction InputAttachmentIndex Alignment MaxByteOffset
-\ AlignmentId MaxByteOffsetId NoSignedWrap NoUnsignedWrap WeightTextureQCOM
-\ BlockMatchTextureQCOM BlockMatchSamplerQCOM ExplicitInterpAMD
-\ NodeSharesPayloadLimitsWithAMDX NodeMaxPayloadsAMDX TrackFinishWritingAMDX
-\ PayloadNodeNameAMDX PayloadNodeBaseIndexAMDX PayloadNodeSparseArrayAMDX
-\ PayloadNodeArraySizeAMDX PayloadDispatchIndirectAMDX OverrideCoverageNV
-\ PassthroughNV ViewportRelativeNV SecondaryViewportRelativeNV PerPrimitiveEXT
-\ PerViewNV PerTaskNV PerVertexKHR NonUniform RestrictPointer AliasedPointer
+\ UnormInt10X6EXT UnsignedIntRaw10EXT UnsignedIntRaw12EXT UnormInt2_101010EXT
+\ UnsignedInt10X6EXT UnsignedInt12X4EXT UnsignedInt14X2EXT UnormInt12X4EXT
+\ UnormInt14X2EXT RTE RTZ RTP RTN Preserve FlushToZero TRN TRN_ZERO RND RND_ZERO
+\ RND_INF RND_MIN_INF RND_CONV RND_CONV_ODD IEEE ALT WRAP SAT SAT_ZERO SAT_SYM
+\ Export Import LinkOnceODR ReadOnly WriteOnly ReadWrite NoneINTEL ReadINTEL
+\ WriteINTEL ReadWriteINTEL Zext Sext ByVal Sret NoAlias NoCapture NoWrite
+\ NoReadWrite RuntimeAlignedINTEL RelaxedPrecision SpecId Block BufferBlock
+\ RowMajor ColMajor ArrayStride MatrixStride GLSLShared GLSLPacked CPacked
+\ BuiltIn NoPerspective Flat Patch Centroid Invariant Restrict Aliased Constant
+\ Coherent NonWritable NonReadable UniformId SaturatedConversion Stream Location
+\ Component Index Binding DescriptorSet XfbBuffer XfbStride FuncParamAttr
+\ FPRoundingMode FPFastMathMode LinkageAttributes NoContraction
+\ InputAttachmentIndex Alignment MaxByteOffset AlignmentId MaxByteOffsetId
+\ NoSignedWrap NoUnsignedWrap WeightTextureQCOM BlockMatchTextureQCOM
+\ BlockMatchSamplerQCOM ExplicitInterpAMD NodeSharesPayloadLimitsWithAMDX
+\ NodeMaxPayloadsAMDX TrackFinishWritingAMDX PayloadNodeNameAMDX
+\ PayloadNodeBaseIndexAMDX PayloadNodeSparseArrayAMDX PayloadNodeArraySizeAMDX
+\ PayloadDispatchIndirectAMDX OverrideCoverageNV PassthroughNV
+\ ViewportRelativeNV SecondaryViewportRelativeNV PerPrimitiveEXT PerViewNV
+\ PerTaskNV PerVertexKHR NonUniform RestrictPointer AliasedPointer
 \ HitObjectShaderRecordBufferNV BindlessSamplerNV BindlessImageNV BoundSamplerNV
 \ BoundImageNV SIMTCallINTEL ReferencedIndirectlyINTEL ClobberINTEL
 \ SideEffectsINTEL VectorComputeVariableINTEL FuncParamIOKindINTEL
