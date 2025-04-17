@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: April 10, 2025
+" Last Modified: April 17, 2025
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -62,24 +62,25 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ NonCoherentColorAttachmentReadEXT NonCoherentDepthAttachmentReadEXT
 \ NonCoherentStencilAttachmentReadEXT SubgroupUniformControlFlowKHR
 \ PostDepthCoverage DenormPreserve DenormFlushToZero SignedZeroInfNanPreserve
-\ RoundingModeRTE RoundingModeRTZ EarlyAndLateFragmentTestsAMD
-\ StencilRefReplacingEXT CoalescingAMDX IsApiEntryAMDX MaxNodeRecursionAMDX
-\ StaticNumWorkgroupsAMDX ShaderIndexAMDX MaxNumWorkgroupsAMDX
-\ StencilRefUnchangedFrontAMD StencilRefGreaterFrontAMD StencilRefLessFrontAMD
-\ StencilRefUnchangedBackAMD StencilRefGreaterBackAMD StencilRefLessBackAMD
-\ QuadDerivativesKHR RequireFullQuadsKHR SharesInputWithAMDX OutputLinesEXT
-\ OutputPrimitivesEXT DerivativeGroupQuadsKHR DerivativeGroupLinearKHR
-\ OutputTrianglesEXT PixelInterlockOrderedEXT PixelInterlockUnorderedEXT
-\ SampleInterlockOrderedEXT SampleInterlockUnorderedEXT
-\ ShadingRateInterlockOrderedEXT ShadingRateInterlockUnorderedEXT
-\ SharedLocalMemorySizeINTEL RoundingModeRTPINTEL RoundingModeRTNINTEL
-\ FloatingPointModeALTINTEL FloatingPointModeIEEEINTEL MaxWorkgroupSizeINTEL
-\ MaxWorkDimINTEL NoGlobalOffsetINTEL NumSIMDWorkitemsINTEL
-\ SchedulerTargetFmaxMhzINTEL MaximallyReconvergesKHR FPFastMathDefault
-\ StreamingInterfaceINTEL RegisterMapInterfaceINTEL NamedBarrierCountINTEL
-\ MaximumRegistersINTEL MaximumRegistersIdINTEL NamedMaximumRegistersINTEL
-\ UniformConstant Input Uniform Output Workgroup CrossWorkgroup Private Function
-\ Generic PushConstant AtomicCounter Image StorageBuffer TileImageEXT
+\ RoundingModeRTE RoundingModeRTZ NonCoherentTileAttachmentReadQCOM
+\ TileShadingRateQCOM EarlyAndLateFragmentTestsAMD StencilRefReplacingEXT
+\ CoalescingAMDX IsApiEntryAMDX MaxNodeRecursionAMDX StaticNumWorkgroupsAMDX
+\ ShaderIndexAMDX MaxNumWorkgroupsAMDX StencilRefUnchangedFrontAMD
+\ StencilRefGreaterFrontAMD StencilRefLessFrontAMD StencilRefUnchangedBackAMD
+\ StencilRefGreaterBackAMD StencilRefLessBackAMD QuadDerivativesKHR
+\ RequireFullQuadsKHR SharesInputWithAMDX OutputLinesEXT OutputPrimitivesEXT
+\ DerivativeGroupQuadsKHR DerivativeGroupLinearKHR OutputTrianglesEXT
+\ PixelInterlockOrderedEXT PixelInterlockUnorderedEXT SampleInterlockOrderedEXT
+\ SampleInterlockUnorderedEXT ShadingRateInterlockOrderedEXT
+\ ShadingRateInterlockUnorderedEXT SharedLocalMemorySizeINTEL
+\ RoundingModeRTPINTEL RoundingModeRTNINTEL FloatingPointModeALTINTEL
+\ FloatingPointModeIEEEINTEL MaxWorkgroupSizeINTEL MaxWorkDimINTEL
+\ NoGlobalOffsetINTEL NumSIMDWorkitemsINTEL SchedulerTargetFmaxMhzINTEL
+\ MaximallyReconvergesKHR FPFastMathDefault StreamingInterfaceINTEL
+\ RegisterMapInterfaceINTEL NamedBarrierCountINTEL MaximumRegistersINTEL
+\ MaximumRegistersIdINTEL NamedMaximumRegistersINTEL UniformConstant Input
+\ Uniform Output Workgroup CrossWorkgroup Private Function Generic PushConstant
+\ AtomicCounter Image StorageBuffer TileImageEXT TileAttachmentQCOM
 \ NodePayloadAMDX CallableDataKHR IncomingCallableDataKHR RayPayloadKHR
 \ HitAttributeKHR IncomingRayPayloadKHR ShaderRecordBufferKHR
 \ PhysicalStorageBuffer HitObjectAttributeNV TaskPayloadWorkgroupEXT
@@ -143,11 +144,12 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ SubgroupLocalInvocationId VertexIndex InstanceIndex CoreIDARM CoreCountARM
 \ CoreMaxIDARM WarpIDARM WarpMaxIDARM SubgroupEqMask SubgroupGeMask
 \ SubgroupGtMask SubgroupLeMask SubgroupLtMask BaseVertex BaseInstance DrawIndex
-\ PrimitiveShadingRateKHR DeviceIndex ViewIndex ShadingRateKHR
-\ BaryCoordNoPerspAMD BaryCoordNoPerspCentroidAMD BaryCoordNoPerspSampleAMD
-\ BaryCoordSmoothAMD BaryCoordSmoothCentroidAMD BaryCoordSmoothSampleAMD
-\ BaryCoordPullModelAMD FragStencilRefEXT RemainingRecursionLevelsAMDX
-\ ViewportMaskNV SecondaryPositionNV SecondaryViewportMaskNV PositionPerViewNV
+\ PrimitiveShadingRateKHR DeviceIndex ViewIndex ShadingRateKHR TileOffsetQCOM
+\ TileDimensionQCOM TileApronSizeQCOM BaryCoordNoPerspAMD
+\ BaryCoordNoPerspCentroidAMD BaryCoordNoPerspSampleAMD BaryCoordSmoothAMD
+\ BaryCoordSmoothCentroidAMD BaryCoordSmoothSampleAMD BaryCoordPullModelAMD
+\ FragStencilRefEXT RemainingRecursionLevelsAMDX ViewportMaskNV
+\ SecondaryPositionNV SecondaryViewportMaskNV PositionPerViewNV
 \ ViewportMaskPerViewNV FullyCoveredEXT TaskCountNV PrimitiveCountNV
 \ PrimitiveIndicesNV ClipDistancePerViewNV CullDistancePerViewNV LayerPerViewNV
 \ MeshViewCountNV MeshViewIndicesNV BaryCoordKHR BaryCoordNoPerspKHR FragSizeEXT
@@ -192,15 +194,16 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ UniformAndStorageBuffer8BitAccess StoragePushConstant8 RayQueryProvisionalKHR
 \ RayQueryKHR UntypedPointersKHR RayTraversalPrimitiveCullingKHR RayTracingKHR
 \ TextureSampleWeightedQCOM TextureBoxFilterQCOM TextureBlockMatchQCOM
-\ TextureBlockMatch2QCOM Float16ImageAMD ImageGatherBiasLodAMD FragmentMaskAMD
-\ StencilExportEXT ImageReadWriteLodAMD Int64ImageEXT ShaderClockKHR
-\ ShaderEnqueueAMDX QuadControlKHR BFloat16TypeKHR BFloat16DotProductKHR
-\ BFloat16CooperativeMatrixKHR SampleMaskOverrideCoverageNV
-\ GeometryShaderPassthroughNV ShaderViewportIndexLayerEXT ShaderViewportMaskNV
-\ ShaderStereoViewNV PerViewAttributesNV FragmentFullyCoveredEXT MeshShadingNV
-\ ImageFootprintNV MeshShadingEXT FragmentBarycentricKHR
-\ ComputeDerivativeGroupQuadsKHR FragmentDensityEXT GroupNonUniformPartitionedNV
-\ ShaderNonUniform RuntimeDescriptorArray InputAttachmentArrayDynamicIndexing
+\ TileShadingQCOM TextureBlockMatch2QCOM Float16ImageAMD ImageGatherBiasLodAMD
+\ FragmentMaskAMD StencilExportEXT ImageReadWriteLodAMD Int64ImageEXT
+\ ShaderClockKHR ShaderEnqueueAMDX QuadControlKHR BFloat16TypeKHR
+\ BFloat16DotProductKHR BFloat16CooperativeMatrixKHR
+\ SampleMaskOverrideCoverageNV GeometryShaderPassthroughNV
+\ ShaderViewportIndexLayerEXT ShaderViewportMaskNV ShaderStereoViewNV
+\ PerViewAttributesNV FragmentFullyCoveredEXT MeshShadingNV ImageFootprintNV
+\ MeshShadingEXT FragmentBarycentricKHR ComputeDerivativeGroupQuadsKHR
+\ FragmentDensityEXT GroupNonUniformPartitionedNV ShaderNonUniform
+\ RuntimeDescriptorArray InputAttachmentArrayDynamicIndexing
 \ UniformTexelBufferArrayDynamicIndexing StorageTexelBufferArrayDynamicIndexing
 \ UniformBufferArrayNonUniformIndexing SampledImageArrayNonUniformIndexing
 \ StorageBufferArrayNonUniformIndexing StorageImageArrayNonUniformIndexing
