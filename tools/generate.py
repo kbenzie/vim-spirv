@@ -354,6 +354,8 @@ syn match SpirvFloat "\s\zs\d\+\.\d\+"
 ''')
 
     for group, group_keywords in keywords.items():
+        if len(group_keywords) == 0:
+            continue
         write('\n" %s keywords\n' % group)
         syn_keyword = 'syn keyword Spirv%s' % group
         write(syn_keyword)

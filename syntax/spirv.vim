@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: April 17, 2025
+" Last Modified: May 06, 2025
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -632,9 +632,6 @@ syn keyword SpirvDebugInfo100 DebugInfoNone DebugCompilationUnit DebugTypeBasic
 \ RestrictType Deref Plus Minus PlusUconst BitPiece Swap Xderef StackValue
 \ Constu
 
-" Debuginf keywords
-syn keyword SpirvDebuginf
-
 " GlslStd450 keywords
 syn keyword SpirvGlslStd450 Round RoundEven Trunc FAbs SAbs FSign SSign Floor
 \ Ceil Fract Radians Degrees Sin Cos Tan Asin Acos Atan Sinh Cosh Tanh Asinh
@@ -718,9 +715,6 @@ syn keyword SpirvPv-amd-shader-explicit-vertex-paramet InterpolateAtVertexAMD
 " Pv-amd-shader-trinary-minmax keywords
 syn keyword SpirvPv-amd-shader-trinary-minmax FMin3AMD UMin3AMD SMin3AMD
 \ FMax3AMD UMax3AMD SMax3AMD FMid3AMD UMid3AMD SMid3AMD
-
-" PirvC keywords
-syn keyword SpirvPirvC
 
 " Define highlight groups
 hi default link SpirvComment Comment
