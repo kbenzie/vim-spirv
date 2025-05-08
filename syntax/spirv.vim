@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: May 06, 2025
+" Last Modified: May 08, 2025
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -196,14 +196,14 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ TextureSampleWeightedQCOM TextureBoxFilterQCOM TextureBlockMatchQCOM
 \ TileShadingQCOM TextureBlockMatch2QCOM Float16ImageAMD ImageGatherBiasLodAMD
 \ FragmentMaskAMD StencilExportEXT ImageReadWriteLodAMD Int64ImageEXT
-\ ShaderClockKHR ShaderEnqueueAMDX QuadControlKHR BFloat16TypeKHR
-\ BFloat16DotProductKHR BFloat16CooperativeMatrixKHR
-\ SampleMaskOverrideCoverageNV GeometryShaderPassthroughNV
-\ ShaderViewportIndexLayerEXT ShaderViewportMaskNV ShaderStereoViewNV
-\ PerViewAttributesNV FragmentFullyCoveredEXT MeshShadingNV ImageFootprintNV
-\ MeshShadingEXT FragmentBarycentricKHR ComputeDerivativeGroupQuadsKHR
-\ FragmentDensityEXT GroupNonUniformPartitionedNV ShaderNonUniform
-\ RuntimeDescriptorArray InputAttachmentArrayDynamicIndexing
+\ ShaderClockKHR ShaderEnqueueAMDX QuadControlKHR Int4TypeINTEL
+\ Int4CooperativeMatrixINTEL BFloat16TypeKHR BFloat16DotProductKHR
+\ BFloat16CooperativeMatrixKHR SampleMaskOverrideCoverageNV
+\ GeometryShaderPassthroughNV ShaderViewportIndexLayerEXT ShaderViewportMaskNV
+\ ShaderStereoViewNV PerViewAttributesNV FragmentFullyCoveredEXT MeshShadingNV
+\ ImageFootprintNV MeshShadingEXT FragmentBarycentricKHR
+\ ComputeDerivativeGroupQuadsKHR FragmentDensityEXT GroupNonUniformPartitionedNV
+\ ShaderNonUniform RuntimeDescriptorArray InputAttachmentArrayDynamicIndexing
 \ UniformTexelBufferArrayDynamicIndexing StorageTexelBufferArrayDynamicIndexing
 \ UniformBufferArrayNonUniformIndexing SampledImageArrayNonUniformIndexing
 \ StorageBufferArrayNonUniformIndexing StorageImageArrayNonUniformIndexing
