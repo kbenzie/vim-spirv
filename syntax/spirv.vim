@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: May 08, 2025
+" Last Modified: May 15, 2025
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -182,7 +182,8 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ GroupNonUniformBallot GroupNonUniformShuffle GroupNonUniformShuffleRelative
 \ GroupNonUniformClustered GroupNonUniformQuad ShaderLayer ShaderViewportIndex
 \ UniformDecoration CoreBuiltinsARM TileImageColorReadAccessEXT
-\ TileImageDepthReadAccessEXT TileImageStencilReadAccessEXT
+\ TileImageDepthReadAccessEXT TileImageStencilReadAccessEXT TensorsARM
+\ StorageTensorArrayDynamicIndexingARM StorageTensorArrayNonUniformIndexingARM
 \ CooperativeMatrixLayoutsARM FragmentShadingRateKHR SubgroupBallotKHR
 \ DrawParameters WorkgroupMemoryExplicitLayoutKHR
 \ WorkgroupMemoryExplicitLayout8BitAccessKHR
@@ -272,7 +273,9 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ InferencingOptimalNV TrainingOptimalNV Float16NV Float32NV Float64NV
 \ SignedInt8NV SignedInt16NV SignedInt32NV SignedInt64NV UnsignedInt8NV
 \ UnsignedInt16NV UnsignedInt32NV UnsignedInt64NV SignedInt8PackedNV
-\ UnsignedInt8PackedNV FloatE4M3NV FloatE5M2NV
+\ UnsignedInt8PackedNV FloatE4M3NV FloatE5M2NV NoneARM NontemporalARM
+\ OutOfBoundsValueARM MakeElementAvailableARM MakeElementVisibleARM
+\ NonPrivateElementARM
 
 " Extension keywords
 syn keyword SpirvExtension OpExtension OpExtInstImport OpExtInst
@@ -344,6 +347,7 @@ syn keyword SpirvInstruction OpNop OpUndef OpTypeReserveId OpConstantTrue
 \ OpGroupNonUniformLogicalXor OpGroupNonUniformQuadBroadcast
 \ OpGroupNonUniformQuadSwap OpCopyLogical OpPtrEqual OpPtrNotEqual OpPtrDiff
 \ OpColorAttachmentReadEXT OpDepthAttachmentReadEXT OpStencilAttachmentReadEXT
+\ OpTypeTensorARM OpTensorReadARM OpTensorWriteARM OpTensorQuerySizeARM
 \ OpTerminateInvocation OpTypeUntypedPointerKHR OpUntypedVariableKHR
 \ OpUntypedAccessChainKHR OpUntypedInBoundsAccessChainKHR OpSubgroupBallotKHR
 \ OpSubgroupFirstInvocationKHR OpUntypedPtrAccessChainKHR
