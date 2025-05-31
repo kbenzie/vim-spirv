@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: May 15, 2025
+" Last Modified: May 31, 2025
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -252,7 +252,7 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ Subgroup2DBlockTransposeINTEL SubgroupMatrixMultiplyAccumulateINTEL
 \ TernaryBitwiseFunctionINTEL GroupUniformArithmeticKHR
 \ TensorFloat32RoundingINTEL MaskedGatherScatterINTEL CacheControlsINTEL
-\ RegisterLimitsINTEL RayQueryCandidateIntersectionKHR
+\ RegisterLimitsINTEL BindlessImagesINTEL RayQueryCandidateIntersectionKHR
 \ RayQueryCommittedIntersectionKHR RayQueryCommittedIntersectionNoneKHR
 \ RayQueryCommittedIntersectionTriangleKHR
 \ RayQueryCommittedIntersectionGeneratedKHR
@@ -582,6 +582,8 @@ syn keyword SpirvInstruction OpNop OpUndef OpTypeReserveId OpConstantTrue
 \ OpGroupFMulKHR OpGroupBitwiseAndKHR OpGroupBitwiseOrKHR OpGroupBitwiseXorKHR
 \ OpGroupLogicalAndKHR OpGroupLogicalOrKHR OpGroupLogicalXorKHR
 \ OpRoundFToTF32INTEL OpMaskedGatherINTEL OpMaskedScatterINTEL
+\ OpConvertHandleToImageINTEL OpConvertHandleToSamplerINTEL
+\ OpConvertHandleToSampledImageINTEL
 
 " Label keywords
 syn keyword SpirvLabel OpLabel
