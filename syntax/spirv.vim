@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: May 31, 2025
+" Last Modified: June 05, 2025
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -107,10 +107,11 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ Component Index Binding DescriptorSet XfbBuffer XfbStride FuncParamAttr
 \ FPRoundingMode FPFastMathMode LinkageAttributes NoContraction
 \ InputAttachmentIndex Alignment MaxByteOffset AlignmentId MaxByteOffsetId
-\ NoSignedWrap NoUnsignedWrap WeightTextureQCOM BlockMatchTextureQCOM
-\ BlockMatchSamplerQCOM ExplicitInterpAMD NodeSharesPayloadLimitsWithAMDX
-\ NodeMaxPayloadsAMDX TrackFinishWritingAMDX PayloadNodeNameAMDX
-\ PayloadNodeBaseIndexAMDX PayloadNodeSparseArrayAMDX PayloadNodeArraySizeAMDX
+\ SaturatedToLargestFloat8NormalConversionEXT NoSignedWrap NoUnsignedWrap
+\ WeightTextureQCOM BlockMatchTextureQCOM BlockMatchSamplerQCOM
+\ ExplicitInterpAMD NodeSharesPayloadLimitsWithAMDX NodeMaxPayloadsAMDX
+\ TrackFinishWritingAMDX PayloadNodeNameAMDX PayloadNodeBaseIndexAMDX
+\ PayloadNodeSparseArrayAMDX PayloadNodeArraySizeAMDX
 \ PayloadDispatchIndirectAMDX OverrideCoverageNV PassthroughNV
 \ ViewportRelativeNV SecondaryViewportRelativeNV PerPrimitiveEXT PerViewNV
 \ PerTaskNV PerVertexKHR NonUniform RestrictPointer AliasedPointer
@@ -184,9 +185,9 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ UniformDecoration CoreBuiltinsARM TileImageColorReadAccessEXT
 \ TileImageDepthReadAccessEXT TileImageStencilReadAccessEXT TensorsARM
 \ StorageTensorArrayDynamicIndexingARM StorageTensorArrayNonUniformIndexingARM
-\ CooperativeMatrixLayoutsARM FragmentShadingRateKHR SubgroupBallotKHR
-\ DrawParameters WorkgroupMemoryExplicitLayoutKHR
-\ WorkgroupMemoryExplicitLayout8BitAccessKHR
+\ CooperativeMatrixLayoutsARM Float8EXT Float8CooperativeMatrixEXT
+\ FragmentShadingRateKHR SubgroupBallotKHR DrawParameters
+\ WorkgroupMemoryExplicitLayoutKHR WorkgroupMemoryExplicitLayout8BitAccessKHR
 \ WorkgroupMemoryExplicitLayout16BitAccessKHR SubgroupVoteKHR
 \ StorageBuffer16BitAccess UniformAndStorageBuffer16BitAccess
 \ StoragePushConstant16 StorageInputOutput16 DeviceGroup MultiView
@@ -269,13 +270,13 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ MatrixBPackedInt8INTEL MatrixAPackedInt4INTEL MatrixBPackedInt4INTEL
 \ MatrixATF32INTEL MatrixBTF32INTEL MatrixAPackedFloat16INTEL
 \ MatrixBPackedFloat16INTEL MatrixAPackedBFloat16INTEL
-\ MatrixBPackedBFloat16INTEL BFloat16KHR RowMajorNV ColumnMajorNV
-\ InferencingOptimalNV TrainingOptimalNV Float16NV Float32NV Float64NV
-\ SignedInt8NV SignedInt16NV SignedInt32NV SignedInt64NV UnsignedInt8NV
-\ UnsignedInt16NV UnsignedInt32NV UnsignedInt64NV SignedInt8PackedNV
-\ UnsignedInt8PackedNV FloatE4M3NV FloatE5M2NV NoneARM NontemporalARM
-\ OutOfBoundsValueARM MakeElementAvailableARM MakeElementVisibleARM
-\ NonPrivateElementARM
+\ MatrixBPackedBFloat16INTEL BFloat16KHR Float8E4M3EXT Float8E5M2EXT RowMajorNV
+\ ColumnMajorNV InferencingOptimalNV TrainingOptimalNV Float16NV Float32NV
+\ Float64NV SignedInt8NV SignedInt16NV SignedInt32NV SignedInt64NV
+\ UnsignedInt8NV UnsignedInt16NV UnsignedInt32NV UnsignedInt64NV
+\ SignedInt8PackedNV UnsignedInt8PackedNV FloatE4M3NV FloatE5M2NV NoneARM
+\ NontemporalARM OutOfBoundsValueARM MakeElementAvailableARM
+\ MakeElementVisibleARM NonPrivateElementARM
 
 " Extension keywords
 syn keyword SpirvExtension OpExtension OpExtInstImport OpExtInst
