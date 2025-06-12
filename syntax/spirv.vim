@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: June 05, 2025
+" Last Modified: June 12, 2025
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -185,7 +185,7 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ UniformDecoration CoreBuiltinsARM TileImageColorReadAccessEXT
 \ TileImageDepthReadAccessEXT TileImageStencilReadAccessEXT TensorsARM
 \ StorageTensorArrayDynamicIndexingARM StorageTensorArrayNonUniformIndexingARM
-\ CooperativeMatrixLayoutsARM Float8EXT Float8CooperativeMatrixEXT
+\ GraphARM CooperativeMatrixLayoutsARM Float8EXT Float8CooperativeMatrixEXT
 \ FragmentShadingRateKHR SubgroupBallotKHR DrawParameters
 \ WorkgroupMemoryExplicitLayoutKHR WorkgroupMemoryExplicitLayout8BitAccessKHR
 \ WorkgroupMemoryExplicitLayout16BitAccessKHR SubgroupVoteKHR
@@ -349,8 +349,10 @@ syn keyword SpirvInstruction OpNop OpUndef OpTypeReserveId OpConstantTrue
 \ OpGroupNonUniformQuadSwap OpCopyLogical OpPtrEqual OpPtrNotEqual OpPtrDiff
 \ OpColorAttachmentReadEXT OpDepthAttachmentReadEXT OpStencilAttachmentReadEXT
 \ OpTypeTensorARM OpTensorReadARM OpTensorWriteARM OpTensorQuerySizeARM
-\ OpTerminateInvocation OpTypeUntypedPointerKHR OpUntypedVariableKHR
-\ OpUntypedAccessChainKHR OpUntypedInBoundsAccessChainKHR OpSubgroupBallotKHR
+\ OpGraphConstantARM OpGraphEntryPointARM OpGraphARM OpGraphInputARM
+\ OpGraphSetOutputARM OpGraphEndARM OpTypeGraphARM OpTerminateInvocation
+\ OpTypeUntypedPointerKHR OpUntypedVariableKHR OpUntypedAccessChainKHR
+\ OpUntypedInBoundsAccessChainKHR OpSubgroupBallotKHR
 \ OpSubgroupFirstInvocationKHR OpUntypedPtrAccessChainKHR
 \ OpUntypedInBoundsPtrAccessChainKHR OpUntypedArrayLengthKHR
 \ OpUntypedPrefetchKHR OpSubgroupAllKHR OpSubgroupAnyKHR OpSubgroupAllEqualKHR
