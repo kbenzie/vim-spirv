@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: June 12, 2025
+" Last Modified: June 19, 2025
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -725,6 +725,16 @@ syn keyword SpirvPv-amd-shader-explicit-vertex-paramet InterpolateAtVertexAMD
 syn keyword SpirvPv-amd-shader-trinary-minmax FMin3AMD UMin3AMD SMin3AMD
 \ FMax3AMD UMax3AMD SMax3AMD FMid3AMD UMid3AMD SMid3AMD
 
+" Osa0010001 keywords
+syn keyword SpirvOsa0010001 ARGMAX AVG_POOL2D CONV2D CONV3D DEPTHWISE_CONV2D
+\ FFT2D MATMUL MAX_POOL2D RFFT2D TRANSPOSE_CONV2D CLAMP ERF SIGMOID TANH ADD
+\ ARITHMETIC_RIGHT_SHIFT BITWISE_AND BITWISE_OR BITWISE_XOR INTDIV LOGICAL_AND
+\ LOGICAL_LEFT_SHIFT LOGICAL_RIGHT_SHIFT LOGICAL_OR LOGICAL_XOR MAXIMUM MINIMUM
+\ MUL POW SUB TABLE ABS BITWISE_NOT CEIL CLZ COS EXP FLOOR LOG LOGICAL_NOT
+\ NEGATE RECIPROCAL RSQRT SIN SELECT EQUAL GREATER GREATER_EQUAL REDUCE_ALL
+\ REDUCE_ANY REDUCE_MAX REDUCE_MIN REDUCE_PRODUCT REDUCE_SUM CONCAT PAD RESHAPE
+\ REVERSE SLICE TILE TRANSPOSE GATHER SCATTER RESIZE CAST RESCALE
+
 " Define highlight groups
 hi default link SpirvComment Comment
 hi default link SpirvConditional Conditional
@@ -765,6 +775,7 @@ if exists('g:spirv_enable_extinst_error') && g:spirv_enable_extinst_error
   hi default link SpirvPv-amd-shader-ballot SpirvError
   hi default link SpirvPv-amd-shader-explicit-vertex-paramet SpirvError
   hi default link SpirvPv-amd-shader-trinary-minmax SpirvError
+  hi default link SpirvOsa0010001 SpirvError
   hi default link SpirvPirvC SpirvError
   hi default link SpirvPirv SpirvError
   hi default link SpirvDebugInfo100 SpirvError
@@ -782,6 +793,7 @@ else
   hi default link SpirvPv-amd-shader-ballot SpirvInstruction
   hi default link SpirvPv-amd-shader-explicit-vertex-paramet SpirvInstruction
   hi default link SpirvPv-amd-shader-trinary-minmax SpirvInstruction
+  hi default link SpirvOsa0010001 SpirvInstruction
   hi default link SpirvPirvC SpirvInstruction
   hi default link SpirvPirv SpirvInstruction
   hi default link SpirvDebugInfo100 SpirvDebug
