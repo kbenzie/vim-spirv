@@ -124,7 +124,7 @@ function! spirv#disassemble()
   let l:empty = line("'['") == 1 && line("']'") == line('$')
   let l:temp1 = tempname()
   let l:temp2 = tempname()
-  execute "silent '[,']w" . l:temp1
+  execute "silent '[,']w " . l:temp1
   call system(printf(g:spirv_dis_path.' "%s" -o "%s"', l:temp1, l:temp2))
   if v:shell_error
     echohl ErrorMsg
