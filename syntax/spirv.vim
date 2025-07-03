@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: June 25, 2025
+" Last Modified: July 03, 2025
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -196,16 +196,17 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ UniformAndStorageBuffer8BitAccess StoragePushConstant8 RayQueryProvisionalKHR
 \ RayQueryKHR UntypedPointersKHR RayTraversalPrimitiveCullingKHR RayTracingKHR
 \ TextureSampleWeightedQCOM TextureBoxFilterQCOM TextureBlockMatchQCOM
-\ TileShadingQCOM TextureBlockMatch2QCOM Float16ImageAMD ImageGatherBiasLodAMD
-\ FragmentMaskAMD StencilExportEXT ImageReadWriteLodAMD Int64ImageEXT
-\ ShaderClockKHR ShaderEnqueueAMDX QuadControlKHR Int4TypeINTEL
-\ Int4CooperativeMatrixINTEL BFloat16TypeKHR BFloat16DotProductKHR
-\ BFloat16CooperativeMatrixKHR SampleMaskOverrideCoverageNV
-\ GeometryShaderPassthroughNV ShaderViewportIndexLayerEXT ShaderViewportMaskNV
-\ ShaderStereoViewNV PerViewAttributesNV FragmentFullyCoveredEXT MeshShadingNV
-\ ImageFootprintNV MeshShadingEXT FragmentBarycentricKHR
-\ ComputeDerivativeGroupQuadsKHR FragmentDensityEXT GroupNonUniformPartitionedNV
-\ ShaderNonUniform RuntimeDescriptorArray InputAttachmentArrayDynamicIndexing
+\ TileShadingQCOM CooperativeMatrixConversionQCOM TextureBlockMatch2QCOM
+\ Float16ImageAMD ImageGatherBiasLodAMD FragmentMaskAMD StencilExportEXT
+\ ImageReadWriteLodAMD Int64ImageEXT ShaderClockKHR ShaderEnqueueAMDX
+\ QuadControlKHR Int4TypeINTEL Int4CooperativeMatrixINTEL BFloat16TypeKHR
+\ BFloat16DotProductKHR BFloat16CooperativeMatrixKHR
+\ SampleMaskOverrideCoverageNV GeometryShaderPassthroughNV
+\ ShaderViewportIndexLayerEXT ShaderViewportMaskNV ShaderStereoViewNV
+\ PerViewAttributesNV FragmentFullyCoveredEXT MeshShadingNV ImageFootprintNV
+\ MeshShadingEXT FragmentBarycentricKHR ComputeDerivativeGroupQuadsKHR
+\ FragmentDensityEXT GroupNonUniformPartitionedNV ShaderNonUniform
+\ RuntimeDescriptorArray InputAttachmentArrayDynamicIndexing
 \ UniformTexelBufferArrayDynamicIndexing StorageTexelBufferArrayDynamicIndexing
 \ UniformBufferArrayNonUniformIndexing SampledImageArrayNonUniformIndexing
 \ StorageBufferArrayNonUniformIndexing StorageImageArrayNonUniformIndexing
@@ -368,9 +369,10 @@ syn keyword SpirvInstruction OpNop OpUndef OpTypeReserveId OpConstantTrue
 \ OpRayQueryGenerateIntersectionKHR OpRayQueryConfirmIntersectionKHR
 \ OpRayQueryProceedKHR OpRayQueryGetIntersectionTypeKHR
 \ OpImageSampleWeightedQCOM OpImageBoxFilterQCOM OpImageBlockMatchSSDQCOM
-\ OpImageBlockMatchSADQCOM OpImageBlockMatchWindowSSDQCOM
+\ OpImageBlockMatchSADQCOM OpBitCastArrayQCOM OpImageBlockMatchWindowSSDQCOM
 \ OpImageBlockMatchWindowSADQCOM OpImageBlockMatchGatherSSDQCOM
-\ OpImageBlockMatchGatherSADQCOM OpGroupIAddNonUniformAMD
+\ OpImageBlockMatchGatherSADQCOM OpCompositeConstructCoopMatQCOM
+\ OpCompositeExtractCoopMatQCOM OpExtractSubArrayQCOM OpGroupIAddNonUniformAMD
 \ OpGroupFAddNonUniformAMD OpGroupFMinNonUniformAMD OpGroupUMinNonUniformAMD
 \ OpGroupSMinNonUniformAMD OpGroupFMaxNonUniformAMD OpGroupUMaxNonUniformAMD
 \ OpGroupSMaxNonUniformAMD OpFragmentMaskFetchAMD OpFragmentFetchAMD
