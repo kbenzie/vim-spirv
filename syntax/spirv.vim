@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: July 03, 2025
+" Last Modified: July 30, 2025
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -358,18 +358,19 @@ syn keyword SpirvInstruction OpNop OpUndef OpTypeReserveId OpConstantTrue
 \ OpUntypedInBoundsPtrAccessChainKHR OpUntypedArrayLengthKHR
 \ OpUntypedPrefetchKHR OpSubgroupAllKHR OpSubgroupAnyKHR OpSubgroupAllEqualKHR
 \ OpGroupNonUniformRotateKHR OpSubgroupReadInvocationKHR
-\ OpExtInstWithForwardRefsKHR OpTraceRayKHR OpExecuteCallableKHR
-\ OpConvertUToAccelerationStructureKHR OpIgnoreIntersectionKHR OpTerminateRayKHR
-\ OpSDot OpUDot OpSUDot OpSDotAccSat OpUDotAccSat OpSUDotAccSat
-\ OpTypeCooperativeMatrixKHR OpCooperativeMatrixLoadKHR
-\ OpCooperativeMatrixStoreKHR OpCooperativeMatrixMulAddKHR
-\ OpCooperativeMatrixLengthKHR OpConstantCompositeReplicateEXT
-\ OpSpecConstantCompositeReplicateEXT OpCompositeConstructReplicateEXT
-\ OpTypeRayQueryKHR OpRayQueryInitializeKHR OpRayQueryTerminateKHR
-\ OpRayQueryGenerateIntersectionKHR OpRayQueryConfirmIntersectionKHR
-\ OpRayQueryProceedKHR OpRayQueryGetIntersectionTypeKHR
-\ OpImageSampleWeightedQCOM OpImageBoxFilterQCOM OpImageBlockMatchSSDQCOM
-\ OpImageBlockMatchSADQCOM OpBitCastArrayQCOM OpImageBlockMatchWindowSSDQCOM
+\ OpExtInstWithForwardRefsKHR OpUntypedGroupAsyncCopyKHR OpTraceRayKHR
+\ OpExecuteCallableKHR OpConvertUToAccelerationStructureKHR
+\ OpIgnoreIntersectionKHR OpTerminateRayKHR OpSDot OpUDot OpSUDot OpSDotAccSat
+\ OpUDotAccSat OpSUDotAccSat OpTypeCooperativeMatrixKHR
+\ OpCooperativeMatrixLoadKHR OpCooperativeMatrixStoreKHR
+\ OpCooperativeMatrixMulAddKHR OpCooperativeMatrixLengthKHR
+\ OpConstantCompositeReplicateEXT OpSpecConstantCompositeReplicateEXT
+\ OpCompositeConstructReplicateEXT OpTypeRayQueryKHR OpRayQueryInitializeKHR
+\ OpRayQueryTerminateKHR OpRayQueryGenerateIntersectionKHR
+\ OpRayQueryConfirmIntersectionKHR OpRayQueryProceedKHR
+\ OpRayQueryGetIntersectionTypeKHR OpImageSampleWeightedQCOM
+\ OpImageBoxFilterQCOM OpImageBlockMatchSSDQCOM OpImageBlockMatchSADQCOM
+\ OpBitCastArrayQCOM OpImageBlockMatchWindowSSDQCOM
 \ OpImageBlockMatchWindowSADQCOM OpImageBlockMatchGatherSSDQCOM
 \ OpImageBlockMatchGatherSADQCOM OpCompositeConstructCoopMatQCOM
 \ OpCompositeExtractCoopMatQCOM OpExtractSubArrayQCOM OpGroupIAddNonUniformAMD
