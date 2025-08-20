@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: July 30, 2025
+" Last Modified: August 20, 2025
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -708,15 +708,15 @@ syn keyword SpirvOpenclStd100 acos acosh acospi asin asinh asinpi atan atan2
 \ half_log half_log2 half_log10 half_powr half_recip half_rsqrt half_sin
 \ half_sqrt half_tan native_cos native_divide native_exp native_exp2
 \ native_exp10 native_log native_log2 native_log10 native_powr native_recip
-\ native_rsqrt native_sin native_sqrt native_tan s_abs s_abs_diff s_add_sat
-\ u_add_sat s_hadd u_hadd s_rhadd u_rhadd s_clamp u_clamp clz ctz s_mad_hi
-\ u_mad_sat s_mad_sat s_max u_max s_min u_min s_mul_hi rotate s_sub_sat
-\ u_sub_sat u_upsample s_upsample popcount s_mad24 u_mad24 s_mul24 u_mul24 u_abs
-\ u_abs_diff u_mul_hi u_mad_hi fclamp degrees fmax_common fmin_common mix
-\ radians step smoothstep sign cross distance length normalize fast_distance
-\ fast_length fast_normalize bitselect select vloadn vstoren vload_half
-\ vload_halfn vstore_half vstore_half_r vstore_halfn vstore_halfn_r vloada_halfn
-\ vstorea_halfn vstorea_halfn_r shuffle shuffle2 printf prefetch
+\ native_rsqrt native_sin native_sqrt native_tan fclamp degrees fmax_common
+\ fmin_common mix radians step smoothstep sign cross distance length normalize
+\ fast_distance fast_length fast_normalize s_abs s_abs_diff s_add_sat u_add_sat
+\ s_hadd u_hadd s_rhadd u_rhadd s_clamp u_clamp clz ctz s_mad_hi u_mad_sat
+\ s_mad_sat s_max u_max s_min u_min s_mul_hi rotate s_sub_sat u_sub_sat
+\ u_upsample s_upsample popcount s_mad24 u_mad24 s_mul24 u_mul24 vloadn vstoren
+\ vload_half vload_halfn vstore_half vstore_half_r vstore_halfn vstore_halfn_r
+\ vloada_halfn vstorea_halfn vstorea_halfn_r shuffle shuffle2 printf prefetch
+\ bitselect select u_abs u_abs_diff u_mul_hi u_mad_hi
 
 " Pv-amd-gcn-shad keywords
 syn keyword SpirvPv-amd-gcn-shad CubeFaceIndexAMD CubeFaceCoordAMD TimeAMD
