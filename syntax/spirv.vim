@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: August 20, 2025
+" Last Modified: August 28, 2025
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -252,11 +252,12 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ GlobalVariableFPGADecorationsINTEL SubgroupBufferPrefetchINTEL
 \ Subgroup2DBlockIOINTEL Subgroup2DBlockTransformINTEL
 \ Subgroup2DBlockTransposeINTEL SubgroupMatrixMultiplyAccumulateINTEL
-\ TernaryBitwiseFunctionINTEL SpecConditionalINTEL FunctionVariantsINTEL
-\ GroupUniformArithmeticKHR TensorFloat32RoundingINTEL MaskedGatherScatterINTEL
-\ CacheControlsINTEL RegisterLimitsINTEL BindlessImagesINTEL
-\ RayQueryCandidateIntersectionKHR RayQueryCommittedIntersectionKHR
-\ RayQueryCommittedIntersectionNoneKHR RayQueryCommittedIntersectionTriangleKHR
+\ TernaryBitwiseFunctionINTEL UntypedVariableLengthArrayINTEL
+\ SpecConditionalINTEL FunctionVariantsINTEL GroupUniformArithmeticKHR
+\ TensorFloat32RoundingINTEL MaskedGatherScatterINTEL CacheControlsINTEL
+\ RegisterLimitsINTEL BindlessImagesINTEL RayQueryCandidateIntersectionKHR
+\ RayQueryCommittedIntersectionKHR RayQueryCommittedIntersectionNoneKHR
+\ RayQueryCommittedIntersectionTriangleKHR
 \ RayQueryCommittedIntersectionGeneratedKHR
 \ RayQueryCandidateIntersectionTriangleKHR RayQueryCandidateIntersectionAABBKHR
 \ PackedVectorFormat4x8Bit MatrixASignedComponentsKHR MatrixBSignedComponentsKHR
@@ -585,11 +586,11 @@ syn keyword SpirvInstruction OpNop OpUndef OpTypeReserveId OpConstantTrue
 \ OpSubgroup2DBlockLoadTransformINTEL OpSubgroup2DBlockLoadTransposeINTEL
 \ OpSubgroup2DBlockPrefetchINTEL OpSubgroup2DBlockStoreINTEL
 \ OpSubgroupMatrixMultiplyAccumulateINTEL OpBitwiseFunctionINTEL
-\ OpConditionalExtensionINTEL OpConditionalEntryPointINTEL
-\ OpConditionalCapabilityINTEL OpSpecConstantTargetINTEL
-\ OpSpecConstantArchitectureINTEL OpSpecConstantCapabilitiesINTEL
-\ OpConditionalCopyObjectINTEL OpGroupIMulKHR OpGroupFMulKHR
-\ OpGroupBitwiseAndKHR OpGroupBitwiseOrKHR OpGroupBitwiseXorKHR
+\ OpUntypedVariableLengthArrayINTEL OpConditionalExtensionINTEL
+\ OpConditionalEntryPointINTEL OpConditionalCapabilityINTEL
+\ OpSpecConstantTargetINTEL OpSpecConstantArchitectureINTEL
+\ OpSpecConstantCapabilitiesINTEL OpConditionalCopyObjectINTEL OpGroupIMulKHR
+\ OpGroupFMulKHR OpGroupBitwiseAndKHR OpGroupBitwiseOrKHR OpGroupBitwiseXorKHR
 \ OpGroupLogicalAndKHR OpGroupLogicalOrKHR OpGroupLogicalXorKHR
 \ OpRoundFToTF32INTEL OpMaskedGatherINTEL OpMaskedScatterINTEL
 \ OpConvertHandleToImageINTEL OpConvertHandleToSamplerINTEL
