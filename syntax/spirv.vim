@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: August 28, 2025
+" Last Modified: September 03, 2025
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -649,6 +649,9 @@ syn keyword SpirvDebugInfo100 DebugInfoNone DebugCompilationUnit DebugTypeBasic
 \ RestrictType Deref Plus Minus PlusUconst BitPiece Swap Xderef StackValue
 \ Constu
 
+" ArmMotion-engine100 keywords
+syn keyword SpirvArmMotion-engine100 MIN_SAD MIN_SAD_COST RAW_SAD
+
 " GlslStd450 keywords
 syn keyword SpirvGlslStd450 Round RoundEven Trunc FAbs SAbs FSign SSign Floor
 \ Ceil Fract Radians Degrees Sin Cos Tan Asin Acos Atan Sinh Cosh Tanh Asinh
@@ -770,6 +773,7 @@ endif
 
 " Define extended instruction highlight groups
 if exists('g:spirv_enable_extinst_error') && g:spirv_enable_extinst_error
+  hi default link SpirvArmMotion-engine100 SpirvError
   hi default link SpirvDebuginf SpirvError
   hi default link SpirvGlslStd450 SpirvError
   hi default link SpirvOnsemanticClspvreflecti SpirvError
@@ -788,6 +792,7 @@ if exists('g:spirv_enable_extinst_error') && g:spirv_enable_extinst_error
   hi default link SpirvPirv SpirvError
   hi default link SpirvDebugInfo100 SpirvError
 else
+  hi default link SpirvArmMotion-engine100 SpirvInstruction
   hi default link SpirvDebuginf SpirvInstruction
   hi default link SpirvGlslStd450 SpirvInstruction
   hi default link SpirvOnsemanticClspvreflecti SpirvInstruction
