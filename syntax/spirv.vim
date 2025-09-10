@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: September 03, 2025
+" Last Modified: September 10, 2025
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -406,17 +406,18 @@ syn keyword SpirvInstruction OpNop OpUndef OpTypeReserveId OpConstantTrue
 \ OpCooperativeVectorLoadNV OpCooperativeVectorStoreNV OpReportIntersectionKHR
 \ OpIgnoreIntersectionNV OpTerminateRayNV OpTraceNV OpTraceMotionNV
 \ OpTraceRayMotionNV OpRayQueryGetIntersectionTriangleVertexPositionsKHR
-\ OpTypeAccelerationStructureKHR OpExecuteCallableNV OpRayQueryGetClusterIdNV
-\ OpHitObjectGetClusterIdNV OpTypeCooperativeMatrixNV OpCooperativeMatrixLoadNV
-\ OpCooperativeMatrixStoreNV OpCooperativeMatrixMulAddNV
-\ OpCooperativeMatrixLengthNV OpBeginInvocationInterlockEXT
-\ OpEndInvocationInterlockEXT OpCooperativeMatrixReduceNV
-\ OpCooperativeMatrixLoadTensorNV OpCooperativeMatrixStoreTensorNV
-\ OpCooperativeMatrixPerElementOpNV OpTypeTensorLayoutNV OpTypeTensorViewNV
-\ OpCreateTensorLayoutNV OpTensorLayoutSetDimensionNV OpTensorLayoutSetStrideNV
-\ OpTensorLayoutSliceNV OpTensorLayoutSetClampValueNV OpCreateTensorViewNV
-\ OpTensorViewSetDimensionNV OpTensorViewSetStrideNV OpDemoteToHelperInvocation
-\ OpIsHelperInvocationEXT OpTensorViewSetClipNV OpTensorLayoutSetBlockSizeNV
+\ OpTypeAccelerationStructureKHR OpExecuteCallableNV
+\ OpRayQueryGetIntersectionClusterIdNV OpHitObjectGetClusterIdNV
+\ OpTypeCooperativeMatrixNV OpCooperativeMatrixLoadNV OpCooperativeMatrixStoreNV
+\ OpCooperativeMatrixMulAddNV OpCooperativeMatrixLengthNV
+\ OpBeginInvocationInterlockEXT OpEndInvocationInterlockEXT
+\ OpCooperativeMatrixReduceNV OpCooperativeMatrixLoadTensorNV
+\ OpCooperativeMatrixStoreTensorNV OpCooperativeMatrixPerElementOpNV
+\ OpTypeTensorLayoutNV OpTypeTensorViewNV OpCreateTensorLayoutNV
+\ OpTensorLayoutSetDimensionNV OpTensorLayoutSetStrideNV OpTensorLayoutSliceNV
+\ OpTensorLayoutSetClampValueNV OpCreateTensorViewNV OpTensorViewSetDimensionNV
+\ OpTensorViewSetStrideNV OpDemoteToHelperInvocation OpIsHelperInvocationEXT
+\ OpTensorViewSetClipNV OpTensorLayoutSetBlockSizeNV
 \ OpCooperativeMatrixTransposeNV OpConvertUToImageNV OpConvertUToSamplerNV
 \ OpConvertImageToUNV OpConvertSamplerToUNV OpConvertUToSampledImageNV
 \ OpConvertSampledImageToUNV OpSamplerImageAddressingModeNV OpRawAccessChainNV
