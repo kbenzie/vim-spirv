@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: September 10, 2025
+" Last Modified: October 11, 2025
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -243,21 +243,21 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ RuntimeAlignedAttributeINTEL IOPipesINTEL BlockingPipesINTEL FPGARegINTEL
 \ DotProductInputAll DotProductInput4x8Bit DotProductInput4x8BitPacked
 \ DotProduct RayCullMaskKHR CooperativeMatrixKHR ReplicatedCompositesEXT
-\ BitInstructions GroupNonUniformRotateKHR FloatControls2 AtomicFloat32AddEXT
-\ AtomicFloat64AddEXT LongCompositesINTEL AtomicFloat16AddEXT
-\ DebugInfoModuleINTEL BFloat16ConversionINTEL SplitBarrierINTEL
-\ ArithmeticFenceEXT FPGAClusterAttributesV2INTEL FPGAKernelAttributesv2INTEL
-\ TaskSequenceINTEL FPMaxErrorINTEL FPGALatencyControlINTEL
-\ FPGAArgumentInterfacesINTEL GlobalVariableHostAccessINTEL
-\ GlobalVariableFPGADecorationsINTEL SubgroupBufferPrefetchINTEL
-\ Subgroup2DBlockIOINTEL Subgroup2DBlockTransformINTEL
-\ Subgroup2DBlockTransposeINTEL SubgroupMatrixMultiplyAccumulateINTEL
-\ TernaryBitwiseFunctionINTEL UntypedVariableLengthArrayINTEL
-\ SpecConditionalINTEL FunctionVariantsINTEL GroupUniformArithmeticKHR
-\ TensorFloat32RoundingINTEL MaskedGatherScatterINTEL CacheControlsINTEL
-\ RegisterLimitsINTEL BindlessImagesINTEL RayQueryCandidateIntersectionKHR
-\ RayQueryCommittedIntersectionKHR RayQueryCommittedIntersectionNoneKHR
-\ RayQueryCommittedIntersectionTriangleKHR
+\ BitInstructions GroupNonUniformRotateKHR FloatControls2 FMAKHR
+\ AtomicFloat32AddEXT AtomicFloat64AddEXT LongCompositesINTEL
+\ AtomicFloat16AddEXT DebugInfoModuleINTEL BFloat16ConversionINTEL
+\ SplitBarrierINTEL ArithmeticFenceEXT FPGAClusterAttributesV2INTEL
+\ FPGAKernelAttributesv2INTEL TaskSequenceINTEL FPMaxErrorINTEL
+\ FPGALatencyControlINTEL FPGAArgumentInterfacesINTEL
+\ GlobalVariableHostAccessINTEL GlobalVariableFPGADecorationsINTEL
+\ SubgroupBufferPrefetchINTEL Subgroup2DBlockIOINTEL
+\ Subgroup2DBlockTransformINTEL Subgroup2DBlockTransposeINTEL
+\ SubgroupMatrixMultiplyAccumulateINTEL TernaryBitwiseFunctionINTEL
+\ UntypedVariableLengthArrayINTEL SpecConditionalINTEL FunctionVariantsINTEL
+\ GroupUniformArithmeticKHR TensorFloat32RoundingINTEL MaskedGatherScatterINTEL
+\ CacheControlsINTEL RegisterLimitsINTEL BindlessImagesINTEL
+\ RayQueryCandidateIntersectionKHR RayQueryCommittedIntersectionKHR
+\ RayQueryCommittedIntersectionNoneKHR RayQueryCommittedIntersectionTriangleKHR
 \ RayQueryCommittedIntersectionGeneratedKHR
 \ RayQueryCandidateIntersectionTriangleKHR RayQueryCandidateIntersectionAABBKHR
 \ PackedVectorFormat4x8Bit MatrixASignedComponentsKHR MatrixBSignedComponentsKHR
@@ -357,8 +357,8 @@ syn keyword SpirvInstruction OpNop OpUndef OpTypeReserveId OpConstantTrue
 \ OpUntypedInBoundsAccessChainKHR OpSubgroupBallotKHR
 \ OpSubgroupFirstInvocationKHR OpUntypedPtrAccessChainKHR
 \ OpUntypedInBoundsPtrAccessChainKHR OpUntypedArrayLengthKHR
-\ OpUntypedPrefetchKHR OpSubgroupAllKHR OpSubgroupAnyKHR OpSubgroupAllEqualKHR
-\ OpGroupNonUniformRotateKHR OpSubgroupReadInvocationKHR
+\ OpUntypedPrefetchKHR OpFmaKHR OpSubgroupAllKHR OpSubgroupAnyKHR
+\ OpSubgroupAllEqualKHR OpGroupNonUniformRotateKHR OpSubgroupReadInvocationKHR
 \ OpExtInstWithForwardRefsKHR OpUntypedGroupAsyncCopyKHR OpTraceRayKHR
 \ OpExecuteCallableKHR OpConvertUToAccelerationStructureKHR
 \ OpIgnoreIntersectionKHR OpTerminateRayKHR OpSDot OpUDot OpSUDot OpSDotAccSat
