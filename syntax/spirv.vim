@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: October 11, 2025
+" Last Modified: October 25, 2025
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -72,17 +72,17 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ DerivativeGroupQuadsKHR DerivativeGroupLinearKHR OutputTrianglesEXT
 \ PixelInterlockOrderedEXT PixelInterlockUnorderedEXT SampleInterlockOrderedEXT
 \ SampleInterlockUnorderedEXT ShadingRateInterlockOrderedEXT
-\ ShadingRateInterlockUnorderedEXT SharedLocalMemorySizeINTEL
-\ RoundingModeRTPINTEL RoundingModeRTNINTEL FloatingPointModeALTINTEL
-\ FloatingPointModeIEEEINTEL MaxWorkgroupSizeINTEL MaxWorkDimINTEL
-\ NoGlobalOffsetINTEL NumSIMDWorkitemsINTEL SchedulerTargetFmaxMhzINTEL
-\ MaximallyReconvergesKHR FPFastMathDefault StreamingInterfaceINTEL
-\ RegisterMapInterfaceINTEL NamedBarrierCountINTEL MaximumRegistersINTEL
-\ MaximumRegistersIdINTEL NamedMaximumRegistersINTEL UniformConstant Input
-\ Uniform Output Workgroup CrossWorkgroup Private Function Generic PushConstant
-\ AtomicCounter Image StorageBuffer TileImageEXT TileAttachmentQCOM
-\ NodePayloadAMDX CallableDataKHR IncomingCallableDataKHR RayPayloadKHR
-\ HitAttributeKHR IncomingRayPayloadKHR ShaderRecordBufferKHR
+\ ShadingRateInterlockUnorderedEXT Shader64BitIndexingEXT
+\ SharedLocalMemorySizeINTEL RoundingModeRTPINTEL RoundingModeRTNINTEL
+\ FloatingPointModeALTINTEL FloatingPointModeIEEEINTEL MaxWorkgroupSizeINTEL
+\ MaxWorkDimINTEL NoGlobalOffsetINTEL NumSIMDWorkitemsINTEL
+\ SchedulerTargetFmaxMhzINTEL MaximallyReconvergesKHR FPFastMathDefault
+\ StreamingInterfaceINTEL RegisterMapInterfaceINTEL NamedBarrierCountINTEL
+\ MaximumRegistersINTEL MaximumRegistersIdINTEL NamedMaximumRegistersINTEL
+\ UniformConstant Input Uniform Output Workgroup CrossWorkgroup Private Function
+\ Generic PushConstant AtomicCounter Image StorageBuffer TileImageEXT
+\ TileAttachmentQCOM NodePayloadAMDX CallableDataKHR IncomingCallableDataKHR
+\ RayPayloadKHR HitAttributeKHR IncomingRayPayloadKHR ShaderRecordBufferKHR
 \ PhysicalStorageBuffer HitObjectAttributeNV TaskPayloadWorkgroupEXT
 \ CodeSectionINTEL DeviceOnlyINTEL HostOnlyINTEL 1D 2D 3D Cube Rect Buffer
 \ SubpassData TileImageDataEXT ClampToEdge Clamp Repeat RepeatMirrored Nearest
