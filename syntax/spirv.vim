@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: October 25, 2025
+" Last Modified: October 30, 2025
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -33,10 +33,11 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ VolatileTexel SignExtend ZeroExtend Nontemporal Offsets NotNaN NotInf NSZ
 \ AllowRecip Fast AllowContract AllowReassoc AllowTransform Flatten DontFlatten
 \ Unroll DontUnroll DependencyInfinite DependencyLength MinIterations
-\ MaxIterations IterationMultiple PeelCount PartialCount InitiationIntervalINTEL
-\ MaxConcurrencyINTEL DependencyArrayINTEL PipelineEnableINTEL LoopCoalesceINTEL
-\ MaxInterleavingINTEL SpeculatedIterationsINTEL NoFusionINTEL LoopCountINTEL
-\ MaxReinvocationDelayINTEL Inline DontInline Pure Const OptNoneEXT Relaxed
+\ MaxIterations IterationMultiple PeelCount PartialCount
+\ InitiationIntervalALTERA MaxConcurrencyALTERA DependencyArrayALTERA
+\ PipelineEnableALTERA LoopCoalesceALTERA MaxInterleavingALTERA
+\ SpeculatedIterationsALTERA NoFusionALTERA LoopCountALTERA
+\ MaxReinvocationDelayALTERA Inline DontInline Pure Const OptNoneEXT Relaxed
 \ Acquire Release AcquireRelease SequentiallyConsistent UniformMemory
 \ SubgroupMemory WorkgroupMemory CrossWorkgroupMemory AtomicCounterMemory
 \ ImageMemory OutputMemory MakeAvailable MakeVisible Volatile Aligned
@@ -84,7 +85,7 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ TileAttachmentQCOM NodePayloadAMDX CallableDataKHR IncomingCallableDataKHR
 \ RayPayloadKHR HitAttributeKHR IncomingRayPayloadKHR ShaderRecordBufferKHR
 \ PhysicalStorageBuffer HitObjectAttributeNV TaskPayloadWorkgroupEXT
-\ CodeSectionINTEL DeviceOnlyINTEL HostOnlyINTEL 1D 2D 3D Cube Rect Buffer
+\ CodeSectionINTEL DeviceOnlyALTERA HostOnlyALTERA 1D 2D 3D Cube Rect Buffer
 \ SubpassData TileImageDataEXT ClampToEdge Clamp Repeat RepeatMirrored Nearest
 \ Linear Rgba32f Rgba16f R32f Rgba8 Rgba8Snorm Rg32f Rg16f R11fG11fB10f R16f
 \ Rgba16 Rgb10A2 Rg16 Rg8 R16 R8 Rgba16Snorm Rg16Snorm Rg8Snorm R16Snorm R8Snorm
@@ -100,7 +101,7 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ RND_INF RND_MIN_INF RND_CONV RND_CONV_ODD IEEE ALT WRAP SAT SAT_ZERO SAT_SYM
 \ Export Import LinkOnceODR ReadOnly WriteOnly ReadWrite NoneINTEL ReadINTEL
 \ WriteINTEL ReadWriteINTEL Zext Sext ByVal Sret NoAlias NoCapture NoWrite
-\ NoReadWrite RuntimeAlignedINTEL RelaxedPrecision SpecId Block BufferBlock
+\ NoReadWrite RuntimeAlignedALTERA RelaxedPrecision SpecId Block BufferBlock
 \ RowMajor ColMajor ArrayStride MatrixStride GLSLShared GLSLPacked CPacked
 \ BuiltIn NoPerspective Flat Patch Centroid Invariant Restrict Aliased Constant
 \ Coherent NonWritable NonReadable UniformId SaturatedConversion Stream Location
@@ -120,21 +121,22 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ SideEffectsINTEL VectorComputeVariableINTEL FuncParamIOKindINTEL
 \ VectorComputeFunctionINTEL StackCallINTEL GlobalVariableOffsetINTEL
 \ CounterBuffer UserSemantic UserTypeGOOGLE FunctionRoundingModeINTEL
-\ FunctionDenormModeINTEL RegisterINTEL MemoryINTEL NumbanksINTEL BankwidthINTEL
-\ MaxPrivateCopiesINTEL SinglepumpINTEL DoublepumpINTEL MaxReplicatesINTEL
-\ SimpleDualPortINTEL MergeINTEL BankBitsINTEL ForcePow2DepthINTEL
-\ StridesizeINTEL WordsizeINTEL TrueDualPortINTEL BurstCoalesceINTEL
-\ CacheSizeINTEL DontStaticallyCoalesceINTEL PrefetchINTEL StallEnableINTEL
-\ FuseLoopsInFunctionINTEL MathOpDSPModeINTEL AliasScopeINTEL NoAliasINTEL
-\ BufferLocationINTEL IOPipeStorageINTEL FunctionFloatingPointModeINTEL
-\ SingleElementVectorINTEL VectorComputeCallableFunctionINTEL MediaBlockIOINTEL
-\ StallFreeINTEL FPMaxErrorDecorationINTEL LatencyControlLabelINTEL
-\ LatencyControlConstraintINTEL ConduitKernelArgumentINTEL
-\ RegisterMapKernelArgumentINTEL MMHostInterfaceAddressWidthINTEL
-\ MMHostInterfaceDataWidthINTEL MMHostInterfaceLatencyINTEL
-\ MMHostInterfaceReadWriteModeINTEL MMHostInterfaceMaxBurstINTEL
-\ MMHostInterfaceWaitRequestINTEL StableKernelArgumentINTEL HostAccessINTEL
-\ InitModeINTEL ImplementInRegisterMapINTEL ConditionalINTEL
+\ FunctionDenormModeINTEL RegisterALTERA MemoryALTERA NumbanksALTERA
+\ BankwidthALTERA MaxPrivateCopiesALTERA SinglepumpALTERA DoublepumpALTERA
+\ MaxReplicatesALTERA SimpleDualPortALTERA MergeALTERA BankBitsALTERA
+\ ForcePow2DepthALTERA StridesizeALTERA WordsizeALTERA TrueDualPortALTERA
+\ BurstCoalesceALTERA CacheSizeALTERA DontStaticallyCoalesceALTERA
+\ PrefetchALTERA StallEnableALTERA FuseLoopsInFunctionALTERA MathOpDSPModeALTERA
+\ AliasScopeINTEL NoAliasINTEL BufferLocationALTERA IOPipeStorageALTERA
+\ FunctionFloatingPointModeINTEL SingleElementVectorINTEL
+\ VectorComputeCallableFunctionINTEL MediaBlockIOINTEL StallFreeALTERA
+\ FPMaxErrorDecorationINTEL LatencyControlLabelALTERA
+\ LatencyControlConstraintALTERA ConduitKernelArgumentALTERA
+\ RegisterMapKernelArgumentALTERA MMHostInterfaceAddressWidthALTERA
+\ MMHostInterfaceDataWidthALTERA MMHostInterfaceLatencyALTERA
+\ MMHostInterfaceReadWriteModeALTERA MMHostInterfaceMaxBurstALTERA
+\ MMHostInterfaceWaitRequestALTERA StableKernelArgumentALTERA HostAccessINTEL
+\ InitModeALTERA ImplementInRegisterMapALTERA ConditionalINTEL
 \ CacheControlLoadINTEL CacheControlStoreINTEL Position PointSize ClipDistance
 \ CullDistance VertexId InstanceId PrimitiveId InvocationId Layer ViewportIndex
 \ TessLevelOuter TessLevelInner TessCoord PatchVertices FragCoord PointCoord
@@ -233,23 +235,23 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ VectorComputeINTEL VectorAnyINTEL ExpectAssumeKHR
 \ SubgroupAvcMotionEstimationINTEL SubgroupAvcMotionEstimationIntraINTEL
 \ SubgroupAvcMotionEstimationChromaINTEL VariableLengthArrayINTEL
-\ FunctionFloatControlINTEL FPGAMemoryAttributesINTEL FPFastMathModeINTEL
-\ ArbitraryPrecisionIntegersINTEL ArbitraryPrecisionFloatingPointINTEL
-\ UnstructuredLoopControlsINTEL FPGALoopControlsINTEL KernelAttributesINTEL
-\ FPGAKernelAttributesINTEL FPGAMemoryAccessesINTEL FPGAClusterAttributesINTEL
-\ LoopFuseINTEL FPGADSPControlINTEL MemoryAccessAliasingINTEL
-\ FPGAInvocationPipeliningAttributesINTEL FPGABufferLocationINTEL
-\ ArbitraryPrecisionFixedPointINTEL USMStorageClassesINTEL
-\ RuntimeAlignedAttributeINTEL IOPipesINTEL BlockingPipesINTEL FPGARegINTEL
+\ FunctionFloatControlINTEL FPGAMemoryAttributesALTERA FPFastMathModeINTEL
+\ ArbitraryPrecisionIntegersALTERA ArbitraryPrecisionFloatingPointALTERA
+\ UnstructuredLoopControlsINTEL FPGALoopControlsALTERA KernelAttributesINTEL
+\ FPGAKernelAttributesINTEL FPGAMemoryAccessesALTERA FPGAClusterAttributesALTERA
+\ LoopFuseALTERA FPGADSPControlALTERA MemoryAccessAliasingINTEL
+\ FPGAInvocationPipeliningAttributesALTERA FPGABufferLocationALTERA
+\ ArbitraryPrecisionFixedPointALTERA USMStorageClassesALTERA
+\ RuntimeAlignedAttributeALTERA IOPipesALTERA BlockingPipesALTERA FPGARegALTERA
 \ DotProductInputAll DotProductInput4x8Bit DotProductInput4x8BitPacked
 \ DotProduct RayCullMaskKHR CooperativeMatrixKHR ReplicatedCompositesEXT
 \ BitInstructions GroupNonUniformRotateKHR FloatControls2 FMAKHR
 \ AtomicFloat32AddEXT AtomicFloat64AddEXT LongCompositesINTEL
 \ AtomicFloat16AddEXT DebugInfoModuleINTEL BFloat16ConversionINTEL
-\ SplitBarrierINTEL ArithmeticFenceEXT FPGAClusterAttributesV2INTEL
-\ FPGAKernelAttributesv2INTEL TaskSequenceINTEL FPMaxErrorINTEL
-\ FPGALatencyControlINTEL FPGAArgumentInterfacesINTEL
-\ GlobalVariableHostAccessINTEL GlobalVariableFPGADecorationsINTEL
+\ SplitBarrierINTEL ArithmeticFenceEXT FPGAClusterAttributesV2ALTERA
+\ FPGAKernelAttributesv2INTEL TaskSequenceALTERA FPMaxErrorINTEL
+\ FPGALatencyControlALTERA FPGAArgumentInterfacesALTERA
+\ GlobalVariableHostAccessINTEL GlobalVariableFPGADecorationsALTERA
 \ SubgroupBufferPrefetchINTEL Subgroup2DBlockIOINTEL
 \ Subgroup2DBlockTransformINTEL Subgroup2DBlockTransposeINTEL
 \ SubgroupMatrixMultiplyAccumulateINTEL TernaryBitwiseFunctionINTEL
@@ -264,8 +266,8 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ MatrixCSignedComponentsKHR MatrixResultSignedComponentsKHR
 \ SaturatingAccumulationKHR RowMajorKHR ColumnMajorKHR RowBlockedInterleavedARM
 \ ColumnBlockedInterleavedARM MatrixAKHR MatrixBKHR MatrixAccumulatorKHR Row
-\ Column 2x2 Undefined TensorView DecodeFunc InitOnDeviceReprogramINTEL
-\ InitOnDeviceResetINTEL UncachedINTEL CachedINTEL StreamingINTEL
+\ Column 2x2 Undefined TensorView DecodeFunc InitOnDeviceReprogramALTERA
+\ InitOnDeviceResetALTERA UncachedINTEL CachedINTEL StreamingINTEL
 \ InvalidateAfterReadINTEL ConstCachedINTEL WriteThroughINTEL WriteBackINTEL
 \ AutoINTEL MatrixASignedComponentsINTEL MatrixBSignedComponentsINTEL
 \ MatrixCBFloat16INTEL MatrixResultBFloat16INTEL MatrixAPackedInt8INTEL
@@ -541,15 +543,15 @@ syn keyword SpirvInstruction OpNop OpUndef OpTypeReserveId OpConstantTrue
 \ OpSubgroupAvcSicGetPackedSkcLumaCountThresholdINTEL
 \ OpSubgroupAvcSicGetPackedSkcLumaSumThresholdINTEL
 \ OpSubgroupAvcSicGetInterRawSadsINTEL OpVariableLengthArrayINTEL
-\ OpSaveMemoryINTEL OpRestoreMemoryINTEL OpArbitraryFloatSinCosPiINTEL
-\ OpArbitraryFloatCastINTEL OpArbitraryFloatCastFromIntINTEL
-\ OpArbitraryFloatCastToIntINTEL OpArbitraryFloatAddINTEL
-\ OpArbitraryFloatSubINTEL OpArbitraryFloatMulINTEL OpArbitraryFloatDivINTEL
-\ OpArbitraryFloatGTINTEL OpArbitraryFloatGEINTEL OpArbitraryFloatLTINTEL
-\ OpArbitraryFloatLEINTEL OpArbitraryFloatEQINTEL OpArbitraryFloatRecipINTEL
-\ OpArbitraryFloatRSqrtINTEL OpArbitraryFloatCbrtINTEL
-\ OpArbitraryFloatHypotINTEL OpArbitraryFloatSqrtINTEL OpArbitraryFloatLogINTEL
-\ OpArbitraryFloatLog2INTEL OpArbitraryFloatLog10INTEL
+\ OpSaveMemoryINTEL OpRestoreMemoryINTEL OpArbitraryFloatSinCosPiALTERA
+\ OpArbitraryFloatCastALTERA OpArbitraryFloatCastFromIntALTERA
+\ OpArbitraryFloatCastToIntALTERA OpArbitraryFloatAddALTERA
+\ OpArbitraryFloatSubALTERA OpArbitraryFloatMulALTERA OpArbitraryFloatDivALTERA
+\ OpArbitraryFloatGTALTERA OpArbitraryFloatGEALTERA OpArbitraryFloatLTALTERA
+\ OpArbitraryFloatLEALTERA OpArbitraryFloatEQALTERA OpArbitraryFloatRecipALTERA
+\ OpArbitraryFloatRSqrtALTERA OpArbitraryFloatCbrtALTERA
+\ OpArbitraryFloatHypotALTERA OpArbitraryFloatSqrtALTERA
+\ OpArbitraryFloatLogINTEL OpArbitraryFloatLog2INTEL OpArbitraryFloatLog10INTEL
 \ OpArbitraryFloatLog1pINTEL OpArbitraryFloatExpINTEL OpArbitraryFloatExp2INTEL
 \ OpArbitraryFloatExp10INTEL OpArbitraryFloatExpm1INTEL OpArbitraryFloatSinINTEL
 \ OpArbitraryFloatCosINTEL OpArbitraryFloatSinCosINTEL
@@ -559,13 +561,13 @@ syn keyword SpirvInstruction OpNop OpUndef OpTypeReserveId OpConstantTrue
 \ OpArbitraryFloatATanINTEL OpArbitraryFloatATanPiINTEL
 \ OpArbitraryFloatATan2INTEL OpArbitraryFloatPowINTEL OpArbitraryFloatPowRINTEL
 \ OpArbitraryFloatPowNINTEL OpLoopControlINTEL OpAliasDomainDeclINTEL
-\ OpAliasScopeDeclINTEL OpAliasScopeListDeclINTEL OpFixedSqrtINTEL
-\ OpFixedRecipINTEL OpFixedRsqrtINTEL OpFixedSinINTEL OpFixedCosINTEL
-\ OpFixedSinCosINTEL OpFixedSinPiINTEL OpFixedCosPiINTEL OpFixedSinCosPiINTEL
-\ OpFixedLogINTEL OpFixedExpINTEL OpPtrCastToCrossWorkgroupINTEL
-\ OpCrossWorkgroupCastToPtrINTEL OpReadPipeBlockingINTEL
-\ OpWritePipeBlockingINTEL OpFPGARegINTEL OpRayQueryGetRayTMinKHR
-\ OpRayQueryGetRayFlagsKHR OpRayQueryGetIntersectionTKHR
+\ OpAliasScopeDeclINTEL OpAliasScopeListDeclINTEL OpFixedSqrtALTERA
+\ OpFixedRecipALTERA OpFixedRsqrtALTERA OpFixedSinALTERA OpFixedCosALTERA
+\ OpFixedSinCosALTERA OpFixedSinPiALTERA OpFixedCosPiALTERA
+\ OpFixedSinCosPiALTERA OpFixedLogALTERA OpFixedExpALTERA
+\ OpPtrCastToCrossWorkgroupALTERA OpCrossWorkgroupCastToPtrALTERA
+\ OpReadPipeBlockingALTERA OpWritePipeBlockingALTERA OpFPGARegALTERA
+\ OpRayQueryGetRayTMinKHR OpRayQueryGetRayFlagsKHR OpRayQueryGetIntersectionTKHR
 \ OpRayQueryGetIntersectionInstanceCustomIndexKHR
 \ OpRayQueryGetIntersectionInstanceIdKHR
 \ OpRayQueryGetIntersectionInstanceShaderBindingTableRecordOffsetKHR
@@ -581,8 +583,8 @@ syn keyword SpirvInstruction OpNop OpUndef OpTypeReserveId OpConstantTrue
 \ OpConstantCompositeContinuedINTEL OpSpecConstantCompositeContinuedINTEL
 \ OpCompositeConstructContinuedINTEL OpConvertFToBF16INTEL OpConvertBF16ToFINTEL
 \ OpControlBarrierArriveINTEL OpControlBarrierWaitINTEL OpArithmeticFenceEXT
-\ OpTaskSequenceCreateINTEL OpTaskSequenceAsyncINTEL OpTaskSequenceGetINTEL
-\ OpTaskSequenceReleaseINTEL OpTypeTaskSequenceINTEL
+\ OpTaskSequenceCreateALTERA OpTaskSequenceAsyncALTERA OpTaskSequenceGetALTERA
+\ OpTaskSequenceReleaseALTERA OpTypeTaskSequenceALTERA
 \ OpSubgroupBlockPrefetchINTEL OpSubgroup2DBlockLoadINTEL
 \ OpSubgroup2DBlockLoadTransformINTEL OpSubgroup2DBlockLoadTransposeINTEL
 \ OpSubgroup2DBlockPrefetchINTEL OpSubgroup2DBlockStoreINTEL
