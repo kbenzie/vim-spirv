@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: November 13, 2025
+" Last Modified: December 17, 2025
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -225,15 +225,16 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ ShaderInvocationReorderEXT BindlessTextureNV RayQueryPositionFetchKHR
 \ CooperativeVectorNV AtomicFloat16VectorNV RayTracingDisplacementMicromapNV
 \ RawAccessChainsNV RayTracingSpheresGeometryNV
-\ RayTracingLinearSweptSpheresGeometryNV CooperativeMatrixReductionsNV
-\ CooperativeMatrixConversionsNV CooperativeMatrixPerElementOperationsNV
-\ CooperativeMatrixTensorAddressingNV CooperativeMatrixBlockLoadsNV
-\ CooperativeVectorTrainingNV RayTracingClusterAccelerationStructureNV
-\ TensorAddressingNV SubgroupShuffleINTEL SubgroupBufferBlockIOINTEL
-\ SubgroupImageBlockIOINTEL SubgroupImageMediaBlockIOINTEL RoundToInfinityINTEL
-\ FloatingPointModeINTEL IntegerFunctions2INTEL FunctionPointersINTEL
-\ IndirectReferencesINTEL AsmINTEL AtomicFloat32MinMaxEXT AtomicFloat64MinMaxEXT
-\ AtomicFloat16MinMaxEXT VectorComputeINTEL VectorAnyINTEL ExpectAssumeKHR
+\ RayTracingLinearSweptSpheresGeometryNV LongVectorEXT
+\ CooperativeMatrixReductionsNV CooperativeMatrixConversionsNV
+\ CooperativeMatrixPerElementOperationsNV CooperativeMatrixTensorAddressingNV
+\ CooperativeMatrixBlockLoadsNV CooperativeVectorTrainingNV
+\ RayTracingClusterAccelerationStructureNV TensorAddressingNV
+\ SubgroupShuffleINTEL SubgroupBufferBlockIOINTEL SubgroupImageBlockIOINTEL
+\ SubgroupImageMediaBlockIOINTEL RoundToInfinityINTEL FloatingPointModeINTEL
+\ IntegerFunctions2INTEL FunctionPointersINTEL IndirectReferencesINTEL AsmINTEL
+\ AtomicFloat32MinMaxEXT AtomicFloat64MinMaxEXT AtomicFloat16MinMaxEXT
+\ VectorComputeINTEL VectorAnyINTEL ExpectAssumeKHR
 \ SubgroupAvcMotionEstimationINTEL SubgroupAvcMotionEstimationIntraINTEL
 \ SubgroupAvcMotionEstimationChromaINTEL VariableLengthArrayINTEL
 \ FunctionFloatControlINTEL FPGAMemoryAttributesALTERA FPFastMathModeINTEL
