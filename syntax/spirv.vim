@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: December 17, 2025
+" Last Modified: January 08, 2026
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -401,7 +401,7 @@ syn keyword SpirvInstruction OpNop OpUndef OpTypeReserveId OpConstantTrue
 \ OpHitObjectGetRayTMaxNV OpHitObjectGetRayTMinNV OpHitObjectIsEmptyNV
 \ OpHitObjectIsHitNV OpHitObjectIsMissNV OpReorderThreadWithHitObjectNV
 \ OpReorderThreadWithHintNV OpTypeHitObjectNV OpImageSampleFootprintNV
-\ OpTypeCooperativeVectorNV OpCooperativeVectorMatrixMulNV
+\ OpTypeVectorIdEXT OpCooperativeVectorMatrixMulNV
 \ OpCooperativeVectorOuterProductAccumulateNV
 \ OpCooperativeVectorReduceSumAccumulateNV OpCooperativeVectorMatrixMulAddNV
 \ OpCooperativeMatrixConvertNV OpEmitMeshTasksEXT OpSetMeshOutputsEXT
