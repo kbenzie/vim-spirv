@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: January 08, 2026
+" Last Modified: January 22, 2026
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -114,12 +114,12 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ ExplicitInterpAMD NodeSharesPayloadLimitsWithAMDX NodeMaxPayloadsAMDX
 \ TrackFinishWritingAMDX PayloadNodeNameAMDX PayloadNodeBaseIndexAMDX
 \ PayloadNodeSparseArrayAMDX PayloadNodeArraySizeAMDX
-\ PayloadDispatchIndirectAMDX OverrideCoverageNV PassthroughNV
-\ ViewportRelativeNV SecondaryViewportRelativeNV PerPrimitiveEXT PerViewNV
-\ PerTaskNV PerVertexKHR NonUniform RestrictPointer AliasedPointer
-\ HitObjectShaderRecordBufferNV HitObjectShaderRecordBufferEXT BindlessSamplerNV
-\ BindlessImageNV BoundSamplerNV BoundImageNV SIMTCallINTEL
-\ ReferencedIndirectlyINTEL ClobberINTEL SideEffectsINTEL
+\ PayloadDispatchIndirectAMDX ArrayStrideIdEXT OffsetIdEXT OverrideCoverageNV
+\ PassthroughNV ViewportRelativeNV SecondaryViewportRelativeNV PerPrimitiveEXT
+\ PerViewNV PerTaskNV PerVertexKHR NonUniform RestrictPointer AliasedPointer
+\ MemberOffsetNV HitObjectShaderRecordBufferNV HitObjectShaderRecordBufferEXT
+\ BankNV BindlessSamplerNV BindlessImageNV BoundSamplerNV BoundImageNV
+\ SIMTCallINTEL ReferencedIndirectlyINTEL ClobberINTEL SideEffectsINTEL
 \ VectorComputeVariableINTEL FuncParamIOKindINTEL VectorComputeFunctionINTEL
 \ StackCallINTEL GlobalVariableOffsetINTEL CounterBuffer UserSemantic
 \ UserTypeGOOGLE FunctionRoundingModeINTEL FunctionDenormModeINTEL
@@ -152,8 +152,8 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ TileDimensionQCOM TileApronSizeQCOM BaryCoordNoPerspAMD
 \ BaryCoordNoPerspCentroidAMD BaryCoordNoPerspSampleAMD BaryCoordSmoothAMD
 \ BaryCoordSmoothCentroidAMD BaryCoordSmoothSampleAMD BaryCoordPullModelAMD
-\ FragStencilRefEXT RemainingRecursionLevelsAMDX ViewportMaskNV
-\ SecondaryPositionNV SecondaryViewportMaskNV PositionPerViewNV
+\ FragStencilRefEXT RemainingRecursionLevelsAMDX SamplerHeapEXT ResourceHeapEXT
+\ ViewportMaskNV SecondaryPositionNV SecondaryViewportMaskNV PositionPerViewNV
 \ ViewportMaskPerViewNV FullyCoveredEXT TaskCountNV PrimitiveCountNV
 \ PrimitiveIndicesNV ClipDistancePerViewNV CullDistancePerViewNV LayerPerViewNV
 \ MeshViewCountNV MeshViewIndicesNV BaryCoordKHR BaryCoordNoPerspKHR FragSizeEXT
@@ -168,8 +168,8 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ SMIDNV HitLSSPositionsNV HitKindFrontFacingMicroTriangleNV
 \ HitKindBackFacingMicroTriangleNV HitSphereRadiusNV HitLSSRadiiNV ClusterIDNV
 \ CullMaskKHR CrossDevice Device Subgroup Invocation QueueFamily ShaderCallKHR
-\ Reduce InclusiveScan ExclusiveScan ClusteredReduce PartitionedReduceNV
-\ PartitionedInclusiveScanNV PartitionedExclusiveScanNV NoWait WaitKernel
+\ Reduce InclusiveScan ExclusiveScan ClusteredReduce PartitionedReduceEXT
+\ PartitionedInclusiveScanEXT PartitionedExclusiveScanEXT NoWait WaitKernel
 \ WaitWorkGroup Matrix Shader Tessellation Addresses Linkage Vector16
 \ Float16Buffer Float16 Float64 Int64 Int64Atomics ImageBasic ImageReadWrite
 \ ImageMipmap Pipes Groups DeviceEnqueue LiteralSampler AtomicStorage Int16
@@ -203,12 +203,12 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ Float16ImageAMD ImageGatherBiasLodAMD FragmentMaskAMD StencilExportEXT
 \ ImageReadWriteLodAMD Int64ImageEXT ShaderClockKHR ShaderEnqueueAMDX
 \ QuadControlKHR Int4TypeINTEL Int4CooperativeMatrixINTEL BFloat16TypeKHR
-\ BFloat16DotProductKHR BFloat16CooperativeMatrixKHR
+\ BFloat16DotProductKHR BFloat16CooperativeMatrixKHR DescriptorHeapEXT
 \ SampleMaskOverrideCoverageNV GeometryShaderPassthroughNV
 \ ShaderViewportIndexLayerEXT ShaderViewportMaskNV ShaderStereoViewNV
 \ PerViewAttributesNV FragmentFullyCoveredEXT MeshShadingNV ImageFootprintNV
 \ MeshShadingEXT FragmentBarycentricKHR ComputeDerivativeGroupQuadsKHR
-\ FragmentDensityEXT GroupNonUniformPartitionedNV ShaderNonUniform
+\ FragmentDensityEXT GroupNonUniformPartitionedEXT ShaderNonUniform
 \ RuntimeDescriptorArray InputAttachmentArrayDynamicIndexing
 \ UniformTexelBufferArrayDynamicIndexing StorageTexelBufferArrayDynamicIndexing
 \ UniformBufferArrayNonUniformIndexing SampledImageArrayNonUniformIndexing
@@ -225,7 +225,7 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ ShaderInvocationReorderEXT BindlessTextureNV RayQueryPositionFetchKHR
 \ CooperativeVectorNV AtomicFloat16VectorNV RayTracingDisplacementMicromapNV
 \ RawAccessChainsNV RayTracingSpheresGeometryNV
-\ RayTracingLinearSweptSpheresGeometryNV LongVectorEXT
+\ RayTracingLinearSweptSpheresGeometryNV PushConstantBanksNV LongVectorEXT
 \ CooperativeMatrixReductionsNV CooperativeMatrixConversionsNV
 \ CooperativeMatrixPerElementOperationsNV CooperativeMatrixTensorAddressingNV
 \ CooperativeMatrixBlockLoadsNV CooperativeVectorTrainingNV
@@ -386,11 +386,13 @@ syn keyword SpirvInstruction OpNop OpUndef OpTypeReserveId OpConstantTrue
 \ OpTypeNodePayloadArrayAMDX OpFinishWritingNodePayloadAMDX
 \ OpNodePayloadArrayLengthAMDX OpIsNodePayloadValidAMDX OpConstantStringAMDX
 \ OpSpecConstantStringAMDX OpGroupNonUniformQuadAllKHR
-\ OpGroupNonUniformQuadAnyKHR OpHitObjectRecordHitMotionNV
-\ OpHitObjectRecordHitWithIndexMotionNV OpHitObjectRecordMissMotionNV
-\ OpHitObjectGetWorldToObjectNV OpHitObjectGetObjectToWorldNV
-\ OpHitObjectGetObjectRayDirectionNV OpHitObjectGetObjectRayOriginNV
-\ OpHitObjectTraceRayMotionNV OpHitObjectGetShaderRecordBufferHandleNV
+\ OpGroupNonUniformQuadAnyKHR OpTypeBufferEXT OpBufferPointerEXT
+\ OpUntypedImageTexelPointerEXT OpMemberDecorateIdEXT OpConstantSizeOfEXT
+\ OpHitObjectRecordHitMotionNV OpHitObjectRecordHitWithIndexMotionNV
+\ OpHitObjectRecordMissMotionNV OpHitObjectGetWorldToObjectNV
+\ OpHitObjectGetObjectToWorldNV OpHitObjectGetObjectRayDirectionNV
+\ OpHitObjectGetObjectRayOriginNV OpHitObjectTraceRayMotionNV
+\ OpHitObjectGetShaderRecordBufferHandleNV
 \ OpHitObjectGetShaderBindingTableRecordIndexNV OpHitObjectRecordEmptyNV
 \ OpHitObjectTraceRayNV OpHitObjectRecordHitNV OpHitObjectRecordHitWithIndexNV
 \ OpHitObjectRecordMissNV OpHitObjectExecuteShaderNV OpHitObjectGetCurrentTimeNV
@@ -405,7 +407,7 @@ syn keyword SpirvInstruction OpNop OpUndef OpTypeReserveId OpConstantTrue
 \ OpCooperativeVectorOuterProductAccumulateNV
 \ OpCooperativeVectorReduceSumAccumulateNV OpCooperativeVectorMatrixMulAddNV
 \ OpCooperativeMatrixConvertNV OpEmitMeshTasksEXT OpSetMeshOutputsEXT
-\ OpGroupNonUniformPartitionNV OpWritePackedPrimitiveIndices4x8NV
+\ OpGroupNonUniformPartitionEXT OpWritePackedPrimitiveIndices4x8NV
 \ OpFetchMicroTriangleVertexPositionNV OpFetchMicroTriangleVertexBarycentricNV
 \ OpCooperativeVectorLoadNV OpCooperativeVectorStoreNV
 \ OpHitObjectRecordFromQueryEXT OpHitObjectRecordMissEXT
