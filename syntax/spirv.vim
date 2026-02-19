@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: January 22, 2026
+" Last Modified: February 19, 2026
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -260,6 +260,8 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ UntypedVariableLengthArrayINTEL SpecConditionalINTEL FunctionVariantsINTEL
 \ GroupUniformArithmeticKHR TensorFloat32RoundingINTEL MaskedGatherScatterINTEL
 \ CacheControlsINTEL RegisterLimitsINTEL BindlessImagesINTEL
+\ DotProductFloat16AccFloat32VALVE DotProductFloat16AccFloat16VALVE
+\ DotProductBFloat16AccVALVE DotProductFloat8AccFloat32VALVE
 \ RayQueryCandidateIntersectionKHR RayQueryCommittedIntersectionKHR
 \ RayQueryCommittedIntersectionNoneKHR RayQueryCommittedIntersectionTriangleKHR
 \ RayQueryCommittedIntersectionGeneratedKHR
@@ -620,7 +622,8 @@ syn keyword SpirvInstruction OpNop OpUndef OpTypeReserveId OpConstantTrue
 \ OpGroupLogicalAndKHR OpGroupLogicalOrKHR OpGroupLogicalXorKHR
 \ OpRoundFToTF32INTEL OpMaskedGatherINTEL OpMaskedScatterINTEL
 \ OpConvertHandleToImageINTEL OpConvertHandleToSamplerINTEL
-\ OpConvertHandleToSampledImageINTEL
+\ OpConvertHandleToSampledImageINTEL OpFDot2MixAcc32VALVE OpFDot2MixAcc16VALVE
+\ OpFDot4MixAcc32VALVE
 
 " Label keywords
 syn keyword SpirvLabel OpLabel
