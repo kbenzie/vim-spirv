@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: March 26, 2026
+" Last Modified: March 29, 2026
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -203,7 +203,7 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ Float16ImageAMD ImageGatherBiasLodAMD FragmentMaskAMD StencilExportEXT
 \ ImageReadWriteLodAMD Int64ImageEXT ShaderClockKHR ShaderEnqueueAMDX
 \ QuadControlKHR Int4TypeINTEL Int4CooperativeMatrixINTEL BFloat16TypeKHR
-\ BFloat16DotProductKHR BFloat16CooperativeMatrixKHR DescriptorHeapEXT
+\ BFloat16DotProductKHR BFloat16CooperativeMatrixKHR AbortKHR DescriptorHeapEXT
 \ PoisonFreezeKHR SampleMaskOverrideCoverageNV GeometryShaderPassthroughNV
 \ ShaderViewportIndexLayerEXT ShaderViewportMaskNV ShaderStereoViewNV
 \ PerViewAttributesNV FragmentFullyCoveredEXT MeshShadingNV ImageFootprintNV
@@ -388,7 +388,7 @@ syn keyword SpirvInstruction OpNop OpUndef OpTypeReserveId OpConstantTrue
 \ OpTypeNodePayloadArrayAMDX OpFinishWritingNodePayloadAMDX
 \ OpNodePayloadArrayLengthAMDX OpIsNodePayloadValidAMDX OpConstantStringAMDX
 \ OpSpecConstantStringAMDX OpGroupNonUniformQuadAllKHR
-\ OpGroupNonUniformQuadAnyKHR OpTypeBufferEXT OpBufferPointerEXT
+\ OpGroupNonUniformQuadAnyKHR OpTypeBufferEXT OpBufferPointerEXT OpAbortKHR
 \ OpUntypedImageTexelPointerEXT OpMemberDecorateIdEXT OpConstantSizeOfEXT
 \ OpPoisonKHR OpFreezeKHR OpHitObjectRecordHitMotionNV
 \ OpHitObjectRecordHitWithIndexMotionNV OpHitObjectRecordMissMotionNV
