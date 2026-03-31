@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: March 29, 2026
+" Last Modified: March 31, 2026
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -114,12 +114,13 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ ExplicitInterpAMD NodeSharesPayloadLimitsWithAMDX NodeMaxPayloadsAMDX
 \ TrackFinishWritingAMDX PayloadNodeNameAMDX PayloadNodeBaseIndexAMDX
 \ PayloadNodeSparseArrayAMDX PayloadNodeArraySizeAMDX
-\ PayloadDispatchIndirectAMDX ArrayStrideIdEXT OffsetIdEXT OverrideCoverageNV
-\ PassthroughNV ViewportRelativeNV SecondaryViewportRelativeNV PerPrimitiveEXT
-\ PerViewNV PerTaskNV PerVertexKHR NonUniform RestrictPointer AliasedPointer
-\ MemberOffsetNV HitObjectShaderRecordBufferNV HitObjectShaderRecordBufferEXT
-\ BankNV BindlessSamplerNV BindlessImageNV BoundSamplerNV BoundImageNV
-\ SIMTCallINTEL ReferencedIndirectlyINTEL ClobberINTEL SideEffectsINTEL
+\ PayloadDispatchIndirectAMDX ArrayStrideIdEXT OffsetIdEXT UTFEncodedKHR
+\ OverrideCoverageNV PassthroughNV ViewportRelativeNV
+\ SecondaryViewportRelativeNV PerPrimitiveEXT PerViewNV PerTaskNV PerVertexKHR
+\ NonUniform RestrictPointer AliasedPointer MemberOffsetNV
+\ HitObjectShaderRecordBufferNV HitObjectShaderRecordBufferEXT BankNV
+\ BindlessSamplerNV BindlessImageNV BoundSamplerNV BoundImageNV SIMTCallINTEL
+\ ReferencedIndirectlyINTEL ClobberINTEL SideEffectsINTEL
 \ VectorComputeVariableINTEL FuncParamIOKindINTEL VectorComputeFunctionINTEL
 \ StackCallINTEL GlobalVariableOffsetINTEL CounterBuffer UserSemantic
 \ UserTypeGOOGLE FunctionRoundingModeINTEL FunctionDenormModeINTEL
@@ -204,16 +205,16 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ ImageReadWriteLodAMD Int64ImageEXT ShaderClockKHR ShaderEnqueueAMDX
 \ QuadControlKHR Int4TypeINTEL Int4CooperativeMatrixINTEL BFloat16TypeKHR
 \ BFloat16DotProductKHR BFloat16CooperativeMatrixKHR AbortKHR DescriptorHeapEXT
-\ PoisonFreezeKHR SampleMaskOverrideCoverageNV GeometryShaderPassthroughNV
-\ ShaderViewportIndexLayerEXT ShaderViewportMaskNV ShaderStereoViewNV
-\ PerViewAttributesNV FragmentFullyCoveredEXT MeshShadingNV ImageFootprintNV
-\ MeshShadingEXT FragmentBarycentricKHR ComputeDerivativeGroupQuadsKHR
-\ FragmentDensityEXT GroupNonUniformPartitionedEXT ShaderNonUniform
-\ RuntimeDescriptorArray InputAttachmentArrayDynamicIndexing
-\ UniformTexelBufferArrayDynamicIndexing StorageTexelBufferArrayDynamicIndexing
-\ UniformBufferArrayNonUniformIndexing SampledImageArrayNonUniformIndexing
-\ StorageBufferArrayNonUniformIndexing StorageImageArrayNonUniformIndexing
-\ InputAttachmentArrayNonUniformIndexing
+\ ConstantDataKHR PoisonFreezeKHR SampleMaskOverrideCoverageNV
+\ GeometryShaderPassthroughNV ShaderViewportIndexLayerEXT ShaderViewportMaskNV
+\ ShaderStereoViewNV PerViewAttributesNV FragmentFullyCoveredEXT MeshShadingNV
+\ ImageFootprintNV MeshShadingEXT FragmentBarycentricKHR
+\ ComputeDerivativeGroupQuadsKHR FragmentDensityEXT
+\ GroupNonUniformPartitionedEXT ShaderNonUniform RuntimeDescriptorArray
+\ InputAttachmentArrayDynamicIndexing UniformTexelBufferArrayDynamicIndexing
+\ StorageTexelBufferArrayDynamicIndexing UniformBufferArrayNonUniformIndexing
+\ SampledImageArrayNonUniformIndexing StorageBufferArrayNonUniformIndexing
+\ StorageImageArrayNonUniformIndexing InputAttachmentArrayNonUniformIndexing
 \ UniformTexelBufferArrayNonUniformIndexing
 \ StorageTexelBufferArrayNonUniformIndexing RayTracingPositionFetchKHR
 \ RayTracingNV RayTracingMotionBlurNV VulkanMemoryModel
@@ -390,11 +391,12 @@ syn keyword SpirvInstruction OpNop OpUndef OpTypeReserveId OpConstantTrue
 \ OpSpecConstantStringAMDX OpGroupNonUniformQuadAllKHR
 \ OpGroupNonUniformQuadAnyKHR OpTypeBufferEXT OpBufferPointerEXT OpAbortKHR
 \ OpUntypedImageTexelPointerEXT OpMemberDecorateIdEXT OpConstantSizeOfEXT
-\ OpPoisonKHR OpFreezeKHR OpHitObjectRecordHitMotionNV
-\ OpHitObjectRecordHitWithIndexMotionNV OpHitObjectRecordMissMotionNV
-\ OpHitObjectGetWorldToObjectNV OpHitObjectGetObjectToWorldNV
-\ OpHitObjectGetObjectRayDirectionNV OpHitObjectGetObjectRayOriginNV
-\ OpHitObjectTraceRayMotionNV OpHitObjectGetShaderRecordBufferHandleNV
+\ OpConstantDataKHR OpSpecConstantDataKHR OpPoisonKHR OpFreezeKHR
+\ OpHitObjectRecordHitMotionNV OpHitObjectRecordHitWithIndexMotionNV
+\ OpHitObjectRecordMissMotionNV OpHitObjectGetWorldToObjectNV
+\ OpHitObjectGetObjectToWorldNV OpHitObjectGetObjectRayDirectionNV
+\ OpHitObjectGetObjectRayOriginNV OpHitObjectTraceRayMotionNV
+\ OpHitObjectGetShaderRecordBufferHandleNV
 \ OpHitObjectGetShaderBindingTableRecordIndexNV OpHitObjectRecordEmptyNV
 \ OpHitObjectTraceRayNV OpHitObjectRecordHitNV OpHitObjectRecordHitWithIndexNV
 \ OpHitObjectRecordMissNV OpHitObjectExecuteShaderNV OpHitObjectGetCurrentTimeNV
