@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: March 31, 2026
+" Last Modified: April 11, 2026
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -725,6 +725,10 @@ syn keyword SpirvOnsemanticShaderDebuginfo100 DebugImportedEntity DebugSource
 \ DebugFunctionDefinition DebugSourceContinued DebugLine DebugNoLine
 \ DebugBuildIdentifier DebugStoragePath DebugEntryPoint DebugTypeMatrix
 
+" OnsemanticShaderDebuginf keywords
+syn keyword SpirvOnsemanticShaderDebuginf DebugTypeVectorIdEXT
+\ DebugTypeCooperativeMatrixKHR
+
 " OnsemanticVkspreflecti keywords
 syn keyword SpirvOnsemanticVkspreflecti Configuration StartCounter StopCounter
 \ PushConstants SpecializationMapEntry DescriptorSetBuffer DescriptorSetImage
@@ -811,6 +815,7 @@ if exists('g:spirv_enable_extinst_error') && g:spirv_enable_extinst_error
   hi default link SpirvOnsemanticDebugbreak SpirvError
   hi default link SpirvOnsemanticDebugprintf SpirvError
   hi default link SpirvOnsemanticShaderDebuginfo100 SpirvError
+  hi default link SpirvOnsemanticShaderDebuginf SpirvError
   hi default link SpirvOnsemanticVkspreflecti SpirvError
   hi default link SpirvOpenclDebuginfo100 SpirvError
   hi default link SpirvOpenclStd100 SpirvError
@@ -830,6 +835,7 @@ else
   hi default link SpirvOnsemanticDebugbreak SpirvInstruction
   hi default link SpirvOnsemanticDebugprintf SpirvInstruction
   hi default link SpirvOnsemanticShaderDebuginfo100 SpirvInstruction
+  hi default link SpirvOnsemanticShaderDebuginf SpirvInstruction
   hi default link SpirvOnsemanticVkspreflecti SpirvInstruction
   hi default link SpirvOpenclDebuginfo100 SpirvInstruction
   hi default link SpirvOpenclStd100 SpirvInstruction
