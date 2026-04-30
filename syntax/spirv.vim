@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: April 11, 2026
+" Last Modified: April 30, 2026
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -146,18 +146,19 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ NumWorkgroups WorkgroupSize WorkgroupId LocalInvocationId GlobalInvocationId
 \ LocalInvocationIndex WorkDim GlobalSize EnqueuedWorkgroupSize GlobalOffset
 \ GlobalLinearId SubgroupMaxSize NumSubgroups NumEnqueuedSubgroups SubgroupId
-\ SubgroupLocalInvocationId VertexIndex InstanceIndex CoreIDARM CoreCountARM
-\ CoreMaxIDARM WarpIDARM WarpMaxIDARM SubgroupEqMask SubgroupGeMask
-\ SubgroupGtMask SubgroupLeMask SubgroupLtMask BaseVertex BaseInstance DrawIndex
-\ PrimitiveShadingRateKHR DeviceIndex ViewIndex ShadingRateKHR TileOffsetQCOM
-\ TileDimensionQCOM TileApronSizeQCOM BaryCoordNoPerspAMD
-\ BaryCoordNoPerspCentroidAMD BaryCoordNoPerspSampleAMD BaryCoordSmoothAMD
-\ BaryCoordSmoothCentroidAMD BaryCoordSmoothSampleAMD BaryCoordPullModelAMD
-\ FragStencilRefEXT RemainingRecursionLevelsAMDX SamplerHeapEXT ResourceHeapEXT
-\ ViewportMaskNV SecondaryPositionNV SecondaryViewportMaskNV PositionPerViewNV
-\ ViewportMaskPerViewNV FullyCoveredEXT TaskCountNV PrimitiveCountNV
-\ PrimitiveIndicesNV ClipDistancePerViewNV CullDistancePerViewNV LayerPerViewNV
-\ MeshViewCountNV MeshViewIndicesNV BaryCoordKHR BaryCoordNoPerspKHR FragSizeEXT
+\ SubgroupLocalInvocationId VertexIndex InstanceIndex FragmentCoverageMaskMESA
+\ CoreIDARM CoreCountARM CoreMaxIDARM WarpIDARM WarpMaxIDARM SubgroupEqMask
+\ SubgroupGeMask SubgroupGtMask SubgroupLeMask SubgroupLtMask BaseVertex
+\ BaseInstance DrawIndex PrimitiveShadingRateKHR DeviceIndex ViewIndex
+\ ShadingRateKHR TileOffsetQCOM TileDimensionQCOM TileApronSizeQCOM
+\ BaryCoordNoPerspAMD BaryCoordNoPerspCentroidAMD BaryCoordNoPerspSampleAMD
+\ BaryCoordSmoothAMD BaryCoordSmoothCentroidAMD BaryCoordSmoothSampleAMD
+\ BaryCoordPullModelAMD FragStencilRefEXT RemainingRecursionLevelsAMDX
+\ SamplerHeapEXT ResourceHeapEXT ViewportMaskNV SecondaryPositionNV
+\ SecondaryViewportMaskNV PositionPerViewNV ViewportMaskPerViewNV
+\ FullyCoveredEXT TaskCountNV PrimitiveCountNV PrimitiveIndicesNV
+\ ClipDistancePerViewNV CullDistancePerViewNV LayerPerViewNV MeshViewCountNV
+\ MeshViewIndicesNV BaryCoordKHR BaryCoordNoPerspKHR FragSizeEXT
 \ FragInvocationCountEXT PrimitivePointIndicesEXT PrimitiveLineIndicesEXT
 \ PrimitiveTriangleIndicesEXT CullPrimitiveEXT LaunchIdKHR LaunchSizeKHR
 \ WorldRayOriginKHR WorldRayDirectionKHR ObjectRayOriginKHR
@@ -186,12 +187,13 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ PipeStorage GroupNonUniform GroupNonUniformVote GroupNonUniformArithmetic
 \ GroupNonUniformBallot GroupNonUniformShuffle GroupNonUniformShuffleRelative
 \ GroupNonUniformClustered GroupNonUniformQuad ShaderLayer ShaderViewportIndex
-\ UniformDecoration CoreBuiltinsARM TileImageColorReadAccessEXT
-\ TileImageDepthReadAccessEXT TileImageStencilReadAccessEXT TensorsARM
-\ StorageTensorArrayDynamicIndexingARM StorageTensorArrayNonUniformIndexingARM
-\ GraphARM CooperativeMatrixLayoutsARM Float8EXT Float8CooperativeMatrixEXT
-\ FragmentShadingRateKHR SubgroupBallotKHR DrawParameters
-\ WorkgroupMemoryExplicitLayoutKHR WorkgroupMemoryExplicitLayout8BitAccessKHR
+\ UniformDecoration FragmentCoverageMESA CoreBuiltinsARM
+\ TileImageColorReadAccessEXT TileImageDepthReadAccessEXT
+\ TileImageStencilReadAccessEXT TensorsARM StorageTensorArrayDynamicIndexingARM
+\ StorageTensorArrayNonUniformIndexingARM GraphARM CooperativeMatrixLayoutsARM
+\ Float8EXT Float8CooperativeMatrixEXT FragmentShadingRateKHR SubgroupBallotKHR
+\ DrawParameters WorkgroupMemoryExplicitLayoutKHR
+\ WorkgroupMemoryExplicitLayout8BitAccessKHR
 \ WorkgroupMemoryExplicitLayout16BitAccessKHR SubgroupVoteKHR
 \ StorageBuffer16BitAccess UniformAndStorageBuffer16BitAccess
 \ StoragePushConstant16 StorageInputOutput16 DeviceGroup MultiView
@@ -259,12 +261,13 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ Subgroup2DBlockTransformINTEL Subgroup2DBlockTransposeINTEL
 \ SubgroupMatrixMultiplyAccumulateINTEL TernaryBitwiseFunctionINTEL
 \ UntypedVariableLengthArrayINTEL SpecConditionalINTEL FunctionVariantsINTEL
-\ GroupUniformArithmeticKHR TensorFloat32RoundingINTEL MaskedGatherScatterINTEL
-\ CacheControlsINTEL RegisterLimitsINTEL BindlessImagesINTEL
-\ DotProductFloat16AccFloat32VALVE DotProductFloat16AccFloat16VALVE
-\ DotProductBFloat16AccVALVE DotProductFloat8AccFloat32VALVE
-\ RayQueryCandidateIntersectionKHR RayQueryCommittedIntersectionKHR
-\ RayQueryCommittedIntersectionNoneKHR RayQueryCommittedIntersectionTriangleKHR
+\ PredicatedIOINTEL RoundedDivideSqrtINTEL GroupUniformArithmeticKHR
+\ TensorFloat32RoundingINTEL MaskedGatherScatterINTEL CacheControlsINTEL
+\ RegisterLimitsINTEL BindlessImagesINTEL DotProductFloat16AccFloat32VALVE
+\ DotProductFloat16AccFloat16VALVE DotProductBFloat16AccVALVE
+\ DotProductFloat8AccFloat32VALVE RayQueryCandidateIntersectionKHR
+\ RayQueryCommittedIntersectionKHR RayQueryCommittedIntersectionNoneKHR
+\ RayQueryCommittedIntersectionTriangleKHR
 \ RayQueryCommittedIntersectionGeneratedKHR
 \ RayQueryCandidateIntersectionTriangleKHR RayQueryCandidateIntersectionAABBKHR
 \ PackedVectorFormat4x8Bit MatrixASignedComponentsKHR MatrixBSignedComponentsKHR
@@ -619,8 +622,9 @@ syn keyword SpirvInstruction OpNop OpUndef OpTypeReserveId OpConstantTrue
 \ OpUntypedVariableLengthArrayINTEL OpConditionalExtensionINTEL
 \ OpConditionalEntryPointINTEL OpConditionalCapabilityINTEL
 \ OpSpecConstantTargetINTEL OpSpecConstantArchitectureINTEL
-\ OpSpecConstantCapabilitiesINTEL OpConditionalCopyObjectINTEL OpGroupIMulKHR
-\ OpGroupFMulKHR OpGroupBitwiseAndKHR OpGroupBitwiseOrKHR OpGroupBitwiseXorKHR
+\ OpSpecConstantCapabilitiesINTEL OpConditionalCopyObjectINTEL
+\ OpPredicatedLoadINTEL OpPredicatedStoreINTEL OpGroupIMulKHR OpGroupFMulKHR
+\ OpGroupBitwiseAndKHR OpGroupBitwiseOrKHR OpGroupBitwiseXorKHR
 \ OpGroupLogicalAndKHR OpGroupLogicalOrKHR OpGroupLogicalXorKHR
 \ OpRoundFToTF32INTEL OpMaskedGatherINTEL OpMaskedScatterINTEL
 \ OpConvertHandleToImageINTEL OpConvertHandleToSamplerINTEL
