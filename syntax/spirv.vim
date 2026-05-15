@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: May 14, 2026
+" Last Modified: May 15, 2026
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -252,7 +252,7 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ BitInstructions GroupNonUniformRotateKHR FloatControls2 FMAKHR
 \ RayTracingOpacityMicromapExecutionModeKHR AtomicFloat32AddEXT
 \ AtomicFloat64AddEXT LongCompositesINTEL AtomicFloat16AddEXT
-\ DebugInfoModuleINTEL BFloat16ConversionINTEL SplitBarrierINTEL
+\ DebugInfoModuleINTEL BFloat16ConversionINTEL SplitBarrierEXT
 \ ArithmeticFenceEXT FPGAClusterAttributesV2ALTERA FPGAKernelAttributesv2INTEL
 \ TaskSequenceALTERA FPMaxErrorINTEL FPGALatencyControlALTERA
 \ FPGAArgumentInterfacesALTERA GlobalVariableHostAccessINTEL
@@ -612,7 +612,7 @@ syn keyword SpirvInstruction OpNop OpUndef OpTypeReserveId OpConstantTrue
 \ OpTypeBufferSurfaceINTEL OpTypeStructContinuedINTEL
 \ OpConstantCompositeContinuedINTEL OpSpecConstantCompositeContinuedINTEL
 \ OpCompositeConstructContinuedINTEL OpConvertFToBF16INTEL OpConvertBF16ToFINTEL
-\ OpControlBarrierArriveINTEL OpControlBarrierWaitINTEL OpArithmeticFenceEXT
+\ OpControlBarrierArriveEXT OpControlBarrierWaitEXT OpArithmeticFenceEXT
 \ OpTaskSequenceCreateALTERA OpTaskSequenceAsyncALTERA OpTaskSequenceGetALTERA
 \ OpTaskSequenceReleaseALTERA OpTypeTaskSequenceALTERA
 \ OpSubgroupBlockPrefetchINTEL OpSubgroup2DBlockLoadINTEL
