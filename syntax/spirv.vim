@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: May 15, 2026
+" Last Modified: May 16, 2026
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -232,7 +232,8 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ CooperativeMatrixPerElementOperationsNV CooperativeMatrixTensorAddressingNV
 \ CooperativeMatrixBlockLoadsNV CooperativeVectorTrainingNV
 \ RayTracingClusterAccelerationStructureNV TensorAddressingNV
-\ SubgroupShuffleINTEL SubgroupBufferBlockIOINTEL SubgroupImageBlockIOINTEL
+\ CooperativeMatrixDecodeVectorNV SubgroupShuffleINTEL
+\ SubgroupBufferBlockIOINTEL SubgroupImageBlockIOINTEL
 \ SubgroupImageMediaBlockIOINTEL RoundToInfinityINTEL FloatingPointModeINTEL
 \ IntegerFunctions2INTEL FunctionPointersINTEL IndirectReferencesINTEL AsmINTEL
 \ AtomicFloat32MinMaxEXT AtomicFloat64MinMaxEXT AtomicFloat16MinMaxEXT
@@ -274,14 +275,14 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ MatrixCSignedComponentsKHR MatrixResultSignedComponentsKHR
 \ SaturatingAccumulationKHR RowMajorKHR ColumnMajorKHR RowBlockedInterleavedARM
 \ ColumnBlockedInterleavedARM MatrixAKHR MatrixBKHR MatrixAccumulatorKHR Row
-\ Column 2x2 Undefined TensorView DecodeFunc InitOnDeviceReprogramALTERA
-\ InitOnDeviceResetALTERA UncachedINTEL CachedINTEL StreamingINTEL
-\ InvalidateAfterReadINTEL ConstCachedINTEL WriteThroughINTEL WriteBackINTEL
-\ AutoINTEL MatrixASignedComponentsINTEL MatrixBSignedComponentsINTEL
-\ MatrixCBFloat16INTEL MatrixResultBFloat16INTEL MatrixAPackedInt8INTEL
-\ MatrixBPackedInt8INTEL MatrixAPackedInt4INTEL MatrixBPackedInt4INTEL
-\ MatrixATF32INTEL MatrixBTF32INTEL MatrixAPackedFloat16INTEL
-\ MatrixBPackedFloat16INTEL MatrixAPackedBFloat16INTEL
+\ Column 2x2 Undefined TensorView DecodeFunc DecodeVectorFunc
+\ InitOnDeviceReprogramALTERA InitOnDeviceResetALTERA UncachedINTEL CachedINTEL
+\ StreamingINTEL InvalidateAfterReadINTEL ConstCachedINTEL WriteThroughINTEL
+\ WriteBackINTEL AutoINTEL MatrixASignedComponentsINTEL
+\ MatrixBSignedComponentsINTEL MatrixCBFloat16INTEL MatrixResultBFloat16INTEL
+\ MatrixAPackedInt8INTEL MatrixBPackedInt8INTEL MatrixAPackedInt4INTEL
+\ MatrixBPackedInt4INTEL MatrixATF32INTEL MatrixBTF32INTEL
+\ MatrixAPackedFloat16INTEL MatrixBPackedFloat16INTEL MatrixAPackedBFloat16INTEL
 \ MatrixBPackedBFloat16INTEL BFloat16KHR Float8E4M3EXT Float8E5M2EXT RowMajorNV
 \ ColumnMajorNV InferencingOptimalNV TrainingOptimalNV Float16NV Float32NV
 \ Float64NV SignedInt8NV SignedInt16NV SignedInt32NV SignedInt64NV
