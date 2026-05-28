@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: May 21, 2026
+" Last Modified: May 28, 2026
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -48,67 +48,67 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ SkipAABBsKHR ForceOpacityMicromap2StateKHR Vertical2Pixels Vertical4Pixels
 \ Horizontal2Pixels Horizontal4Pixels RobustnessPerComponentNV
 \ RobustnessPerElementNV Unknown ESSL GLSL OpenCL_C OpenCL_CPP HLSL
-\ CPP_for_OpenCL SYCL HERO_C NZSL WGSL Slang Zig Rust Vertex TessellationControl
-\ TessellationEvaluation Geometry Fragment GLCompute Kernel TaskNV MeshNV
-\ RayGenerationKHR IntersectionKHR AnyHitKHR ClosestHitKHR MissKHR CallableKHR
-\ TaskEXT MeshEXT Logical Physical32 Physical64 PhysicalStorageBuffer64 Simple
-\ GLSL450 OpenCL Vulkan Invocations SpacingEqual SpacingFractionalEven
-\ SpacingFractionalOdd VertexOrderCw VertexOrderCcw PixelCenterInteger
-\ OriginUpperLeft OriginLowerLeft EarlyFragmentTests PointMode Xfb
-\ DepthReplacing DepthGreater DepthLess DepthUnchanged LocalSize LocalSizeHint
-\ InputPoints InputLines InputLinesAdjacency Triangles InputTrianglesAdjacency
-\ Quads Isolines OutputVertices OutputPoints OutputLineStrip OutputTriangleStrip
-\ VecTypeHint ContractionOff Initializer Finalizer SubgroupSize
-\ SubgroupsPerWorkgroup SubgroupsPerWorkgroupId LocalSizeId LocalSizeHintId
-\ NonCoherentColorAttachmentReadEXT NonCoherentDepthAttachmentReadEXT
-\ NonCoherentStencilAttachmentReadEXT SubgroupUniformControlFlowKHR
-\ PostDepthCoverage DenormPreserve DenormFlushToZero SignedZeroInfNanPreserve
-\ RoundingModeRTE RoundingModeRTZ NonCoherentTileAttachmentReadQCOM
-\ TileShadingRateQCOM EarlyAndLateFragmentTestsAMD StencilRefReplacingEXT
-\ CoalescingAMDX IsApiEntryAMDX MaxNodeRecursionAMDX StaticNumWorkgroupsAMDX
-\ ShaderIndexAMDX MaxNumWorkgroupsAMDX StencilRefUnchangedFrontAMD
-\ StencilRefGreaterFrontAMD StencilRefLessFrontAMD StencilRefUnchangedBackAMD
-\ StencilRefGreaterBackAMD StencilRefLessBackAMD QuadDerivativesKHR
-\ RequireFullQuadsKHR SharesInputWithAMDX ArithmeticPoisonKHR OutputLinesEXT
-\ OutputPrimitivesEXT DerivativeGroupQuadsKHR DerivativeGroupLinearKHR
-\ OutputTrianglesEXT PixelInterlockOrderedEXT PixelInterlockUnorderedEXT
-\ SampleInterlockOrderedEXT SampleInterlockUnorderedEXT
-\ ShadingRateInterlockOrderedEXT ShadingRateInterlockUnorderedEXT
-\ Shader64BitIndexingEXT SharedLocalMemorySizeINTEL RoundingModeRTPINTEL
-\ RoundingModeRTNINTEL FloatingPointModeALTINTEL FloatingPointModeIEEEINTEL
-\ MaxWorkgroupSizeINTEL MaxWorkDimINTEL NoGlobalOffsetINTEL
-\ NumSIMDWorkitemsINTEL SchedulerTargetFmaxMhzINTEL MaximallyReconvergesKHR
-\ FPFastMathDefault OpacityMicromapIdKHR StreamingInterfaceINTEL
-\ RegisterMapInterfaceINTEL NamedBarrierCountINTEL MaximumRegistersINTEL
-\ MaximumRegistersIdINTEL NamedMaximumRegistersINTEL UniformConstant Input
-\ Uniform Output Workgroup CrossWorkgroup Private Function Generic PushConstant
-\ AtomicCounter Image StorageBuffer TileImageEXT TileAttachmentQCOM
-\ NodePayloadAMDX CallableDataKHR IncomingCallableDataKHR RayPayloadKHR
-\ HitAttributeKHR IncomingRayPayloadKHR ShaderRecordBufferKHR
-\ PhysicalStorageBuffer HitObjectAttributeNV TaskPayloadWorkgroupEXT
-\ HitObjectAttributeEXT CodeSectionINTEL DeviceOnlyALTERA HostOnlyALTERA 1D 2D
-\ 3D Cube Rect Buffer SubpassData TileImageDataEXT ClampToEdge Clamp Repeat
-\ RepeatMirrored Nearest Linear Rgba32f Rgba16f R32f Rgba8 Rgba8Snorm Rg32f
-\ Rg16f R11fG11fB10f R16f Rgba16 Rgb10A2 Rg16 Rg8 R16 R8 Rgba16Snorm Rg16Snorm
-\ Rg8Snorm R16Snorm R8Snorm Rgba32i Rgba16i Rgba8i R32i Rg32i Rg16i Rg8i R16i
-\ R8i Rgba32ui Rgba16ui Rgba8ui R32ui Rgb10a2ui Rg32ui Rg16ui Rg8ui R16ui R8ui
-\ R64ui R64i R A RG RA RGB RGBA BGRA ARGB Intensity Luminance Rx RGx RGBx Depth
-\ DepthStencil sRGB sRGBx sRGBA sBGRA ABGR SnormInt8 SnormInt16 UnormInt8
-\ UnormInt16 UnormShort565 UnormShort555 UnormInt101010 SignedInt8 SignedInt16
-\ SignedInt32 UnsignedInt8 UnsignedInt16 UnsignedInt32 HalfFloat Float
-\ UnormInt24 UnormInt101010_2 UnormInt10X6EXT UnsignedIntRaw10EXT
-\ UnsignedIntRaw12EXT UnormInt2_101010EXT UnsignedInt10X6EXT UnsignedInt12X4EXT
-\ UnsignedInt14X2EXT UnormInt12X4EXT UnormInt14X2EXT RTE RTZ RTP RTN Preserve
-\ FlushToZero TRN TRN_ZERO RND RND_ZERO RND_INF RND_MIN_INF RND_CONV
-\ RND_CONV_ODD IEEE ALT WRAP SAT SAT_ZERO SAT_SYM Export Import LinkOnceODR
-\ WeakAMD ReadOnly WriteOnly ReadWrite NoneINTEL ReadINTEL WriteINTEL
-\ ReadWriteINTEL Zext Sext ByVal Sret NoAlias NoCapture NoWrite NoReadWrite
-\ RuntimeAlignedALTERA RelaxedPrecision SpecId Block BufferBlock RowMajor
-\ ColMajor ArrayStride MatrixStride GLSLShared GLSLPacked CPacked BuiltIn
-\ NoPerspective Flat Patch Centroid Invariant Restrict Aliased Constant Coherent
-\ NonWritable NonReadable UniformId SaturatedConversion Stream Location
-\ Component Index Binding DescriptorSet XfbBuffer XfbStride FuncParamAttr
-\ FPRoundingMode FPFastMathMode LinkageAttributes NoContraction
+\ CPP_for_OpenCL SYCL HERO_C NZSL WGSL Slang Zig Rust Pred Vertex
+\ TessellationControl TessellationEvaluation Geometry Fragment GLCompute Kernel
+\ TaskNV MeshNV RayGenerationKHR IntersectionKHR AnyHitKHR ClosestHitKHR MissKHR
+\ CallableKHR TaskEXT MeshEXT Logical Physical32 Physical64
+\ PhysicalStorageBuffer64 Simple GLSL450 OpenCL Vulkan Invocations SpacingEqual
+\ SpacingFractionalEven SpacingFractionalOdd VertexOrderCw VertexOrderCcw
+\ PixelCenterInteger OriginUpperLeft OriginLowerLeft EarlyFragmentTests
+\ PointMode Xfb DepthReplacing DepthGreater DepthLess DepthUnchanged LocalSize
+\ LocalSizeHint InputPoints InputLines InputLinesAdjacency Triangles
+\ InputTrianglesAdjacency Quads Isolines OutputVertices OutputPoints
+\ OutputLineStrip OutputTriangleStrip VecTypeHint ContractionOff Initializer
+\ Finalizer SubgroupSize SubgroupsPerWorkgroup SubgroupsPerWorkgroupId
+\ LocalSizeId LocalSizeHintId NonCoherentColorAttachmentReadEXT
+\ NonCoherentDepthAttachmentReadEXT NonCoherentStencilAttachmentReadEXT
+\ SubgroupUniformControlFlowKHR PostDepthCoverage DenormPreserve
+\ DenormFlushToZero SignedZeroInfNanPreserve RoundingModeRTE RoundingModeRTZ
+\ NonCoherentTileAttachmentReadQCOM TileShadingRateQCOM
+\ EarlyAndLateFragmentTestsAMD StencilRefReplacingEXT CoalescingAMDX
+\ IsApiEntryAMDX MaxNodeRecursionAMDX StaticNumWorkgroupsAMDX ShaderIndexAMDX
+\ MaxNumWorkgroupsAMDX StencilRefUnchangedFrontAMD StencilRefGreaterFrontAMD
+\ StencilRefLessFrontAMD StencilRefUnchangedBackAMD StencilRefGreaterBackAMD
+\ StencilRefLessBackAMD QuadDerivativesKHR RequireFullQuadsKHR
+\ SharesInputWithAMDX ArithmeticPoisonKHR OutputLinesEXT OutputPrimitivesEXT
+\ DerivativeGroupQuadsKHR DerivativeGroupLinearKHR OutputTrianglesEXT
+\ PixelInterlockOrderedEXT PixelInterlockUnorderedEXT SampleInterlockOrderedEXT
+\ SampleInterlockUnorderedEXT ShadingRateInterlockOrderedEXT
+\ ShadingRateInterlockUnorderedEXT Shader64BitIndexingEXT
+\ SharedLocalMemorySizeINTEL RoundingModeRTPINTEL RoundingModeRTNINTEL
+\ FloatingPointModeALTINTEL FloatingPointModeIEEEINTEL MaxWorkgroupSizeINTEL
+\ MaxWorkDimINTEL NoGlobalOffsetINTEL NumSIMDWorkitemsINTEL
+\ SchedulerTargetFmaxMhzINTEL MaximallyReconvergesKHR FPFastMathDefault
+\ OpacityMicromapIdKHR StreamingInterfaceINTEL RegisterMapInterfaceINTEL
+\ NamedBarrierCountINTEL MaximumRegistersINTEL MaximumRegistersIdINTEL
+\ NamedMaximumRegistersINTEL UniformConstant Input Uniform Output Workgroup
+\ CrossWorkgroup Private Function Generic PushConstant AtomicCounter Image
+\ StorageBuffer TileImageEXT TileAttachmentQCOM NodePayloadAMDX CallableDataKHR
+\ IncomingCallableDataKHR RayPayloadKHR HitAttributeKHR IncomingRayPayloadKHR
+\ ShaderRecordBufferKHR PhysicalStorageBuffer HitObjectAttributeNV
+\ TaskPayloadWorkgroupEXT HitObjectAttributeEXT CodeSectionINTEL
+\ DeviceOnlyALTERA HostOnlyALTERA 1D 2D 3D Cube Rect Buffer SubpassData
+\ TileImageDataEXT ClampToEdge Clamp Repeat RepeatMirrored Nearest Linear
+\ Rgba32f Rgba16f R32f Rgba8 Rgba8Snorm Rg32f Rg16f R11fG11fB10f R16f Rgba16
+\ Rgb10A2 Rg16 Rg8 R16 R8 Rgba16Snorm Rg16Snorm Rg8Snorm R16Snorm R8Snorm
+\ Rgba32i Rgba16i Rgba8i R32i Rg32i Rg16i Rg8i R16i R8i Rgba32ui Rgba16ui
+\ Rgba8ui R32ui Rgb10a2ui Rg32ui Rg16ui Rg8ui R16ui R8ui R64ui R64i R A RG RA
+\ RGB RGBA BGRA ARGB Intensity Luminance Rx RGx RGBx Depth DepthStencil sRGB
+\ sRGBx sRGBA sBGRA ABGR SnormInt8 SnormInt16 UnormInt8 UnormInt16 UnormShort565
+\ UnormShort555 UnormInt101010 SignedInt8 SignedInt16 SignedInt32 UnsignedInt8
+\ UnsignedInt16 UnsignedInt32 HalfFloat Float UnormInt24 UnormInt101010_2
+\ UnormInt10X6EXT UnsignedIntRaw10EXT UnsignedIntRaw12EXT UnormInt2_101010EXT
+\ UnsignedInt10X6EXT UnsignedInt12X4EXT UnsignedInt14X2EXT UnormInt12X4EXT
+\ UnormInt14X2EXT RTE RTZ RTP RTN Preserve FlushToZero TRN TRN_ZERO RND RND_ZERO
+\ RND_INF RND_MIN_INF RND_CONV RND_CONV_ODD IEEE ALT WRAP SAT SAT_ZERO SAT_SYM
+\ Export Import LinkOnceODR WeakAMD ReadOnly WriteOnly ReadWrite NoneINTEL
+\ ReadINTEL WriteINTEL ReadWriteINTEL Zext Sext ByVal Sret NoAlias NoCapture
+\ NoWrite NoReadWrite RuntimeAlignedALTERA RelaxedPrecision SpecId Block
+\ BufferBlock RowMajor ColMajor ArrayStride MatrixStride GLSLShared GLSLPacked
+\ CPacked BuiltIn NoPerspective Flat Patch Centroid Invariant Restrict Aliased
+\ Constant Coherent NonWritable NonReadable UniformId SaturatedConversion Stream
+\ Location Component Index Binding DescriptorSet XfbBuffer XfbStride
+\ FuncParamAttr FPRoundingMode FPFastMathMode LinkageAttributes NoContraction
 \ InputAttachmentIndex Alignment MaxByteOffset AlignmentId MaxByteOffsetId
 \ SaturatedToLargestFloat8NormalConversionEXT NoSignedWrap NoUnsignedWrap
 \ WeightTextureQCOM BlockMatchTextureQCOM BlockMatchSamplerQCOM
