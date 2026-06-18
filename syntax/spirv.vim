@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: May 28, 2026
+" Last Modified: June 18, 2026
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -48,7 +48,7 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ SkipAABBsKHR ForceOpacityMicromap2StateKHR Vertical2Pixels Vertical4Pixels
 \ Horizontal2Pixels Horizontal4Pixels RobustnessPerComponentNV
 \ RobustnessPerElementNV Unknown ESSL GLSL OpenCL_C OpenCL_CPP HLSL
-\ CPP_for_OpenCL SYCL HERO_C NZSL WGSL Slang Zig Rust Pred Vertex
+\ CPP_for_OpenCL SYCL HERO_C NZSL WGSL Slang Zig Rust Pred ApilaJai Vertex
 \ TessellationControl TessellationEvaluation Geometry Fragment GLCompute Kernel
 \ TaskNV MeshNV RayGenerationKHR IntersectionKHR AnyHitKHR ClosestHitKHR MissKHR
 \ CallableKHR TaskEXT MeshEXT Logical Physical32 Physical64
