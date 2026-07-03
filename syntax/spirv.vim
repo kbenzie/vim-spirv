@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: June 18, 2026
+" Last Modified: July 03, 2026
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -37,12 +37,12 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ InitiationIntervalALTERA MaxConcurrencyALTERA DependencyArrayALTERA
 \ PipelineEnableALTERA LoopCoalesceALTERA MaxInterleavingALTERA
 \ SpeculatedIterationsALTERA NoFusionALTERA LoopCountALTERA
-\ MaxReinvocationDelayALTERA Inline DontInline Pure Const OptNoneEXT Relaxed
-\ Acquire Release AcquireRelease SequentiallyConsistent UniformMemory
-\ SubgroupMemory WorkgroupMemory CrossWorkgroupMemory AtomicCounterMemory
-\ ImageMemory OutputMemory MakeAvailable MakeVisible Volatile Aligned
-\ MakePointerAvailable MakePointerVisible NonPrivatePointer AliasScopeINTELMask
-\ NoAliasINTELMask CmdExecTime NoneKHR OpaqueKHR NoOpaqueKHR
+\ MaxReinvocationDelayALTERA MultipleWaitQueuesQCOM Inline DontInline Pure Const
+\ OptNoneEXT Relaxed Acquire Release AcquireRelease SequentiallyConsistent
+\ UniformMemory SubgroupMemory WorkgroupMemory CrossWorkgroupMemory
+\ AtomicCounterMemory ImageMemory OutputMemory MakeAvailable MakeVisible
+\ Volatile Aligned MakePointerAvailable MakePointerVisible NonPrivatePointer
+\ AliasScopeINTELMask NoAliasINTELMask CmdExecTime NoneKHR OpaqueKHR NoOpaqueKHR
 \ TerminateOnFirstHitKHR SkipClosestHitShaderKHR CullBackFacingTrianglesKHR
 \ CullFrontFacingTrianglesKHR CullOpaqueKHR CullNoOpaqueKHR SkipTrianglesKHR
 \ SkipAABBsKHR ForceOpacityMicromap2StateKHR Vertical2Pixels Vertical4Pixels
@@ -191,6 +191,7 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ TileImageDepthReadAccessEXT TileImageStencilReadAccessEXT TensorsARM
 \ StorageTensorArrayDynamicIndexingARM StorageTensorArrayNonUniformIndexingARM
 \ GraphARM CooperativeMatrixLayoutsARM Float8EXT Float8CooperativeMatrixEXT
+\ Float6EXT Float4EXT Float8UnsignedE8M0EXT MXInt8EXT BitcastExtractEXT
 \ FragmentShadingRateKHR SubgroupBallotKHR DrawParameters
 \ WorkgroupMemoryExplicitLayoutKHR WorkgroupMemoryExplicitLayout8BitAccessKHR
 \ WorkgroupMemoryExplicitLayout16BitAccessKHR SubgroupVoteKHR
@@ -202,11 +203,12 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ RayQueryKHR UntypedPointersKHR RayTraversalPrimitiveCullingKHR RayTracingKHR
 \ TextureSampleWeightedQCOM TextureBoxFilterQCOM TextureBlockMatchQCOM
 \ TileShadingQCOM CooperativeMatrixConversionQCOM TextureBlockMatch2QCOM
-\ Float16ImageAMD ImageGatherBiasLodAMD FragmentMaskAMD StencilExportEXT
-\ ImageReadWriteLodAMD Int64ImageEXT ShaderClockKHR ShaderEnqueueAMDX
-\ QuadControlKHR Int4TypeINTEL Int4CooperativeMatrixINTEL BFloat16TypeKHR
-\ BFloat16DotProductKHR BFloat16CooperativeMatrixKHR AbortKHR DescriptorHeapEXT
-\ ConstantDataKHR PoisonFreezeKHR WeakLinkageAMD SampleMaskOverrideCoverageNV
+\ ImageGatherLinearQCOM ImageGatherExtendedModesQCOM Float16ImageAMD
+\ ImageGatherBiasLodAMD FragmentMaskAMD StencilExportEXT ImageReadWriteLodAMD
+\ Int64ImageEXT ShaderClockKHR ShaderEnqueueAMDX QuadControlKHR Int4TypeINTEL
+\ Int4CooperativeMatrixINTEL BFloat16TypeKHR BFloat16DotProductKHR
+\ BFloat16CooperativeMatrixKHR AbortKHR DescriptorHeapEXT ConstantDataKHR
+\ PoisonFreezeKHR WeakLinkageAMD SampleMaskOverrideCoverageNV
 \ GeometryShaderPassthroughNV ShaderViewportIndexLayerEXT ShaderViewportMaskNV
 \ ShaderStereoViewNV PerViewAttributesNV FragmentFullyCoveredEXT MeshShadingNV
 \ ImageFootprintNV MeshShadingEXT FragmentBarycentricKHR
@@ -283,13 +285,14 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ MatrixAPackedInt8INTEL MatrixBPackedInt8INTEL MatrixAPackedInt4INTEL
 \ MatrixBPackedInt4INTEL MatrixATF32INTEL MatrixBTF32INTEL
 \ MatrixAPackedFloat16INTEL MatrixBPackedFloat16INTEL MatrixAPackedBFloat16INTEL
-\ MatrixBPackedBFloat16INTEL BFloat16KHR Float8E4M3EXT Float8E5M2EXT RowMajorNV
-\ ColumnMajorNV InferencingOptimalNV TrainingOptimalNV Float16NV Float32NV
-\ Float64NV SignedInt8NV SignedInt16NV SignedInt32NV SignedInt64NV
-\ UnsignedInt8NV UnsignedInt16NV UnsignedInt32NV UnsignedInt64NV
-\ SignedInt8PackedNV UnsignedInt8PackedNV FloatE4M3NV FloatE5M2NV NoneARM
-\ NontemporalARM OutOfBoundsValueARM MakeElementAvailableARM
-\ MakeElementVisibleARM NonPrivateElementARM
+\ MatrixBPackedBFloat16INTEL BFloat16KHR Float8E4M3EXT Float8E5M2EXT
+\ Float6E2M3EXT Float6E3M2EXT Float4E2M1EXT RowMajorNV ColumnMajorNV
+\ InferencingOptimalNV TrainingOptimalNV Float16NV Float32NV Float64NV
+\ SignedInt8NV SignedInt16NV SignedInt32NV SignedInt64NV UnsignedInt8NV
+\ UnsignedInt16NV UnsignedInt32NV UnsignedInt64NV SignedInt8PackedNV
+\ UnsignedInt8PackedNV FloatE4M3NV FloatE5M2NV Gather4x1QCOM GatherDQCOM
+\ GatherH2QCOM GatherV2QCOM NoneARM NontemporalARM OutOfBoundsValueARM
+\ MakeElementAvailableARM MakeElementVisibleARM NonPrivateElementARM
 
 " Extension keywords
 syn keyword SpirvExtension OpExtension OpExtInstImport OpExtInst
@@ -363,9 +366,9 @@ syn keyword SpirvInstruction OpNop OpUndef OpTypeReserveId OpConstantTrue
 \ OpColorAttachmentReadEXT OpDepthAttachmentReadEXT OpStencilAttachmentReadEXT
 \ OpTypeTensorARM OpTensorReadARM OpTensorWriteARM OpTensorQuerySizeARM
 \ OpGraphConstantARM OpGraphEntryPointARM OpGraphARM OpGraphInputARM
-\ OpGraphSetOutputARM OpGraphEndARM OpTypeGraphARM OpTerminateInvocation
-\ OpTypeUntypedPointerKHR OpUntypedVariableKHR OpUntypedAccessChainKHR
-\ OpUntypedInBoundsAccessChainKHR OpSubgroupBallotKHR
+\ OpGraphSetOutputARM OpGraphEndARM OpTypeGraphARM OpBitcastExtractEXT
+\ OpTerminateInvocation OpTypeUntypedPointerKHR OpUntypedVariableKHR
+\ OpUntypedAccessChainKHR OpUntypedInBoundsAccessChainKHR OpSubgroupBallotKHR
 \ OpSubgroupFirstInvocationKHR OpUntypedPtrAccessChainKHR
 \ OpUntypedInBoundsPtrAccessChainKHR OpUntypedArrayLengthKHR
 \ OpUntypedPrefetchKHR OpFmaKHR OpSubgroupAllKHR OpSubgroupAnyKHR
@@ -385,22 +388,22 @@ syn keyword SpirvInstruction OpNop OpUndef OpTypeReserveId OpConstantTrue
 \ OpBitCastArrayQCOM OpImageBlockMatchWindowSSDQCOM
 \ OpImageBlockMatchWindowSADQCOM OpImageBlockMatchGatherSSDQCOM
 \ OpImageBlockMatchGatherSADQCOM OpCompositeConstructCoopMatQCOM
-\ OpCompositeExtractCoopMatQCOM OpExtractSubArrayQCOM OpGroupIAddNonUniformAMD
-\ OpGroupFAddNonUniformAMD OpGroupFMinNonUniformAMD OpGroupUMinNonUniformAMD
-\ OpGroupSMinNonUniformAMD OpGroupFMaxNonUniformAMD OpGroupUMaxNonUniformAMD
-\ OpGroupSMaxNonUniformAMD OpFragmentMaskFetchAMD OpFragmentFetchAMD
-\ OpReadClockKHR OpAllocateNodePayloadsAMDX OpEnqueueNodePayloadsAMDX
-\ OpTypeNodePayloadArrayAMDX OpFinishWritingNodePayloadAMDX
-\ OpNodePayloadArrayLengthAMDX OpIsNodePayloadValidAMDX OpConstantStringAMDX
-\ OpSpecConstantStringAMDX OpGroupNonUniformQuadAllKHR
-\ OpGroupNonUniformQuadAnyKHR OpTypeBufferEXT OpBufferPointerEXT OpAbortKHR
-\ OpUntypedImageTexelPointerEXT OpMemberDecorateIdEXT OpConstantSizeOfEXT
-\ OpConstantDataKHR OpSpecConstantDataKHR OpPoisonKHR OpFreezeKHR
-\ OpHitObjectRecordHitMotionNV OpHitObjectRecordHitWithIndexMotionNV
-\ OpHitObjectRecordMissMotionNV OpHitObjectGetWorldToObjectNV
-\ OpHitObjectGetObjectToWorldNV OpHitObjectGetObjectRayDirectionNV
-\ OpHitObjectGetObjectRayOriginNV OpHitObjectTraceRayMotionNV
-\ OpHitObjectGetShaderRecordBufferHandleNV
+\ OpCompositeExtractCoopMatQCOM OpExtractSubArrayQCOM OpImageGatherQCOM
+\ OpGroupIAddNonUniformAMD OpGroupFAddNonUniformAMD OpGroupFMinNonUniformAMD
+\ OpGroupUMinNonUniformAMD OpGroupSMinNonUniformAMD OpGroupFMaxNonUniformAMD
+\ OpGroupUMaxNonUniformAMD OpGroupSMaxNonUniformAMD OpFragmentMaskFetchAMD
+\ OpFragmentFetchAMD OpReadClockKHR OpAllocateNodePayloadsAMDX
+\ OpEnqueueNodePayloadsAMDX OpTypeNodePayloadArrayAMDX
+\ OpFinishWritingNodePayloadAMDX OpNodePayloadArrayLengthAMDX
+\ OpIsNodePayloadValidAMDX OpConstantStringAMDX OpSpecConstantStringAMDX
+\ OpGroupNonUniformQuadAllKHR OpGroupNonUniformQuadAnyKHR OpTypeBufferEXT
+\ OpBufferPointerEXT OpAbortKHR OpUntypedImageTexelPointerEXT
+\ OpMemberDecorateIdEXT OpConstantSizeOfEXT OpConstantDataKHR
+\ OpSpecConstantDataKHR OpPoisonKHR OpFreezeKHR OpHitObjectRecordHitMotionNV
+\ OpHitObjectRecordHitWithIndexMotionNV OpHitObjectRecordMissMotionNV
+\ OpHitObjectGetWorldToObjectNV OpHitObjectGetObjectToWorldNV
+\ OpHitObjectGetObjectRayDirectionNV OpHitObjectGetObjectRayOriginNV
+\ OpHitObjectTraceRayMotionNV OpHitObjectGetShaderRecordBufferHandleNV
 \ OpHitObjectGetShaderBindingTableRecordIndexNV OpHitObjectRecordEmptyNV
 \ OpHitObjectTraceRayNV OpHitObjectRecordHitNV OpHitObjectRecordHitWithIndexNV
 \ OpHitObjectRecordMissNV OpHitObjectExecuteShaderNV OpHitObjectGetCurrentTimeNV
