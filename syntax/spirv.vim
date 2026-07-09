@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: July 03, 2026
+" Last Modified: July 09, 2026
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -140,25 +140,26 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ MMHostInterfaceReadWriteModeALTERA MMHostInterfaceMaxBurstALTERA
 \ MMHostInterfaceWaitRequestALTERA StableKernelArgumentALTERA HostAccessINTEL
 \ InitModeALTERA ImplementInRegisterMapALTERA ConditionalINTEL
-\ CacheControlLoadINTEL CacheControlStoreINTEL Position PointSize ClipDistance
-\ CullDistance VertexId InstanceId PrimitiveId InvocationId Layer ViewportIndex
-\ TessLevelOuter TessLevelInner TessCoord PatchVertices FragCoord PointCoord
-\ FrontFacing SampleId SamplePosition SampleMask FragDepth HelperInvocation
-\ NumWorkgroups WorkgroupSize WorkgroupId LocalInvocationId GlobalInvocationId
-\ LocalInvocationIndex WorkDim GlobalSize EnqueuedWorkgroupSize GlobalOffset
-\ GlobalLinearId SubgroupMaxSize NumSubgroups NumEnqueuedSubgroups SubgroupId
-\ SubgroupLocalInvocationId VertexIndex InstanceIndex CoreIDARM CoreCountARM
-\ CoreMaxIDARM WarpIDARM WarpMaxIDARM SubgroupEqMask SubgroupGeMask
-\ SubgroupGtMask SubgroupLeMask SubgroupLtMask BaseVertex BaseInstance DrawIndex
-\ PrimitiveShadingRateKHR DeviceIndex ViewIndex ShadingRateKHR TileOffsetQCOM
-\ TileDimensionQCOM TileApronSizeQCOM BaryCoordNoPerspAMD
-\ BaryCoordNoPerspCentroidAMD BaryCoordNoPerspSampleAMD BaryCoordSmoothAMD
-\ BaryCoordSmoothCentroidAMD BaryCoordSmoothSampleAMD BaryCoordPullModelAMD
-\ FragStencilRefEXT RemainingRecursionLevelsAMDX SamplerHeapEXT ResourceHeapEXT
-\ ViewportMaskNV SecondaryPositionNV SecondaryViewportMaskNV PositionPerViewNV
-\ ViewportMaskPerViewNV FullyCoveredEXT TaskCountNV PrimitiveCountNV
-\ PrimitiveIndicesNV ClipDistancePerViewNV CullDistancePerViewNV LayerPerViewNV
-\ MeshViewCountNV MeshViewIndicesNV BaryCoordKHR BaryCoordNoPerspKHR FragSizeEXT
+\ CacheControlLoadINTEL CacheControlStoreINTEL IntrinsicSAMSUNG Position
+\ PointSize ClipDistance CullDistance VertexId InstanceId PrimitiveId
+\ InvocationId Layer ViewportIndex TessLevelOuter TessLevelInner TessCoord
+\ PatchVertices FragCoord PointCoord FrontFacing SampleId SamplePosition
+\ SampleMask FragDepth HelperInvocation NumWorkgroups WorkgroupSize WorkgroupId
+\ LocalInvocationId GlobalInvocationId LocalInvocationIndex WorkDim GlobalSize
+\ EnqueuedWorkgroupSize GlobalOffset GlobalLinearId SubgroupMaxSize NumSubgroups
+\ NumEnqueuedSubgroups SubgroupId SubgroupLocalInvocationId VertexIndex
+\ InstanceIndex CoreIDARM CoreCountARM CoreMaxIDARM WarpIDARM WarpMaxIDARM
+\ SubgroupEqMask SubgroupGeMask SubgroupGtMask SubgroupLeMask SubgroupLtMask
+\ BaseVertex BaseInstance DrawIndex PrimitiveShadingRateKHR DeviceIndex
+\ ViewIndex ShadingRateKHR TileOffsetQCOM TileDimensionQCOM TileApronSizeQCOM
+\ BaryCoordNoPerspAMD BaryCoordNoPerspCentroidAMD BaryCoordNoPerspSampleAMD
+\ BaryCoordSmoothAMD BaryCoordSmoothCentroidAMD BaryCoordSmoothSampleAMD
+\ BaryCoordPullModelAMD FragStencilRefEXT RemainingRecursionLevelsAMDX
+\ SamplerHeapEXT ResourceHeapEXT ViewportMaskNV SecondaryPositionNV
+\ SecondaryViewportMaskNV PositionPerViewNV ViewportMaskPerViewNV
+\ FullyCoveredEXT TaskCountNV PrimitiveCountNV PrimitiveIndicesNV
+\ ClipDistancePerViewNV CullDistancePerViewNV LayerPerViewNV MeshViewCountNV
+\ MeshViewIndicesNV BaryCoordKHR BaryCoordNoPerspKHR FragSizeEXT
 \ FragInvocationCountEXT PrimitivePointIndicesEXT PrimitiveLineIndicesEXT
 \ PrimitiveTriangleIndicesEXT CullPrimitiveEXT LaunchIdKHR LaunchSizeKHR
 \ WorldRayOriginKHR WorldRayDirectionKHR ObjectRayOriginKHR
