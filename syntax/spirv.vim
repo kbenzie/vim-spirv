@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: July 09, 2026
+" Last Modified: August 06, 2026
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -120,20 +120,21 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ SecondaryViewportRelativeNV PerPrimitiveEXT PerViewNV PerTaskNV PerVertexKHR
 \ NonUniform RestrictPointer AliasedPointer MemberOffsetNV
 \ HitObjectShaderRecordBufferNV HitObjectShaderRecordBufferEXT BankNV
-\ BindlessSamplerNV BindlessImageNV BoundSamplerNV BoundImageNV SIMTCallINTEL
-\ ReferencedIndirectlyINTEL ClobberINTEL SideEffectsINTEL
-\ VectorComputeVariableINTEL FuncParamIOKindINTEL VectorComputeFunctionINTEL
-\ StackCallINTEL GlobalVariableOffsetINTEL CounterBuffer UserSemantic
-\ UserTypeGOOGLE FunctionRoundingModeINTEL FunctionDenormModeINTEL
-\ RegisterALTERA MemoryALTERA NumbanksALTERA BankwidthALTERA
-\ MaxPrivateCopiesALTERA SinglepumpALTERA DoublepumpALTERA MaxReplicatesALTERA
-\ SimpleDualPortALTERA MergeALTERA BankBitsALTERA ForcePow2DepthALTERA
-\ StridesizeALTERA WordsizeALTERA TrueDualPortALTERA BurstCoalesceALTERA
-\ CacheSizeALTERA DontStaticallyCoalesceALTERA PrefetchALTERA StallEnableALTERA
-\ FuseLoopsInFunctionALTERA MathOpDSPModeALTERA AliasScopeINTEL NoAliasINTEL
-\ BufferLocationALTERA IOPipeStorageALTERA FunctionFloatingPointModeINTEL
-\ SingleElementVectorINTEL VectorComputeCallableFunctionINTEL MediaBlockIOINTEL
-\ StallFreeALTERA FPMaxErrorDecorationINTEL LatencyControlLabelALTERA
+\ BindlessSamplerNV BindlessImageNV BoundSamplerNV BoundImageNV
+\ CooperativeMatrixTransposeEXT SIMTCallINTEL ReferencedIndirectlyINTEL
+\ ClobberINTEL SideEffectsINTEL VectorComputeVariableINTEL FuncParamIOKindINTEL
+\ VectorComputeFunctionINTEL StackCallINTEL GlobalVariableOffsetINTEL
+\ CounterBuffer UserSemantic UserTypeGOOGLE FunctionRoundingModeINTEL
+\ FunctionDenormModeINTEL RegisterALTERA MemoryALTERA NumbanksALTERA
+\ BankwidthALTERA MaxPrivateCopiesALTERA SinglepumpALTERA DoublepumpALTERA
+\ MaxReplicatesALTERA SimpleDualPortALTERA MergeALTERA BankBitsALTERA
+\ ForcePow2DepthALTERA StridesizeALTERA WordsizeALTERA TrueDualPortALTERA
+\ BurstCoalesceALTERA CacheSizeALTERA DontStaticallyCoalesceALTERA
+\ PrefetchALTERA StallEnableALTERA FuseLoopsInFunctionALTERA MathOpDSPModeALTERA
+\ AliasScopeINTEL NoAliasINTEL BufferLocationALTERA IOPipeStorageALTERA
+\ FunctionFloatingPointModeINTEL SingleElementVectorINTEL
+\ VectorComputeCallableFunctionINTEL MediaBlockIOINTEL StallFreeALTERA
+\ FPMaxErrorDecorationINTEL LatencyControlLabelALTERA
 \ LatencyControlConstraintALTERA ConduitKernelArgumentALTERA
 \ RegisterMapKernelArgumentALTERA MMHostInterfaceAddressWidthALTERA
 \ MMHostInterfaceDataWidthALTERA MMHostInterfaceLatencyALTERA
@@ -231,10 +232,11 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ CooperativeVectorNV AtomicFloat16VectorNV RayTracingDisplacementMicromapNV
 \ RawAccessChainsNV RayTracingSpheresGeometryNV
 \ RayTracingLinearSweptSpheresGeometryNV PushConstantBanksNV LongVectorEXT
-\ CooperativeMatrixReductionsNV CooperativeMatrixConversionsNV
-\ CooperativeMatrixPerElementOperationsNV CooperativeMatrixTensorAddressingNV
-\ CooperativeMatrixBlockLoadsNV CooperativeVectorTrainingNV
-\ RayTracingClusterAccelerationStructureNV TensorAddressingNV
+\ CooperativeMatrixConversionsEXT CooperativeMatrixReductionsEXT
+\ CooperativeMatrixConversionsNV CooperativeMatrixPerElementOperationsEXT
+\ CooperativeMatrixTensorAddressingNV CooperativeMatrixBlockLoadsNV
+\ CooperativeVectorTrainingNV RayTracingClusterAccelerationStructureNV
+\ CooperativeMatrixGetCoordinateEXT TensorAddressingNV
 \ CooperativeMatrixDecodeVectorNV SubgroupShuffleINTEL
 \ SubgroupBufferBlockIOINTEL SubgroupImageBlockIOINTEL
 \ SubgroupImageMediaBlockIOINTEL RoundToInfinityINTEL FloatingPointModeINTEL
@@ -418,7 +420,7 @@ syn keyword SpirvInstruction OpNop OpUndef OpTypeReserveId OpConstantTrue
 \ OpTypeVectorIdEXT OpCooperativeVectorMatrixMulNV
 \ OpCooperativeVectorOuterProductAccumulateNV
 \ OpCooperativeVectorReduceSumAccumulateNV OpCooperativeVectorMatrixMulAddNV
-\ OpCooperativeMatrixConvertNV OpEmitMeshTasksEXT OpSetMeshOutputsEXT
+\ OpCooperativeMatrixConvertUseEXT OpEmitMeshTasksEXT OpSetMeshOutputsEXT
 \ OpGroupNonUniformPartitionEXT OpWritePackedPrimitiveIndices4x8NV
 \ OpFetchMicroTriangleVertexPositionNV OpFetchMicroTriangleVertexBarycentricNV
 \ OpCooperativeVectorLoadNV OpCooperativeVectorStoreNV
@@ -447,14 +449,14 @@ syn keyword SpirvInstruction OpNop OpUndef OpTypeReserveId OpConstantTrue
 \ OpHitObjectIsHitEXT OpHitObjectIsMissEXT OpTypeCooperativeMatrixNV
 \ OpCooperativeMatrixLoadNV OpCooperativeMatrixStoreNV
 \ OpCooperativeMatrixMulAddNV OpCooperativeMatrixLengthNV
-\ OpBeginInvocationInterlockEXT OpEndInvocationInterlockEXT
-\ OpCooperativeMatrixReduceNV OpCooperativeMatrixLoadTensorNV
-\ OpCooperativeMatrixStoreTensorNV OpCooperativeMatrixPerElementOpNV
-\ OpTypeTensorLayoutNV OpTypeTensorViewNV OpCreateTensorLayoutNV
-\ OpTensorLayoutSetDimensionNV OpTensorLayoutSetStrideNV OpTensorLayoutSliceNV
-\ OpTensorLayoutSetClampValueNV OpCreateTensorViewNV OpTensorViewSetDimensionNV
-\ OpTensorViewSetStrideNV OpDemoteToHelperInvocation OpIsHelperInvocationEXT
-\ OpTensorViewSetClipNV OpTensorLayoutSetBlockSizeNV
+\ OpCooperativeMatrixGetCoordinateEXT OpBeginInvocationInterlockEXT
+\ OpEndInvocationInterlockEXT OpCooperativeMatrixReduceEXT
+\ OpCooperativeMatrixLoadTensorNV OpCooperativeMatrixStoreTensorNV
+\ OpCooperativeMatrixPerElementOpEXT OpTypeTensorLayoutNV OpTypeTensorViewNV
+\ OpCreateTensorLayoutNV OpTensorLayoutSetDimensionNV OpTensorLayoutSetStrideNV
+\ OpTensorLayoutSliceNV OpTensorLayoutSetClampValueNV OpCreateTensorViewNV
+\ OpTensorViewSetDimensionNV OpTensorViewSetStrideNV OpDemoteToHelperInvocation
+\ OpIsHelperInvocationEXT OpTensorViewSetClipNV OpTensorLayoutSetBlockSizeNV
 \ OpCooperativeMatrixTransposeNV OpConvertUToImageNV OpConvertUToSamplerNV
 \ OpConvertImageToUNV OpConvertSamplerToUNV OpConvertUToSampledImageNV
 \ OpConvertSampledImageToUNV OpSamplerImageAddressingModeNV OpRawAccessChainNV
