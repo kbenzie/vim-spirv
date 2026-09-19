@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: August 27, 2026
+" Last Modified: September 19, 2026
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -172,14 +172,14 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ HitIsSphereNV HitIsLSSNV HitSpherePositionNV WarpsPerSMNV SMCountNV WarpIDNV
 \ SMIDNV HitLSSPositionsNV HitKindFrontFacingMicroTriangleNV
 \ HitKindBackFacingMicroTriangleNV HitSphereRadiusNV HitLSSRadiiNV ClusterIDNV
-\ CullMaskKHR CrossDevice Device Subgroup Invocation QueueFamily ShaderCallKHR
-\ Reduce InclusiveScan ExclusiveScan ClusteredReduce PartitionedReduceEXT
-\ PartitionedInclusiveScanEXT PartitionedExclusiveScanEXT NoWait WaitKernel
-\ WaitWorkGroup Matrix Shader Tessellation Addresses Linkage Vector16
-\ Float16Buffer Float16 Float64 Int64 Int64Atomics ImageBasic ImageReadWrite
-\ ImageMipmap Pipes Groups DeviceEnqueue LiteralSampler AtomicStorage Int16
-\ TessellationPointSize GeometryPointSize ImageGatherExtended
-\ StorageImageMultisample UniformBufferArrayDynamicIndexing
+\ CullMaskKHR DeviceBarrierValidINTEL CrossDevice Device Subgroup Invocation
+\ QueueFamily ShaderCallKHR Reduce InclusiveScan ExclusiveScan ClusteredReduce
+\ PartitionedReduceEXT PartitionedInclusiveScanEXT PartitionedExclusiveScanEXT
+\ NoWait WaitKernel WaitWorkGroup Matrix Shader Tessellation Addresses Linkage
+\ Vector16 Float16Buffer Float16 Float64 Int64 Int64Atomics ImageBasic
+\ ImageReadWrite ImageMipmap Pipes Groups DeviceEnqueue LiteralSampler
+\ AtomicStorage Int16 TessellationPointSize GeometryPointSize
+\ ImageGatherExtended StorageImageMultisample UniformBufferArrayDynamicIndexing
 \ SampledImageArrayDynamicIndexing StorageBufferArrayDynamicIndexing
 \ StorageImageArrayDynamicIndexing ImageCubeArray SampleRateShading ImageRect
 \ SampledRect GenericPointer Int8 InputAttachment SparseResidency Sampled1D
@@ -263,7 +263,7 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ DebugInfoModuleINTEL BFloat16ConversionINTEL SplitBarrierEXT
 \ ArithmeticFenceEXT FPGAClusterAttributesV2ALTERA FPGAKernelAttributesv2INTEL
 \ TaskSequenceALTERA FPMaxErrorINTEL FPGALatencyControlALTERA
-\ FPGAArgumentInterfacesALTERA GlobalVariableHostAccessINTEL
+\ FPGAArgumentInterfacesALTERA DeviceBarrierINTEL GlobalVariableHostAccessINTEL
 \ GlobalVariableFPGADecorationsALTERA SubgroupBufferPrefetchINTEL
 \ Subgroup2DBlockIOINTEL Subgroup2DBlockTransformINTEL
 \ Subgroup2DBlockTransposeINTEL SubgroupMatrixMultiplyAccumulateINTEL
