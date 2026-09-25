@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: September 19, 2026
+" Last Modified: September 25, 2026
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -264,14 +264,14 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ ArithmeticFenceEXT FPGAClusterAttributesV2ALTERA FPGAKernelAttributesv2INTEL
 \ TaskSequenceALTERA FPMaxErrorINTEL FPGALatencyControlALTERA
 \ FPGAArgumentInterfacesALTERA DeviceBarrierINTEL GlobalVariableHostAccessINTEL
-\ GlobalVariableFPGADecorationsALTERA SubgroupBufferPrefetchINTEL
-\ Subgroup2DBlockIOINTEL Subgroup2DBlockTransformINTEL
-\ Subgroup2DBlockTransposeINTEL SubgroupMatrixMultiplyAccumulateINTEL
-\ TernaryBitwiseFunctionINTEL UntypedVariableLengthArrayINTEL
-\ SpecConditionalINTEL FunctionVariantsINTEL PredicatedIOINTEL
-\ RoundedDivideSqrtINTEL GroupUniformArithmeticKHR TensorFloat32RoundingINTEL
-\ MaskedGatherScatterINTEL CacheControlsINTEL RegisterLimitsINTEL
-\ BindlessImagesINTEL DotProductFloat16AccFloat32VALVE
+\ GlobalVariableFPGADecorationsALTERA SubgroupBitcastShuffleINTEL
+\ SubgroupBufferPrefetchINTEL Subgroup2DBlockIOINTEL
+\ Subgroup2DBlockTransformINTEL Subgroup2DBlockTransposeINTEL
+\ SubgroupMatrixMultiplyAccumulateINTEL TernaryBitwiseFunctionINTEL
+\ UntypedVariableLengthArrayINTEL SpecConditionalINTEL FunctionVariantsINTEL
+\ PredicatedIOINTEL RoundedDivideSqrtINTEL GroupUniformArithmeticKHR
+\ TensorFloat32RoundingINTEL MaskedGatherScatterINTEL CacheControlsINTEL
+\ RegisterLimitsINTEL BindlessImagesINTEL DotProductFloat16AccFloat32VALVE
 \ DotProductFloat16AccFloat16VALVE DotProductBFloat16AccVALVE
 \ DotProductFloat8AccFloat32VALVE RayQueryCandidateIntersectionKHR
 \ RayQueryCommittedIntersectionKHR RayQueryCommittedIntersectionNoneKHR
@@ -625,19 +625,19 @@ syn keyword SpirvInstruction OpNop OpUndef OpTypeReserveId OpConstantTrue
 \ OpControlBarrierArriveEXT OpControlBarrierWaitEXT OpArithmeticFenceEXT
 \ OpTaskSequenceCreateALTERA OpTaskSequenceAsyncALTERA OpTaskSequenceGetALTERA
 \ OpTaskSequenceReleaseALTERA OpTypeTaskSequenceALTERA
-\ OpSubgroupBlockPrefetchINTEL OpSubgroup2DBlockLoadINTEL
-\ OpSubgroup2DBlockLoadTransformINTEL OpSubgroup2DBlockLoadTransposeINTEL
-\ OpSubgroup2DBlockPrefetchINTEL OpSubgroup2DBlockStoreINTEL
-\ OpSubgroupMatrixMultiplyAccumulateINTEL OpBitwiseFunctionINTEL
-\ OpUntypedVariableLengthArrayINTEL OpConditionalExtensionINTEL
-\ OpConditionalEntryPointINTEL OpConditionalCapabilityINTEL
-\ OpSpecConstantTargetINTEL OpSpecConstantArchitectureINTEL
-\ OpSpecConstantCapabilitiesINTEL OpConditionalCopyObjectINTEL
-\ OpPredicatedLoadINTEL OpPredicatedStoreINTEL OpGroupIMulKHR OpGroupFMulKHR
-\ OpGroupBitwiseAndKHR OpGroupBitwiseOrKHR OpGroupBitwiseXorKHR
-\ OpGroupLogicalAndKHR OpGroupLogicalOrKHR OpGroupLogicalXorKHR
-\ OpRoundFToTF32INTEL OpMaskedGatherINTEL OpMaskedScatterINTEL
-\ OpConvertHandleToImageINTEL OpConvertHandleToSamplerINTEL
+\ OpSubgroupBitcastShuffleINTEL OpSubgroupBlockPrefetchINTEL
+\ OpSubgroup2DBlockLoadINTEL OpSubgroup2DBlockLoadTransformINTEL
+\ OpSubgroup2DBlockLoadTransposeINTEL OpSubgroup2DBlockPrefetchINTEL
+\ OpSubgroup2DBlockStoreINTEL OpSubgroupMatrixMultiplyAccumulateINTEL
+\ OpBitwiseFunctionINTEL OpUntypedVariableLengthArrayINTEL
+\ OpConditionalExtensionINTEL OpConditionalEntryPointINTEL
+\ OpConditionalCapabilityINTEL OpSpecConstantTargetINTEL
+\ OpSpecConstantArchitectureINTEL OpSpecConstantCapabilitiesINTEL
+\ OpConditionalCopyObjectINTEL OpPredicatedLoadINTEL OpPredicatedStoreINTEL
+\ OpGroupIMulKHR OpGroupFMulKHR OpGroupBitwiseAndKHR OpGroupBitwiseOrKHR
+\ OpGroupBitwiseXorKHR OpGroupLogicalAndKHR OpGroupLogicalOrKHR
+\ OpGroupLogicalXorKHR OpRoundFToTF32INTEL OpMaskedGatherINTEL
+\ OpMaskedScatterINTEL OpConvertHandleToImageINTEL OpConvertHandleToSamplerINTEL
 \ OpConvertHandleToSampledImageINTEL OpFDot2MixAcc32VALVE OpFDot2MixAcc16VALVE
 \ OpFDot4MixAcc32VALVE
 
