@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: October 29, 2026
+" Last Modified: November 14, 2026
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -265,11 +265,13 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ TaskSequenceALTERA FPMaxErrorINTEL FPGALatencyControlALTERA
 \ FPGAArgumentInterfacesALTERA DeviceBarrierINTEL GlobalVariableHostAccessINTEL
 \ GlobalVariableFPGADecorationsALTERA SubgroupBitcastShuffleINTEL
-\ SubgroupBufferPrefetchINTEL Subgroup2DBlockIOINTEL
+\ SubgroupBufferPrefetchINTEL BFloat16ArithmeticEXT Subgroup2DBlockIOINTEL
 \ Subgroup2DBlockTransformINTEL Subgroup2DBlockTransposeINTEL
 \ SubgroupMatrixMultiplyAccumulateINTEL TernaryBitwiseFunctionINTEL
 \ UntypedVariableLengthArrayINTEL SpecConditionalINTEL FunctionVariantsINTEL
-\ PredicatedIOINTEL RoundedDivideSqrtINTEL PauseINTEL GroupUniformArithmeticKHR
+\ AtomicBFloat16AddINTEL AtomicBFloat16MinMaxINTEL PredicatedIOINTEL
+\ AtomicInt16CompareExchangeINTEL Int16AtomicsINTEL AtomicBFloat16LoadStoreINTEL
+\ RoundedDivideSqrtINTEL PauseINTEL GroupUniformArithmeticKHR
 \ TensorFloat32RoundingINTEL MaskedGatherScatterINTEL CacheControlsINTEL
 \ RegisterLimitsINTEL BindlessImagesINTEL DotProductFloat16AccFloat32VALVE
 \ DotProductFloat16AccFloat16VALVE DotProductBFloat16AccVALVE
