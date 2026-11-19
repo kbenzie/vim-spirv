@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: November 14, 2026
+" Last Modified: November 19, 2026
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -172,13 +172,13 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ HitIsSphereNV HitIsLSSNV HitSpherePositionNV WarpsPerSMNV SMCountNV WarpIDNV
 \ SMIDNV HitLSSPositionsNV HitKindFrontFacingMicroTriangleNV
 \ HitKindBackFacingMicroTriangleNV HitSphereRadiusNV HitLSSRadiiNV ClusterIDNV
-\ CullMaskKHR DeviceBarrierValidINTEL CrossDevice Device Subgroup Invocation
-\ QueueFamily ShaderCallKHR Reduce InclusiveScan ExclusiveScan ClusteredReduce
-\ PartitionedReduceEXT PartitionedInclusiveScanEXT PartitionedExclusiveScanEXT
-\ NoWait WaitKernel WaitWorkGroup Matrix Shader Tessellation Addresses Linkage
-\ Vector16 Float16Buffer Float16 Float64 Int64 Int64Atomics ImageBasic
-\ ImageReadWrite ImageMipmap Pipes Groups DeviceEnqueue LiteralSampler
-\ AtomicStorage Int16 TessellationPointSize GeometryPointSize
+\ CullMaskKHR DeviceBarrierExecutionValidINTEL CrossDevice Device Subgroup
+\ Invocation QueueFamily ShaderCallKHR Reduce InclusiveScan ExclusiveScan
+\ ClusteredReduce PartitionedReduceEXT PartitionedInclusiveScanEXT
+\ PartitionedExclusiveScanEXT NoWait WaitKernel WaitWorkGroup Matrix Shader
+\ Tessellation Addresses Linkage Vector16 Float16Buffer Float16 Float64 Int64
+\ Int64Atomics ImageBasic ImageReadWrite ImageMipmap Pipes Groups DeviceEnqueue
+\ LiteralSampler AtomicStorage Int16 TessellationPointSize GeometryPointSize
 \ ImageGatherExtended StorageImageMultisample UniformBufferArrayDynamicIndexing
 \ SampledImageArrayDynamicIndexing StorageBufferArrayDynamicIndexing
 \ StorageImageArrayDynamicIndexing ImageCubeArray SampleRateShading ImageRect
@@ -265,6 +265,7 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ TaskSequenceALTERA FPMaxErrorINTEL FPGALatencyControlALTERA
 \ FPGAArgumentInterfacesALTERA DeviceBarrierINTEL GlobalVariableHostAccessINTEL
 \ GlobalVariableFPGADecorationsALTERA SubgroupBitcastShuffleINTEL
+\ FloatConversionsFToFINTEL FloatConversionsFToSINTEL
 \ SubgroupBufferPrefetchINTEL BFloat16ArithmeticEXT Subgroup2DBlockIOINTEL
 \ Subgroup2DBlockTransformINTEL Subgroup2DBlockTransposeINTEL
 \ SubgroupMatrixMultiplyAccumulateINTEL TernaryBitwiseFunctionINTEL
@@ -627,7 +628,8 @@ syn keyword SpirvInstruction OpNop OpUndef OpTypeReserveId OpConstantTrue
 \ OpControlBarrierArriveEXT OpControlBarrierWaitEXT OpArithmeticFenceEXT
 \ OpTaskSequenceCreateALTERA OpTaskSequenceAsyncALTERA OpTaskSequenceGetALTERA
 \ OpTaskSequenceReleaseALTERA OpTypeTaskSequenceALTERA
-\ OpSubgroupBitcastShuffleINTEL OpSubgroupBlockPrefetchINTEL
+\ OpSubgroupBitcastShuffleINTEL OpStochasticRoundFToFINTEL
+\ OpClampStochasticRoundFToSINTEL OpSubgroupBlockPrefetchINTEL
 \ OpSubgroup2DBlockLoadINTEL OpSubgroup2DBlockLoadTransformINTEL
 \ OpSubgroup2DBlockLoadTransposeINTEL OpSubgroup2DBlockPrefetchINTEL
 \ OpSubgroup2DBlockStoreINTEL OpSubgroupMatrixMultiplyAccumulateINTEL
@@ -638,10 +640,11 @@ syn keyword SpirvInstruction OpNop OpUndef OpTypeReserveId OpConstantTrue
 \ OpConditionalCopyObjectINTEL OpPredicatedLoadINTEL OpPredicatedStoreINTEL
 \ OpPauseINTEL OpGroupIMulKHR OpGroupFMulKHR OpGroupBitwiseAndKHR
 \ OpGroupBitwiseOrKHR OpGroupBitwiseXorKHR OpGroupLogicalAndKHR
-\ OpGroupLogicalOrKHR OpGroupLogicalXorKHR OpRoundFToTF32INTEL
-\ OpMaskedGatherINTEL OpMaskedScatterINTEL OpConvertHandleToImageINTEL
-\ OpConvertHandleToSamplerINTEL OpConvertHandleToSampledImageINTEL
-\ OpFDot2MixAcc32VALVE OpFDot2MixAcc16VALVE OpFDot4MixAcc32VALVE
+\ OpGroupLogicalOrKHR OpGroupLogicalXorKHR OpClampConvertFToSINTEL
+\ OpRoundFToTF32INTEL OpMaskedGatherINTEL OpMaskedScatterINTEL
+\ OpConvertHandleToImageINTEL OpConvertHandleToSamplerINTEL
+\ OpConvertHandleToSampledImageINTEL OpFDot2MixAcc32VALVE OpFDot2MixAcc16VALVE
+\ OpFDot4MixAcc32VALVE
 
 " Label keywords
 syn keyword SpirvLabel OpLabel
