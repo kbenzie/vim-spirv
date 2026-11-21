@@ -1,7 +1,7 @@
 " File: spirv.vim
 " Author: Kenneth Benzie (Benie) <k.benzie83@gmail.com>
 " Description: Vim syntax file for the Khronos Group's SPIR-V standard.
-" Last Modified: November 19, 2026
+" Last Modified: November 21, 2026
 
 " Don't load the sytnax multiple times
 if exists('b:current_syntax')
@@ -157,11 +157,11 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ BaryCoordNoPerspAMD BaryCoordNoPerspCentroidAMD BaryCoordNoPerspSampleAMD
 \ BaryCoordSmoothAMD BaryCoordSmoothCentroidAMD BaryCoordSmoothSampleAMD
 \ BaryCoordPullModelAMD FragStencilRefEXT RemainingRecursionLevelsAMDX
-\ SamplerHeapEXT ResourceHeapEXT ViewportMaskNV SecondaryPositionNV
-\ SecondaryViewportMaskNV PositionPerViewNV ViewportMaskPerViewNV
-\ FullyCoveredEXT TaskCountNV PrimitiveCountNV PrimitiveIndicesNV
-\ ClipDistancePerViewNV CullDistancePerViewNV LayerPerViewNV MeshViewCountNV
-\ MeshViewIndicesNV BaryCoordKHR BaryCoordNoPerspKHR FragSizeEXT
+\ SamplerHeapEXT ResourceHeapEXT HitInstanceLevelAMDX ViewportMaskNV
+\ SecondaryPositionNV SecondaryViewportMaskNV PositionPerViewNV
+\ ViewportMaskPerViewNV FullyCoveredEXT TaskCountNV PrimitiveCountNV
+\ PrimitiveIndicesNV ClipDistancePerViewNV CullDistancePerViewNV LayerPerViewNV
+\ MeshViewCountNV MeshViewIndicesNV BaryCoordKHR BaryCoordNoPerspKHR FragSizeEXT
 \ FragInvocationCountEXT PrimitivePointIndicesEXT PrimitiveLineIndicesEXT
 \ PrimitiveTriangleIndicesEXT CullPrimitiveEXT LaunchIdKHR LaunchSizeKHR
 \ WorldRayOriginKHR WorldRayDirectionKHR ObjectRayOriginKHR
@@ -212,7 +212,8 @@ syn keyword SpirvEnumerant None Bias Lod Grad ConstOffset Offset ConstOffsets
 \ ShaderClockKHR ShaderEnqueueAMDX QuadControlKHR Int4TypeINTEL
 \ Int4CooperativeMatrixINTEL BFloat16TypeKHR BFloat16DotProductKHR
 \ BFloat16CooperativeMatrixKHR AbortKHR DescriptorHeapEXT ConstantDataKHR
-\ PoisonFreezeKHR WeakLinkageAMD SampleMaskOverrideCoverageNV
+\ PoisonFreezeKHR WeakLinkageAMD RayTracingMultiLevelAccelerationStructureAMDX
+\ RayQueryMultiLevelAccelerationStructureAMDX SampleMaskOverrideCoverageNV
 \ GeometryShaderPassthroughNV ShaderViewportIndexLayerEXT ShaderViewportMaskNV
 \ ShaderStereoViewNV PerViewAttributesNV FragmentFullyCoveredEXT MeshShadingNV
 \ ImageFootprintNV MeshShadingEXT FragmentBarycentricKHR
@@ -408,11 +409,17 @@ syn keyword SpirvInstruction OpNop OpUndef OpTypeReserveId OpConstantTrue
 \ OpGroupNonUniformQuadAnyKHR OpTypeBufferEXT OpBufferPointerEXT OpAbortKHR
 \ OpUntypedImageTexelPointerEXT OpMemberDecorateIdEXT OpConstantSizeOfEXT
 \ OpConstantDataKHR OpSpecConstantDataKHR OpPoisonKHR OpFreezeKHR
-\ OpHitObjectRecordHitMotionNV OpHitObjectRecordHitWithIndexMotionNV
-\ OpHitObjectRecordMissMotionNV OpHitObjectGetWorldToObjectNV
-\ OpHitObjectGetObjectToWorldNV OpHitObjectGetObjectRayDirectionNV
-\ OpHitObjectGetObjectRayOriginNV OpHitObjectTraceRayMotionNV
-\ OpHitObjectGetShaderRecordBufferHandleNV
+\ OpGetInstanceCustomIndexAtLevelAMDX OpGetInstanceIdAtLevelAMDX
+\ OpGetObjectToWorldAtLevelAMDX OpGetWorldToObjectAtLevelAMDX
+\ OpRayQueryGetIntersectionInstanceLevelAMDX
+\ OpRayQueryGetIntersectionInstanceCustomIndexAtLevelAMDX
+\ OpRayQueryGetIntersectionInstanceIdAtLevelAMDX
+\ OpRayQueryGetIntersectionObjectToWorldAtLevelAMDX
+\ OpRayQueryGetIntersectionWorldToObjectAtLevelAMDX OpHitObjectRecordHitMotionNV
+\ OpHitObjectRecordHitWithIndexMotionNV OpHitObjectRecordMissMotionNV
+\ OpHitObjectGetWorldToObjectNV OpHitObjectGetObjectToWorldNV
+\ OpHitObjectGetObjectRayDirectionNV OpHitObjectGetObjectRayOriginNV
+\ OpHitObjectTraceRayMotionNV OpHitObjectGetShaderRecordBufferHandleNV
 \ OpHitObjectGetShaderBindingTableRecordIndexNV OpHitObjectRecordEmptyNV
 \ OpHitObjectTraceRayNV OpHitObjectRecordHitNV OpHitObjectRecordHitWithIndexNV
 \ OpHitObjectRecordMissNV OpHitObjectExecuteShaderNV OpHitObjectGetCurrentTimeNV
